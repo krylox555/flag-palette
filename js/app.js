@@ -15,12 +15,13 @@ function luminance(hex){
 }
 
 function copyHex(hex){
-  navigator.clipboard.writeText(hex);
+  const clean = hex.replace('#', '');
+  navigator.clipboard.writeText(clean);
   const overlay = document.getElementById("stampOverlay");
   const label = document.getElementById("stampHex");
-  label.textContent = hex.toUpperCase();
+  label.textContent = clean.toUpperCase();
   overlay.classList.remove("show");
-  void overlay.offsetWidth; // 애니메이션 재생을 위한 강제 리플로우
+  void overlay.offsetWidth;
   overlay.classList.add("show");
   clearTimeout(window._stampTimer);
   window._stampTimer = setTimeout(()=> overlay.classList.remove("show"), 1100);

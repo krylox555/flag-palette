@@ -717,3 +717,35 @@ body, nav, main, .searchbox, .suggestions, .homecard, .comingsoon, .disclaimer, 
     margin:20px auto 0;
   }
 }
+
+.changelog{
+  margin-top:32px;
+  border-top:1px dashed var(--line);
+  padding-top:20px;
+}
+.changelog-title{
+  font-family:'Space Mono', monospace;
+  font-size:10px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--muted);
+  text-align:center;
+  margin-bottom:14px;
+}
+.changelog-entry{
+  font-size:12px;
+  line-height:1.8;
+  text-align:center;
+  color:var(--muted);
+}
+.changelog-entry .v{
+  font-family:'Space Mono', monospace;
+  font-weight:700;
+  color:var(--stamp);
+  margin-right:6px;
+}
+.changelog-entry .d{
+  font-family:'Space Mono', monospace;
+  font-size:10px;
+  margin-right:6px;
+}
