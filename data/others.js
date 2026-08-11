@@ -14,6 +14,9 @@ const otherFlags = [
 {name:"북유럽 이사회(NR)",category:"국제기구",colors:["#006EB7","#FFFFFF"],wikiFile:"Flag_of_the_Nordic_Council_2016.svg"},
 {name:"카리브 공동체(CARICOM)",category:"국제기구",colors:["#66CDFF","#00309A","#2F9A30","#FFCD00","#000000"],wikiFile:"Flag_of_CARICOM.svg"},
 {name:"영연방",category:"국제기구",colors:["#004791","#FFD617"],wikiFile:"Commonwealth_Flag_2013.png"},
+{name:"프랑코포니(OIF)",category:"국제기구",colors:["#FF0000","#0095C7","#FFD700","#078D51","#85006B","#FFFFFF"], wikiFile:"Flag_of_La_Francophonie.svg"},
+{name:"포르투갈어 사용국 공동체(CPLP)",category:"국제기구",colors:["#103E90","#FFFFFF"],wikiFile:"Flag_CPLP.svg"},
+{name:"이베로 아메리카 공동체(OEI)",category:"국제기구",colors:["#58C457","#51C6BB","#FFFFFF"],wikiFile:"Flag_of_the_OEI.svg"},
 /* ---------- 상징기 ---------- */
 {name:"베르베르인",category:"민족 상징기",colors:["#0091DB","#79BF1A","#FEDE00","#CD0030"],wikiFile:"Berber_flag.svg"},
 {name:"사미족",category:"민족 상징기",colors:["#DD1F19","#007324","#FFCC00","#0032AF"],wikiFile:"Sami_flag.svg"},

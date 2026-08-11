@@ -99,14 +99,9 @@
       </div>
     </div>
   </div>
+
+<button class="changelog-btn" onclick="openChangelog()">업데이트 내역 보기</button>
 </main>
-
-<div class="changelog">
-  <div class="changelog-title">Update Log</div>
-  <div class="changelog-entry"><span class="v">v1.0</span><span class="d">2026.07</span>최초 배포 — 세계 국기 · 역사적 국기 · 행정구역 · 즐겨찾기 · 최근 입국 기록</div>
-  <div class="changelog-entry"><span class="v">v1.1</span><span class="d">2026.08.08</span>일본 47개 도도부현 상징색 추가 · 헥스코드 복사 시 # 기호 제거</div>
-</div>
-
 <!-- ===================== VIEW 1: 국기 색 검색기 ===================== -->
 <main class="view" id="view-countries">
   <div class="eyebrow">National Flag Colors</div>
@@ -191,7 +186,11 @@
   </div>
   <div class="stripebanner" id="stripebanner-localgov" style="display:none;"></div>
 </div>
-      <div class="countryname" id="countryname-localgov"></div>
+<div class="country-header">
+        <div class="countryname" id="countryname-localgov"></div>
+        <button class="fav-btn" id="favBtnLocalgov" onclick="handleFavoriteToggle('favBtnLocalgov')" aria-label="즐겨찾기">☆</button>
+      </div>
+      <button class="crest-toggle" id="crestToggleLocalgov" onclick="toggleCrestView('localgov')" style="display:none;">상세 상징색 보기</button>
       <div class="hexstack" id="hexstack-localgov"></div>
       <div class="disclaimer">⚠️ 그라데이션이 포함된 상징물은 해당 색에서 투명도 조절을 이용해 표현하세요.</div>
     </div>
@@ -258,6 +257,20 @@
   <div class="stamp-mark">
     <span class="stamp-hex" id="stampHex"></span>
     <span class="stamp-label">ENTRY · COPIED</span>
+  </div>
+</div>
+
+<div class="changelog-overlay" id="changelogOverlay">
+  <div class="changelog-modal">
+    <div class="changelog-modal-header">
+      <div class="confirm-eyebrow">Update Log</div>
+      <button class="changelog-close" onclick="closeChangelog()" aria-label="닫기">✕</button>
+    </div>
+<div class="changelog-list">
+  <div class="changelog-entry"><span class="v">v1.2</span><span class="d">2026.08.10</span>영국·프랑스·캐나다 행정구역 상징색 추가 · 역사적/기타 국기 데이터 보강</div>
+  <div class="changelog-entry"><span class="v">v1.1</span><span class="d">2026.08.08</span>일본 47개 도도부현 상징색 추가 · 헥스코드 복사 시 # 기호 제거</div>
+      <div class="changelog-entry"><span class="v">v1.0</span><span class="d">2026.07</span>최초 배포 — 세계 국기 · 역사적 국기 · 행정구역 · 즐겨찾기 · 최근 입국 기록</div>
+    </div>
   </div>
 </div>
 

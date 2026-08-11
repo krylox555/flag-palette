@@ -718,26 +718,76 @@ body, nav, main, .searchbox, .suggestions, .homecard, .comingsoon, .disclaimer, 
   }
 }
 
-.changelog{
-  margin-top:32px;
-  border-top:1px dashed var(--line);
-  padding-top:20px;
-}
-.changelog-title{
-  font-family:'Space Mono', monospace;
-  font-size:10px;
-  letter-spacing:.14em;
-  text-transform:uppercase;
+.changelog-btn{
+  display:block;
+  margin:24px auto 0;
+  padding:8px 16px;
+  border:1px solid var(--line);
+  border-radius:100px;
+  background:transparent;
   color:var(--muted);
-  text-align:center;
-  margin-bottom:14px;
+  font-family:'Space Mono', monospace;
+  font-size:11px;
+  cursor:pointer;
+  transition:border-color .15s ease, color .15s ease;
+}
+.changelog-btn:hover{ border-color:var(--accent); color:var(--text); }
+
+.changelog-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(59,15,20,0.55);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:100;
+  padding:20px;
+}
+.changelog-overlay.show{ display:flex; }
+.changelog-modal{
+  background:var(--card-bg);
+  border:1px solid var(--line);
+  border-top:4px solid var(--accent);
+  border-radius:3px;
+  max-width:420px;
+  width:100%;
+  max-height:70vh;
+  padding:24px 26px;
+  box-shadow:0 30px 60px -20px rgba(0,0,0,0.5);
+  animation:confirmPop .18s cubic-bezier(.34,1.56,.64,1);
+  display:flex;
+  flex-direction:column;
+}
+.changelog-modal-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:16px;
+}
+.changelog-modal-header .confirm-eyebrow{ margin-bottom:0; }
+.changelog-close{
+  background:transparent;
+  border:none;
+  color:var(--muted);
+  font-size:16px;
+  cursor:pointer;
+  padding:2px 6px;
+}
+.changelog-close:hover{ color:var(--stamp); }
+.changelog-list{
+  overflow-y:auto;
+  padding-right:4px;
 }
 .changelog-entry{
   font-size:12px;
   line-height:1.8;
-  text-align:center;
+  text-align:left;
   color:var(--muted);
+  padding-bottom:14px;
+  margin-bottom:14px;
+  border-bottom:1px dashed var(--line);
 }
+.changelog-entry:last-child{ border-bottom:none; margin-bottom:0; padding-bottom:0; }
 .changelog-entry .v{
   font-family:'Space Mono', monospace;
   font-weight:700;

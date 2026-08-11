@@ -139,11 +139,24 @@ function toggleTheme(){
 applyTheme(localStorage.getItem('flagPaletteTheme') || 'dark');
 
 /* ============================================================
-   공통: 국가/역사 항목을 함께 다루는 유틸
+   공통: 국가/역사/행정구역 항목을 함께 다루는 유틸
 ============================================================ */
+function getAllLocalGovRegions(){
+  const all = [];
+  localGovCountries.forEach(country => {
+    if (country.tiers){
+      country.tiers.forEach(tier => all.push(...tier.regions));
+    } else {
+      all.push(...country.regions);
+    }
+  });
+  return all;
+}
+
 function resolveEntry(type, id){
   if (type === 'historical') return historicalFlags.find(f => f.name === id);
   if (type === 'other') return otherFlags.find(f => f.name === id);
+  if (type === 'localgov') return getAllLocalGovRegions().find(f => f.name === id);
   return flags.find(f => f.iso === id);
 }
 
@@ -151,7 +164,7 @@ function buildFlagPreview(type, entry){
   const wrap = document.createElement('div');
   wrap.className = 'fav-card-flag';
 
-  if (type === 'historical' || type === 'other'){
+if (type === 'historical' || type === 'other' || type === 'localgov'){
     const showStripe = () => {
       wrap.innerHTML = '';
       const stripe = document.createElement('div');
@@ -163,10 +176,12 @@ function buildFlagPreview(type, entry){
       });
       wrap.appendChild(stripe);
     };
-    if (entry.wikiFile){
+const imageUrl = entry.image || (entry.wikiFile ? `https://commons.wikimedia.org/wiki/Special:FilePath/${entry.wikiFile}?width=160` : null);
+
+    if (imageUrl){
       const img = document.createElement('img');
-      img.src = `https://commons.wikimedia.org/wiki/Special:FilePath/${entry.wikiFile}?width=160`;
-      img.alt = entry.name + ' 국기';
+      img.src = imageUrl;
+      img.alt = entry.name + ' 상징기';
       img.onerror = showStripe;
       wrap.appendChild(img);
     } else {
@@ -195,6 +210,31 @@ function openEntry(type, entry){
     switchView('other', document.querySelector('[data-view=other]'));
     document.getElementById('search-other').value = entry.name;
     showOther(entry);
+  } else if (type === 'localgov'){
+    switchView('localgov', document.querySelector('[data-view=localgov]'));
+
+    let ownerRegions = null, ownerLabel = '';
+    localGovCountries.forEach(country => {
+      if (country.tiers){
+        country.tiers.forEach(tier => {
+          if (tier.regions.includes(entry)){
+            ownerRegions = tier.regions;
+            ownerLabel = country.name + ' · ' + tier.label;
+          }
+        });
+      } else if (country.regions.includes(entry)){
+        ownerRegions = country.regions;
+        ownerLabel = country.name;
+      }
+    });
+
+    if (ownerRegions){
+      document.getElementById('localgov-picker').style.display = 'none';
+      document.getElementById('localgov-tiers').style.display = 'none';
+      openLocalGovTier(ownerLabel, ownerRegions);
+      document.getElementById('search-localgov').value = entry.name;
+      showLocalGov(entry);
+    }
   } else {
     switchView('countries', document.querySelector('[data-view=countries]'));
     document.getElementById('search-countries').value = entry.name;
@@ -207,6 +247,10 @@ function syncFavButtons(){
   if (favBtn.dataset.id) updateFavButton('favBtn', 'country', favBtn.dataset.id);
   const favBtnH = document.getElementById('favBtnHistorical');
   if (favBtnH.dataset.id) updateFavButton('favBtnHistorical', 'historical', favBtnH.dataset.id);
+  const favBtnO = document.getElementById('favBtnOther');
+  if (favBtnO && favBtnO.dataset.id) updateFavButton('favBtnOther', 'other', favBtnO.dataset.id);
+  const favBtnL = document.getElementById('favBtnLocalgov');
+  if (favBtnL.dataset.id) updateFavButton('favBtnLocalgov', 'localgov', favBtnL.dataset.id);
 }
 
 function buildEntryCard(item, removable){
@@ -402,7 +446,14 @@ function flagEmojiFromIso(iso){
 
 const crestState = {
   countries: { current: null, showing: false },
-  historical: { current: null, showing: false }
+  historical: { current: null, showing: false },
+  localgov: { current: null, showing: false }
+};
+
+const crestMeta = {
+  countries:  { btn: 'crestToggle',           stack: 'hexstack-countries',  toCrest: '국장 색 보기',     toBase: '국기 색 보기' },
+  historical: { btn: 'crestToggleHistorical', stack: 'hexstack-historical', toCrest: '국장 색 보기',     toBase: '국기 색 보기' },
+  localgov:   { btn: 'crestToggleLocalgov',   stack: 'hexstack-localgov',   toCrest: '상세 상징색 보기', toBase: '기본 색상 보기' }
 };
 
 function toggleCrestView(kind){
@@ -410,18 +461,17 @@ function toggleCrestView(kind){
   if (!state.current || !state.current.crest) return;
   state.showing = !state.showing;
 
-  const btnId = kind === 'historical' ? 'crestToggleHistorical' : 'crestToggle';
-  const stackId = kind === 'historical' ? 'hexstack-historical' : 'hexstack-countries';
-  const btn = document.getElementById(btnId);
-  const stack = document.getElementById(stackId);
+  const meta = crestMeta[kind];
+  const btn = document.getElementById(meta.btn);
+  const stack = document.getElementById(meta.stack);
 
   if (state.showing){
     buildCrestStack(stack, state.current.crest.groups);
-    btn.textContent = '국기 색 보기';
+    btn.textContent = meta.toBase;
     btn.classList.add('active');
   } else {
     buildHexStack(stack, state.current.colors);
-    btn.textContent = '국장 색 보기';
+    btn.textContent = meta.toCrest;
     btn.classList.remove('active');
   }
 }
@@ -429,11 +479,11 @@ function toggleCrestView(kind){
 function setupCrestToggle(kind, entry){
   crestState[kind].current = entry;
   crestState[kind].showing = false;
-  const btnId = kind === 'historical' ? 'crestToggleHistorical' : 'crestToggle';
-  const btn = document.getElementById(btnId);
+  const meta = crestMeta[kind];
+  const btn = document.getElementById(meta.btn);
   if (entry.crest && entry.crest.groups && entry.crest.groups.length){
     btn.style.display = 'inline-block';
-    btn.textContent = '국장 색 보기';
+    btn.textContent = meta.toCrest;
     btn.classList.remove('active');
   } else {
     btn.style.display = 'none';
@@ -666,7 +716,10 @@ const localGovCountryIcons = {
   fr: '<svg viewBox="0 0 512 512"><path fill="currentColor" d="M283.4 19.83c-3.2 0-31.2 5.09-31.2 5.09c-1.3 41.61-30.4 78.48-90.3 84.88l-12.8-23.07l-25.1 2.48l11.3 60.09l-113.79-4.9l12.2 41.5C156.3 225.4 150.7 338.4 124 439.4c47 53 141.8 47.8 186 43.1c3.1-62.2 52.4-64.5 135.9-32.2c11.3-17.6 18.8-36 44.6-50.7l-46.6-139.5l-27.5 6.2c11-21.1 32.2-49.9 50.4-63.4l15.6-86.9c-88.6-6.3-146.4-46.36-199-96.17"/></svg>',
   br: '<svg viewBox="0 0 512 512"><path fill="currentColor" d="M292.8 41.71c16.1 58.89 125.3 78.19 197.9 116.19c1.6 35.2-14.4 72.6-56.7 102.3c2.9 70.2-41.8 110.2-114.3 132.4c-.3 33.2-12.7 64-47.3 90.3l-59-36.4l47.4-34.2c-1.8-25.6-9.6-52.3-55-67.3l-26.3-93.2c-54.5-10.4-51.9-31.3-56.3-50.9l-64.93 20.4c-49.154-31-51.902-75.4 6.26-83.4l6.99-72.78l51.18 9.12L133 37.03l49.6-7.9l20.7 37.33z"/></svg>',
   gb: '<svg viewBox="0 0 512 512"><path fill="currentColor" d="M419.424,366.943c1.352-2.247,1.484-5.028,0.336-7.392l-12.334-25.435c-1.266-2.611-3.877-4.3-6.775-4.37l-21.631-0.574c-2.65-0.077-5.086-1.488-6.454-3.765c-1.364-2.278-1.472-5.09-0.282-7.468l-1.922,3.859c0.976-1.976,1.081-4.262,0.286-6.299l-21.19-54.35c-0.574-1.487-1.596-2.75-2.924-3.641l-29.193-19.454c-1.449-0.976-2.538-2.409-3.076-4.06l-11.924-36.692c-0.282-0.876-0.716-1.681-1.278-2.402l-26.702-34.074c-1.193-1.518-2.925-2.549-4.835-2.866l-10.475-1.743c-3.018-0.504-5.454-2.72-6.229-5.664c-0.786-2.952,0.236-6.098,2.611-8.026l0.446-0.364c1.553-1.263,2.557-3.068,2.804-5.051l1.507-12.04c0.093-0.736,0.29-1.442,0.577-2.115l23.293-54.071c1.035-2.402,0.794-5.159-0.642-7.344c-1.438-2.178-3.874-3.502-6.485-3.502h-21.918c-0.511,0-1.027,0.062-1.522,0.163l-24.49,4.889c-3.173,0.635-6.407-0.767-8.116-3.526c-1.704-2.75-1.522-6.267,0.469-8.839l17.824-23.01c0.574-0.728,1.004-1.566,1.282-2.456l4.715-15.2c0.821-2.642,0.166-5.539-1.72-7.57c-1.89-2.037-4.715-2.913-7.422-2.294l-20.884,4.773c-0.976,0.225-1.987,0.264-2.971,0.101l-23.255-3.75c-3.835-0.628-7.53,1.689-8.669,5.4l-11.378,37.398c-0.542,1.782-1.72,3.316-3.312,4.315L145.419,61.03c-1.135,0.697-2.061,1.689-2.701,2.859l-2.684,4.928c-1.476,2.696-1.216,6.012,0.674,8.452l12.698,16.432c0.938,1.224,1.495,2.696,1.596,4.23l0.74,11.055c0.082,1.178-0.12,2.378-0.573,3.471l-7.295,17.626c-0.964,2.332-0.735,4.974,0.609,7.104c1.333,2.131,3.626,3.471,6.136,3.618l-1.488-0.086c2.228,0.125,4.296,1.209,5.676,2.96c1.379,1.759,1.933,4.021,1.526,6.214l-5.992,32.222c-0.163,0.868-0.17,1.751-0.035,2.611c1.452,1.333,3.362,2.123,5.4,2.076c2.905-0.077,5.532-1.766,6.795-4.37l4.443-9.142c1.244-2.557,3.777-4.23,6.617-4.37c2.839-0.14,5.52,1.286,7,3.72l4.645,7.623c1.348,2.216,1.499,4.958,0.403,7.314l-9.812,21.027c-1.542,3.292-0.582,7.213,2.301,9.436l17.292,13.295c2.506,1.929,5.93,2.138,8.658,0.543l11.32-6.633c2.552-1.494,5.725-1.418,8.197,0.21c2.467,1.627,3.8,4.51,3.432,7.446l-0.818,6.523c-0.178,1.442,0.047,2.898,0.659,4.215l10.479,22.723c0.503,1.07,0.743,2.255,0.716,3.44l-0.817,33.54c-0.09,3.649-2.7,6.732-6.276,7.438l-30.308,5.911c-3.11,0.596-5.543,3.045-6.136,6.16l-1.51,7.956c-0.403,2.115,0.085,4.308,1.363,6.035c1.271,1.744,3.212,2.882,5.354,3.122l1.886,0.224c4.002,0.465,6.977,3.928,6.849,7.95l-0.639,20.616c-0.094,2.905-1.794,5.508-4.416,6.763l-34.628,16.557c-1.983,0.954-3.471,2.704-4.098,4.804c-0.62,2.115-0.326,4.378,0.821,6.252l4.559,7.468c1.329,2.154,3.622,3.541,6.16,3.688l28.708,1.751c0.473,0.023,0.945,0.093,1.414,0.216l33.028,8.259c1.798,0.442,3.7,0.24,5.35-0.604l-13.24,6.64c3.312-1.666,7.333-0.744,9.607,2.177c0.845,1.084,1.248,2.355,1.433,3.642h-30.3c-2.805,0-5.396,1.518-6.768,3.959l-11.388,20.322c-0.388,0.712-0.891,1.348-1.484,1.89l-35.523,33.067c-1.735,1.603-2.642,3.935-2.452,6.29c0.194,2.371,1.454,4.524,3.429,5.842l4.436,2.959c3.235,2.154,7.562,1.58,10.134-1.333l14.832-16.858c1.848-2.107,4.687-3.045,7.434-2.456l23.704,5.02c3.196,0.682,6.477-0.72,8.201-3.495l12.989-20.933c1.476-2.379,4.13-3.781,6.935-3.658l41.705,1.821c0.275,0.008,0.546,0,0.825-0.023l78.444-4.897c1.491-0.085,2.921-0.612,4.121-1.496l34.574-25.482c1.38-1.007,2.386-2.456,2.863-4.106l0.891-3.145c0.616-2.147,0.272-4.455-0.942-6.338c-1.212-1.875-3.176-3.138-5.384-3.471l-7.093-1.046c-2.569-0.38-4.773-2.03-5.888-4.37c-1.104-2.356-0.961-5.105,0.383-7.321L419.424,366.943z M161.522,227.851l-17.641-26.063c-1.844-2.728-5.438-3.642-8.348-2.107l-37.661,19.686c-1.201,0.628-2.181,1.619-2.786,2.835l-2.94,5.873c-1.305,2.619-0.705,5.772,1.472,7.709l10.808,9.676c2.642,2.37,6.705,2.161,9.099-0.473l5.822-6.407l5.633,12.063c0.918,1.968,2.758,3.347,4.9,3.665l12.83,1.929c2.46,0.372,4.912-0.697,6.307-2.758l12.489-18.361C162.999,232.926,162.999,230.035,161.522,227.851z M130.281,233.506l-3.154-9.467l7.887-4.726l2.363,6.314L130.281,233.506z"/></svg>',
-  us: '<svg viewBox="0 0 15 15"><path fill="currentColor" d="M.52 3H8.5l-.25.5h.43l.57-.28l.3.28h.79l.31.31h-.66l-.59.42v.78l.1.49h.5l-.01-1.06l.35-.39h.31l.12.39l-.12.31h.33V5l.02.5h.5l.37-.23v-.26h.69v-.44l.46-.34h.82l.16.02l.25-.75h.5L15 4v.66l-.25.34l-.54.51l-.21.99l-.75.75l-.25.5V9l-1 .75v.5l.63 1.19l-.13.56H12l-.65-.76v-.52l-.38-.42l-.18.27l-.54-.27l-1.06.05v.27H7.82L7 11v1l-.77-.38L6 11l-.34-.59l-.66.14l-.22.27l-.38-.27L4 10l-.1-.14l-.53-.06l-.75-.37h-.69l-.35-.52h-.47L.35 7.02l-.23-.57v-.36L0 5.51l.25-.97L0 3.22h.35l.17.24z"/></svg>'
+  us: '<svg viewBox="0 0 15 15"><path fill="currentColor" d="M.52 3H8.5l-.25.5h.43l.57-.28l.3.28h.79l.31.31h-.66l-.59.42v.78l.1.49h.5l-.01-1.06l.35-.39h.31l.12.39l-.12.31h.33V5l.02.5h.5l.37-.23v-.26h.69v-.44l.46-.34h.82l.16.02l.25-.75h.5L15 4v.66l-.25.34l-.54.51l-.21.99l-.75.75l-.25.5V9l-1 .75v.5l.63 1.19l-.13.56H12l-.65-.76v-.52l-.38-.42l-.18.27l-.54-.27l-1.06.05v.27H7.82L7 11v1l-.77-.38L6 11l-.34-.59l-.66.14l-.22.27l-.38-.27L4 10l-.1-.14l-.53-.06l-.75-.37h-.69l-.35-.52h-.47L.35 7.02l-.23-.57v-.36L0 5.51l.25-.97L0 3.22h.35l.17.24z"/></svg>',
+  ca: '<svg viewBox="0 0 260 217" fill="currentColor"><path d="M103.994,24.438l4.52,9.233l6.706-3.952l-0.833,12.894l6.066,1.74l8.677-4.785l-2.441-5.486l-0.314-9.886l2.586-4.495l0.531-15.976l-8.314-1.329l-13.873,13.728L103.994,24.438z M129.057,46.65l-5.945-0.194l-6.429,3.795l-0.532,5.124l11.746-2.466L129.057,46.65z M107.716,71.278l-1.934-10.9l-4.495-0.121l-1.474,8.677l3.48,5.244L107.716,71.278z M121.662,58.082l-3.215,11.383l3.867,7.251l12.472,0.387l5.848-4.206l7.493,4.737l6.066,1.112l3.747,4.81l-1.523,11.577l11.94,6.646l9.063,0.822l1.547-6.066l4.93-1.837l-6.018-6.961l2.151-7.976l-0.991-5.849l-18.417-4.229l-4.35-6.139l-15.058-4.133l-4.957,1.861l-6.765-4.592L121.662,58.082z M133.553,106.323l6.864,1.402l1.788-4.665l-9.063-2.997L133.553,106.323z M85.819,64.559l-0.169,1.257l-0.025,0.241l-0.048,0.435l-0.072,0.556l-0.025,0.145l-0.024,0.218l-6.429-6.139l-4.858,1.523l-4.423,6.114l1.209,11.287l6.84,7.589l13.268-2.078l4.593,2.296l3.697-7.057l-4.35-3.505l-1.885-11.166L85.819,64.559z M66.943,68.861l4.036-5.269l7.033-3.069l-6.961-7.106l-5.559,1.498l-6.211,8.653l2.924,6.115L66.943,68.861z M87.1,54.408l6.864-3.843l-5.728-5.124l-0.194,1.426l-0.217,1.74l-0.024,0.194l-0.218,1.836l-4.785-5.969l-5.874,5.921l5.439,5.656L87.1,54.408z M250.266,135.375l-5.71,1.208l-4.088-6.812l-2.113,4.85l3.887,16.85L258,141.779L250.266,135.375z M222.711,163.153l2.516-5.087l-4.818-2.963l-7.186,10.919l3.815-13.012l15.633-10.046l5.51-15.928l-3.722-5.389l-10.127,0.845l-12.713-3.48l-3.577-3.625l-16.557-8.864l0.001-0.296l-0.193,0.193l0.192,0.187l-0.047,10.568l-3.674,2.079l-6.163-2.756l-3.408-7.299l-12.543-2.054l-8.846,3.094l1.667,9.111l3.892,3.384l-0.895,7.855l5.245,2.054l2.81,8.846l-5.19,9.982l6.93,10.514l-2.07,4.638l-8.643-3.816l-3.191-10.973l-7.057,1.329l-14.453-5.414l-9.499,0.725l-3.625-7.541l-4.882-2.03l-0.532-5.172l3.698-13.583l9.523-10.949l2.296-11.262l7.613-6.744l-6.405-13.051l-4.954,0.435l1.232,9.595l-10.465-3.601l-8.169-13.438l4.737-12.278l-7.662,0.459l1.257,11.07L109.19,81.84l5.148,1.813l-1.643,7.734l-14.888,2.344l-9.596-2.61l-10.827,1.087l-3.94-7.226l-9.547-6.139l-16.121-9.499l-12.713,0.798l-5.22-7.976L2,103.205l4.52,9.692l6.404,0.363l4.593,24.217l-5.003,8.218l1.305,18.465l10.924,16.943l45.076,10.296l30.477,1.837l23.589-0.339l12.23,2.562l6.574-0.894l4.423-6.357l12.084,2.804l3.167,7.13l14.791-0.918l-2.372,17.38l9.067-3.269l3.142-5.386l7.323-3.602l6.236-8.652l11.214-5.317l2.49-15.203l4.713-1.039l6.525,7.976l8.17-9.233l-2.031,9.305l6.357-2.127l7.565-11.117l-11.601,2.755L222.711,163.153z"/></svg>',
+  de: '<svg viewBox="0 0 196 260" fill="currentColor"><path d="M186.695,112.9l-3.258-34.73l-11.126-8.64l4.586-16.532l-4.682-20.129l-14.746-5.623l-12.212-10.475l-7.434-0.603l-20.249,19.525l-10.981-1.762l3.113-7.506L89.119,14.237l-2.003-8.302L62.786,2l2.679,29.059l6.65,5.93l-11.96-0.041l-1.424,8.061l0.796,3.306l-11.898-7.168l-14.553,1.279l-4.417,7.072l2.486,16.436l-4.344,24.304l-14.047,13.129l-9.509,0.145l5.02,14.409l-6.203,20.056l7.651,15.905l-5.068,3.379l3.041,23.363l10.064,11.174l11.778,2.003l19.96,5.985l-10.957,12.936l-7.723,31.52l18.825,3.669l12.623-2.076l15.953,2.582L94.065,258l5.02-7.603l16.774,4.199l8.182-6.468l25.921-3.186l-0.845-15.253l21.287-14.312l1.834-8.327l-23.218-18.005L134.374,160.3l10.173,0.075l35.777-24.884l9.22,1.762l4.393-14.553L186.695,112.9z"/></svg>',
+  ru: '<svg viewBox="0 0 260 166" fill="currentColor"><polygon points="243.199,112.566 235.896,102.51 227.168,100.247 223.726,106.665 218.71,106.395 217.235,85.568 223.332,72.563 228.373,69.98 223.431,56.336 226.922,47.976 230.807,50.312 238.625,65.851 242.928,68.949 258,72.66 245.928,52.033 238.675,52.77 233.659,48.344 233.683,36.961 227.856,22.331 220.406,17.831 217.456,12.299 221.586,6.57 214.407,2.096 213.079,9.152 203.589,19.134 200.368,28.871 201.622,33.937 192.918,42.984 190.509,49.598 185.001,50.065 178.043,56.213 179.149,61.277 172.757,70.006 168.134,64.99 162.848,69.367 150.112,72.047 149.907,72.438 148.416,62.924 143.646,63.269 128.598,69.857 125.328,75.882 119.059,76.397 115.789,80.21 109.789,80.799 105.954,76.102 96.684,85.691 79.646,76.725 56.386,71.48 52.477,73.423 57.05,63.785 57.02,63.678 59.853,70.62 67.205,70.448 65.262,54.836 59.632,54.393 45.814,64.792 44.634,68.629 33.865,71.063 29.046,69.39 20.465,75.242 21.817,80.947 13.9,98.182 17.539,110.624 7.95,113.598 2,114.238 2.86,125.154 10.409,138.333 12.179,145.783 18.104,135.087 21.227,134.227 26.489,135.456 26.71,124.883 32.217,122.007 46.052,124.576 59.036,138.117 66.737,131.522 86.678,135.309 91.005,143.52 96.611,142.611 104.11,156.01 114.068,157.928 121.985,163.904 132.975,158.445 147.063,160.633 149.866,151.88 158.054,153.158 162.529,156.355 172.535,154.143 180.625,154.314 187.435,147.257 196.434,145.783 198.081,141.529 198.647,128.915 206.638,125.424 216.62,131.62 224.832,129.137 228.299,131.522 233.167,123.777 236.585,128.768 239.855,141.676 244.034,140.053 246.272,134.055"/></svg>'
 };
 
 function renderLocalGovPicker(){
@@ -805,8 +858,11 @@ function showLocalGov(f){
     showFallbackBanner();
   }
 
-  document.getElementById('countryname-localgov').textContent = f.name;
+document.getElementById('countryname-localgov').textContent = f.name;
   buildHexStack(document.getElementById('hexstack-localgov'), f.colors);
+  setupCrestToggle('localgov', f);
+  updateFavButton('favBtnLocalgov', 'localgov', f.name);
+  recordRecent('localgov', f.name);
 
   document.getElementById('result-localgov').classList.add('show');
   document.getElementById('empty-localgov').style.display = 'none';
@@ -820,4 +876,14 @@ setupSearch({
   emptyId: "empty-localgov",
   data: localGovActiveRegions,
   onSelect: showLocalGov
+});
+
+function openChangelog(){
+  document.getElementById('changelogOverlay').classList.add('show');
+}
+function closeChangelog(){
+  document.getElementById('changelogOverlay').classList.remove('show');
+}
+document.getElementById('changelogOverlay').addEventListener('click', (e) => {
+  if (e.target.id === 'changelogOverlay') closeChangelog();
 });
