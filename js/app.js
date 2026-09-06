@@ -538,11 +538,13 @@ function showHistorical(f){
     buildStripeBanner(banner, f.colors);
   }
 
-  if (f.wikiFile){
+  const imageUrl = f.image || (f.wikiFile ? `https://commons.wikimedia.org/wiki/Special:FilePath/${f.wikiFile}?width=320` : null);
+
+  if (imageUrl){
     img.style.display = "block";
     banner.style.display = "none";
     img.onerror = showFallbackBanner;
-    img.src = `https://commons.wikimedia.org/wiki/Special:FilePath/${f.wikiFile}?width=320`;
+    img.src = imageUrl;
     img.alt = f.name + " 국기";
   } else {
     showFallbackBanner();
@@ -579,11 +581,13 @@ function showOther(f){
     buildStripeBanner(banner, f.colors);
   }
 
-  if (f.wikiFile){
+  const imageUrl = f.image || (f.wikiFile ? `https://commons.wikimedia.org/wiki/Special:FilePath/${f.wikiFile}?width=320` : null);
+
+  if (imageUrl){
     img.style.display = "block";
     banner.style.display = "none";
     img.onerror = showFallbackBanner;
-    img.src = `https://commons.wikimedia.org/wiki/Special:FilePath/${f.wikiFile}?width=320`;
+    img.src = imageUrl;
     img.alt = f.name + " 깃발";
   } else {
     showFallbackBanner();

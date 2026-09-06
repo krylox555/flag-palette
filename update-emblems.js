@@ -12,7 +12,11 @@ const fs = require('fs');
 const path = require('path');
 const https = require('https');
 
-const DATA_FILE = path.join(__dirname, 'data', 'localgov.js');
+const DATA_FILES = [
+  path.join(__dirname, 'data', 'historical.js'),
+  path.join(__dirname, 'data', 'others.js'),
+  path.join(__dirname, 'data', 'localgov.js')
+];
 const OUT_DIR = path.join(__dirname, 'assets', 'emblems');
 
 // 한글 지역명 -> 영어 파일명(슬러그) 매핑 (유일한 매핑표, 이 파일 하나만 관리하면 돼요)
@@ -61,9 +65,11 @@ const SLUG_MAP = {
   "핏케언 제도":"pitcairn", "세인트헬레나":"saint-helena", "어센션섬":"ascension",
   "트리스탄다쿠냐":"tristan-da-cunha", "세인트헬레나·어센션·트리스탄다쿠냐":"saint-helena",
   "사우스조지아 사우스샌드위치 제도":"south-georgia", "터크스 케이커스 제도":"turks-and-caicos",
-  "아크로티리 데켈리아":"akrotiri-and-dhekelia"
+  "아크로티리 데켈리아":"akrotiri-and-dhekelia",
 
-  // 앞으로 새 나라/지역 추가하시면 여기에 "이름":"슬러그" 형태로 이어서 추가하시면 돼요
+  // ---- 기타 국기색 검색기 ----
+    "대한민국 정부상징":"korea-gov-emblem", "오륜기":"olympic-rings"
+  // 앞으로 새 나라/지역 추가하시면 여기에 "이름":"슬러그" 형태로 이어서 추가
 };
 
 function sleep(ms){ return new Promise(r => setTimeout(r, ms)); }
@@ -98,17 +104,22 @@ function download(url, dest){
   });
 }
 
-async function main(){
-  if (!fs.existsSync(OUT_DIR)) fs.mkdirSync(OUT_DIR, { recursive: true });
+async function processFile(dataFile){
+  console.log(`\n========== ${path.basename(dataFile)} ==========`);
 
   const filesInFolder = fs.readdirSync(OUT_DIR);
-  let src = fs.readFileSync(DATA_FILE, 'utf8');
+  let src = fs.readFileSync(dataFile, 'utf8');
 
   const lineRegex = /name:"([^"]+)"[^\n]*?image:"(https:\/\/i\.namu\.wiki\/[^"]+)"/g;
   let match;
   const jobs = [];
   while ((match = lineRegex.exec(src)) !== null){
     jobs.push({ name: match[1], url: match[2] });
+  }
+
+  if (jobs.length === 0){
+    console.log('나무위키 링크 없음 (건너뜀)');
+    return { linkedLocal: 0, downloaded: 0, failed: 0, noSlug: 0, failedList: [] };
   }
 
   console.log(`나무위키 링크로 남아있는 항목: ${jobs.length}개\n`);
@@ -158,15 +169,36 @@ async function main(){
     await sleep(300);
   }
 
-  fs.writeFileSync(DATA_FILE, src, 'utf8');
+  fs.writeFileSync(dataFile, src, 'utf8');
+  return { linkedLocal, downloaded, failed, noSlug, failedList };
+}
 
-  console.log(`\n완료!`);
-  console.log(`📁 폴더에서 바로 연결: ${linkedLocal}`);
-  console.log(`✅ 자동 다운로드 성공: ${downloaded}`);
-  console.log(`❌ 실패(직접 저장 필요): ${failed}`);
-  console.log(`⚠️  매핑 없음: ${noSlug}`);
-  if (failedList.length){
-    console.log(`\n직접 저장이 필요한 지역: ${failedList.join(', ')}`);
+async function main(){
+  if (!fs.existsSync(OUT_DIR)) fs.mkdirSync(OUT_DIR, { recursive: true });
+
+  const totals = { linkedLocal: 0, downloaded: 0, failed: 0, noSlug: 0, failedList: [] };
+
+  for (const dataFile of DATA_FILES){
+    if (!fs.existsSync(dataFile)){
+      console.log(`\n========== ${path.basename(dataFile)} ==========`);
+      console.log('파일이 없어서 건너뜀');
+      continue;
+    }
+    const result = await processFile(dataFile);
+    totals.linkedLocal += result.linkedLocal;
+    totals.downloaded += result.downloaded;
+    totals.failed += result.failed;
+    totals.noSlug += result.noSlug;
+    totals.failedList.push(...result.failedList);
+  }
+
+  console.log(`\n========== 전체 완료 ==========`);
+  console.log(`📁 폴더에서 바로 연결: ${totals.linkedLocal}`);
+  console.log(`✅ 자동 다운로드 성공: ${totals.downloaded}`);
+  console.log(`❌ 실패(직접 저장 필요): ${totals.failed}`);
+  console.log(`⚠️  매핑 없음: ${totals.noSlug}`);
+  if (totals.failedList.length){
+    console.log(`\n직접 저장이 필요한 지역: ${totals.failedList.join(', ')}`);
   }
 }
 

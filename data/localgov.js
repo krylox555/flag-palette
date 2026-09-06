@@ -7,7 +7,7 @@ const localGovCountries = [
         regions:[
           {name:"서울특별시",colors:["#AE1932","#2E853C","#0079BC","#FFFFFF"],wikiFile:"Flag_of_Seoul.svg"},
           {name:"전남광주통합특별시",colors:["#002C9E","#0050DA","#FFFFFF"],wikiFile:"Logo_of_Jeonnam–Gwangju_(Temp).svg"},
-          {name:"부산광역시",colors:["#0055A4","#00A9E0"],wikiFile:"Flag_of_Busan_(2023).svg"},
+          {name:"부산광역시",colors:["#EB6DA5","#E72D91","#E40081","#B90282","#AA0383","#860A84","#621186","#453198","#393FA0","#2554AF","#1D5EB4","#0575C3"],wikiFile:"Flag_of_Busan_(2023).svg"},
           {name:"대구광역시",colors:["#13A439","#FFFFFF"],wikiFile:"Flag_of_Daegu.svg"},
           {name:"인천광역시",colors:["#005EB8","#00B2A9","#FFFFFF"],wikiFile:"Flag_of_Incheon.svg"},
           {name:"대전광역시",colors:["#00944E","#FFFFFF"],wikiFile:"Flag_of_Daejeon_(white_background).svg"},
@@ -516,7 +516,68 @@ const localGovCountries = [
     ]}},
   ]
 },
-  { code:"br", name:"브라질", ready:false, regions:[] },
+{
+  code:"br", name:"브라질", ready:true,
+  regions:[
+    {name:"아크리주", colors:["#ED1C24","#FDEA02","#008F4C"], wikiFile:"Flag_of_Acre.svg"},
+    {name:"알라고아스주", colors:["#DB2017","#FFFFFF","#0078BA"], wikiFile:"Flag_of_Alagoas.svg",
+        crest:{groups:[
+      {label:"방패", colors:["#0067AD","#DB2017","#000000","#FFFFFF"]},
+      {label:"식물", colors:["#00933D","#F8C400","#FFFFFF","#000000",]},
+    ]}},
+    {name:"아마파주", colors:["#002081","#009A4B","#F3E811","#008400","#000000","#FFFFFF"], wikiFile:"Flag_of_Amapá.svg"},
+    {name:"아마조나스주", colors:["#001878","#D30000","#FFFFFF"], wikiFile:"Flag_of_Amazonas.svg"},
+    {name:"바이아주", colors:["#002C88","#D4121A","#FFFFFF"], wikiFile:"Flag_of_Bahia.svg"},
+    {name:"세아라주", colors:["#209042","#FFF200","#FFFFFF"], wikiFile:"Flag_of_Ceará.svg",
+          crest:{groups:[
+      {label:"방패", colors:["#209042","#FFFFFF","#000000"]},
+      {label:"성", colors:["#D0A64F","#61371B","#C9AE80",]},
+      {label:"방패 내용물", colors:["#81D7F7","#FBC801","#D6AE00","#25733D","#FCD8AA","#CE804A","#53A9AC","#FFFFFF","#000000"]},
+    ]}},
+    {name:"이스피리투산투주", colors:["#0097E2","#FFFFFF","#F09CBF"], wikiFile:"Flag_of_Espírito_Santo.svg"},
+    {name:"고이아스주", colors:["#00509F","#19A32A","#FFDE00","#FFFFFF"], wikiFile:"Flag_of_Goiás.svg"},
+    {name:"마라냥주", colors:["#201F7C","#C63120","#FFFFFF","#000000"], wikiFile:"Flag_of_Maranhão.svg"},
+    {name:"마투그로수주", colors:["#230E6F","#00933D","#F8C400","#FFFFFF"], wikiFile:"Flag_of_Mato_Grosso.svg"},
+    {name:"마투그로수두술주", colors:["#00A260","#FFFFFF","#009EDD","#FFEA00"], wikiFile:"Flag_of_Mato_Grosso_do_Sul.svg"},
+    {name:"미나스제라이스주", colors:["#EE161F","#000000","#FFFFFF"], wikiFile:"Flag_of_Minas_Gerais.svg"},
+    {name:"파라주", colors:["#EC2436","#0072CF","#FFFFFF"], wikiFile:"Flag_of_Pará.svg"},
+    {name:"파라이바주", colors:["#F00000","#000000","#FFFFFF"], wikiFile:"Flag_of_Paraíba.svg"},
+    {name:"파라나주", colors:["#008D41","#2147A7","#229738","#FFFFFF"], wikiFile:"Flag_of_Paraná.svg"},
+    {name:"페르남부쿠주", colors:["#2D54A5","#C44140","#FFB609","#00AF49","#FFFFFF"], wikiFile:"Flag_of_Pernambuco.svg"},
+    {name:"피아우이주", colors:["#030798","#55A231","#FFD600","#FFFFFF"], wikiFile:"Flag_of_Piauí.svg"},
+    {name:"리우데자네이루주", colors:["#00B1FE","#FFFFFF"], wikiFile:"Flag_of_Rio_de_Janeiro_(state).svg",
+        crest:{groups:[
+      {label:"방패", colors:["#FFDE1B","#00B1FE","#C1C3C9","#00AA58","#AA393E","#343131","#FFFFFF"]},
+      {label:"식물", colors:["#EEDD00","#77C14D","#F48631","#343131",]},
+      {label:"리본", colors:["#C1C3C9","#000000"]},
+    ]}},
+    {name:"히우그란지두노르치주", colors:["#009C37","#FFFFFF"], wikiFile:"Flag_of_Rio_Grande_do_Norte.svg",
+          crest:{groups:[
+      {label:"방패", colors:["#FEE000","#FFFFFF"]},
+      {label:"작은 방패", colors:["#FEE000","#D4D3D3","#00A44E","#97D31A","#E39120","#FFFFFF","#000000",]},
+      {label:"나무&리본", colors:["#1C9943","#E49220","#CBC450","#FFF200","#000000"]},
+    ]}},
+    {name:"히우그란지두술주", colors:["#00933D","#DB2017","#FFF500","#FFFFFF"], wikiFile:"Flag_of_Rio_Grande_do_Sul.svg",
+          crest:{groups:[
+      {label:"방패", colors:["#7C9CCD","#5F7D59","#BF9F62","#495E5F","#417169","#E8CB05","#D9251C","#000000","#FFFFFF"]},
+      {label:"깃발", colors:["#009A51","#DE4044","#FCDB00","#BC9C60","#000000"]},
+      {label:"리본", colors:["#DEDEDE","#000000"]},
+    ]}},
+    {name:"혼도니아주", colors:["#002081","#F3E811","#009A4B","#FFFFFF"], wikiFile:"Flag_of_Rondônia.svg"},
+    {name:"호라이마주", colors:["#00A6FF","#FFFFFF","#008300","#F8C400","#DD0000"], wikiFile:"Flag_of_Roraima.svg"},
+    {name:"산타카타리나주", colors:["#ED1C24","#FFFFFF"], wikiFile:"Flag_of_Santa_Catarina.svg",
+          crest:{groups:[
+      {label:"마름모", colors:["#A6CE39"]},
+      {label:"선인장", colors:["#B87619","#F38512","#FFFFFF","#000000",]},
+      {label:"별&열쇠", colors:["#FFF200","#FFFFFF","#000000"]},
+      {label:"식물&리본", colors:["#00A650","#ED1C24","#FAED00","#000000"]},
+    ]}},
+    {name:"상파울루주", colors:["#C50002","#244093","#FFED00","#1B1B20","#FFFFFF"], wikiFile:"Flag_of_São_Paulo_(state).svg"},
+    {name:"세르지피주", colors:["#230E6F","#00933D","#F8C400","#FFFFFF"], wikiFile:"Flag_of_Sergipe.svg"},
+    {name:"토칸칭스주", colors:["#1233B5","#FFD800","#FFFFFF"], wikiFile:"Flag_of_Tocantins.svg"},
+    {name:"연방구(브라질리아)", colors:["#00B33F","#FEB916","#FFFFFF"], wikiFile:"Bandeira_do_Distrito_Federal_(Brasil).svg"}
+  ]
+},
   { code:"us", name:"미국", ready:false, regions:[] },
   { code:"de", name:"독일", ready:false, regions:[] },
   { code:"ru", name:"러시아", ready:false, regions:[] }

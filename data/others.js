@@ -17,6 +17,7 @@ const otherFlags = [
 {name:"프랑코포니(OIF)",category:"국제기구",colors:["#FF0000","#0095C7","#FFD700","#078D51","#85006B","#FFFFFF"], wikiFile:"Flag_of_La_Francophonie.svg"},
 {name:"포르투갈어 사용국 공동체(CPLP)",category:"국제기구",colors:["#103E90","#FFFFFF"],wikiFile:"Flag_CPLP.svg"},
 {name:"이베로 아메리카 공동체(OEI)",category:"국제기구",colors:["#58C457","#51C6BB","#FFFFFF"],wikiFile:"Flag_of_the_OEI.svg"},
+{name:"라인강 내비게이션 중앙위원회(CCNR)",category:"국제기구",colors:["#001AA4","#FEE630","#FFFFFF"],wikiFile:"Commission_centrale_pour_la_navigation_du_Rhin_-_Drapeau.svg"},
 /* ---------- 상징기 ---------- */
 {name:"베르베르인",category:"민족 상징기",colors:["#0091DB","#79BF1A","#FEDE00","#CD0030"],wikiFile:"Berber_flag.svg"},
 {name:"사미족",category:"민족 상징기",colors:["#DD1F19","#007324","#FFCC00","#0032AF"],wikiFile:"Sami_flag.svg"},
@@ -25,10 +26,16 @@ const otherFlags = [
 {name:"호주 원주민",category:"민족 상징기",colors:["#000000","#CD0000","#FFFF00"],wikiFile:"Australian_Aboriginal_Flag.svg"},
 {name:"마오리족",category:"민족 상징기",colors:["#000000","#FFFFFF","#D50000"],wikiFile:"Tino_Rangatiratanga_Maori_sovereignty_movement_flag.svg"},
 {name:"남극",category:"대륙 상징기",colors:["#009EDB","#FFFFFF"],wikiFile:"Proposed_flag_of_Antarctica_(Graham_Bartram).svg"},
+{name:"한반도기",category:"통일 상징기",colors:["#0084C9","#FFFFFF"],wikiFile:"Unification_flag_of_Korea.svg"},
+{name:"오륜기",category:"올림픽 상징기",colors:["#0081C8","#FCB131","#000000","#00A651","#EE344E","#FFFFFF"], image:"assets/emblems/olympic-rings.svg"},
+{name:"대한민국 정부상징",category:"정부 상징기",colors:["#003764","#E4032E","#575757","#FFFFFF"], image:"assets/emblems/korea-gov-emblem.svg"},
 /* ---------- 미승인국 ---------- */
 {name:"소말릴란드",category:"미승인국",colors:["#006D1B","#FFFFFF","#E00000","#000000"],wikiFile:"Flag_of_Somaliland.svg"},
 {name:"트란스니스트리아",category:"미승인국",colors:["#C8102E","#007A33","#FFD700"],wikiFile:"Flag_of_Transnistria.svg"},
 {name:"압하지야",category:"미승인국",colors:["#00A651","#FFFFFF","#CE1126"],wikiFile:"Flag_of_Abkhazia.svg"},
+{name:"암바조니아",category:"미승인국",colors:["#0098FE","#CCC631","#FFFFFF","#FFF000","#00810F"],wikiFile:"Flag_of_the_Federal_Republic_of_Southern_Cameroons.svg"},
 {name:"남오세티야",category:"미승인국",colors:["#FFFFFF","#CE1126","#FFD100"],wikiFile:"Flag_of_South_Ossetia.svg"},
-{name:"북키프로스",category:"미승인국",colors:["#FFFFFF","#E30A17"],wikiFile:"Flag_of_the_Turkish_Republic_of_Northern_Cyprus.svg"}
+{name:"북키프로스",category:"미승인국",colors:["#FFFFFF","#E30A17"],wikiFile:"Flag_of_the_Turkish_Republic_of_Northern_Cyprus.svg"},
+/* ---------- 마이크로네이션 ---------- */
+{name:"시랜드",category:"마이크로네이션",colors:["#EE2436","#FFFFFF","#29282B"],wikiFile:"Flag of Sealand.svg"},
 ];

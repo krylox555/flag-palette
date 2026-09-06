@@ -73,6 +73,7 @@ const historicalFlags = [
       {label:"왕관", colors:["#C99C47","#BC1A21","#657FA0","#E14527","#FFFFFF"]},
       {label:"들고 있는 것", colors:["#DBB047","#9B1128","#1C90C9","#BEC0C1"]},
     ]}},
+{name:"피사 공화국",period:"1000?–1406",colors:["#CE1B25","#FFFFFF"],wikiFile:"Flag_of_the_Republic_of_Pisa.svg"},
 /* ---------- 아프리카 ---------- */
 {name:"나탈리아 공화국",period:"1839–1843",colors:["#CF0921","#000E85","#FFFFFF"],wikiFile:"Flag_of_Natalia_Republic.svg"},
 {name:"데르비시국",period:"1896–1920",colors:["#008183","#FE0000"],wikiFile:"Dervish_flag.svg"},
@@ -85,6 +86,7 @@ const historicalFlags = [
 {name:"아달 술탄국",period:"1415-1559",colors:["#B00405","#FFFFFF"],wikiFile:"Flag_of_Adal_Sultanate.svg"},
 {name:"아자와르",period:"2012-2013",colors:["#FFF900","#009846","#CF0921","#000000"],wikiFile:"MNLA_flag.svg"},
 {name:"오라녀 자유국",period:"1854-1902",colors:["#CF0921","#FFFFFF","#0035AA","#FF8500"],wikiFile:"Flag_of_the_Orange_Free_State.svg"},
+{name:"예맨 왕국",period:"1918-1962",colors:["#CF0921","#FFFFFF"],wikiFile:"Flag_of_the_Mutawakkilite_Kingdom_of_Yemen.svg"},
 {name:"이집트 왕국",period:"1922-1953",colors:["#006727","#FFFFFF"],wikiFile:"Flag_of_Egypt_(1922-1958).svg"},
 {name:"자이르",period:"1971–1997",colors:["#6ABD52","#FCDD09","#DA121A","#7D4B23","#000000"],wikiFile:"Flag_of_Zaire.svg"},
 {name:"남아프리카 연방",period:"1928–1994",colors:["#FF8500","#FFFFFF","#003585","#007B4C","#CF0921"],wikiFile:"Flag_of_South_Africa_(1928-1994).svg"},
@@ -112,6 +114,7 @@ const historicalFlags = [
     ]}},
 {name:"버몬트 공화국",period:"1777-1791",colors:["#1C78CD","#2F7809","#FFFFFF"],wikiFile:"Flag_of_the_Vermont_Republic.svg"},
 {name:"서인도 연방",period:"1958-1962",colors:["#FFA200","#002983","#FFFFFF"],wikiFile:"Flag_of_the_West_Indies_Federation_(1958–1962).svg"},
+{name:"서플로리다 공화국",period:"1810",colors:["#5586B8","#FFFFFF"],wikiFile:"West_Florida_Flag.svg"},
 {name:"아메리카 연합국",period:"1861-1863",colors:["#C0032C","#001A5B","#FFFFFF"],wikiFile:"Flag_of_the_Confederate_States_(1861–1863).svg"},
 {name:"앵귈라 공화국",period:"1967-1969",colors:["#9ACDFF","#FF9A00","#FFFFFF"],wikiFile:"Flag_of_Anguilla_(1967–1969).svg"},
 {name:"이로쿼이 연맹",period:"15세기-1797",colors:["#583CB7","#FFFFFF"],wikiFile:"Flag_of_the_Iroquois_Confederacy.svg"},
