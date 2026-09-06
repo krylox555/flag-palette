@@ -66,6 +66,8 @@ const SLUG_MAP = {
   "트리스탄다쿠냐":"tristan-da-cunha", "세인트헬레나·어센션·트리스탄다쿠냐":"saint-helena",
   "사우스조지아 사우스샌드위치 제도":"south-georgia", "터크스 케이커스 제도":"turks-and-caicos",
   "아크로티리 데켈리아":"akrotiri-and-dhekelia",
+  // ---- 브라질 4 ----
+  "상파울루주":"sao-paulo", "리우데자네이루주":"rio-de-janeiro", "히우그란지두술주":"rio-grande-do-sul", "아마조나스주":"amazonas",
 
   // ---- 기타 국기색 검색기 ----
     "대한민국 정부상징":"korea-gov-emblem", "오륜기":"olympic-rings"

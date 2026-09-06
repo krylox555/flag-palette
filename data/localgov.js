@@ -526,7 +526,7 @@ const localGovCountries = [
       {label:"식물", colors:["#00933D","#F8C400","#FFFFFF","#000000",]},
     ]}},
     {name:"아마파주", colors:["#002081","#009A4B","#F3E811","#008400","#000000","#FFFFFF"], wikiFile:"Flag_of_Amapá.svg"},
-    {name:"아마조나스주", colors:["#001878","#D30000","#FFFFFF"], wikiFile:"Flag_of_Amazonas.svg"},
+    {name:"아마조나스주", colors:["#001878","#D30000","#FFFFFF"], image:"assets/emblems/amazonas.svg"},
     {name:"바이아주", colors:["#002C88","#D4121A","#FFFFFF"], wikiFile:"Flag_of_Bahia.svg"},
     {name:"세아라주", colors:["#209042","#FFF200","#FFFFFF"], wikiFile:"Flag_of_Ceará.svg",
           crest:{groups:[
@@ -545,7 +545,7 @@ const localGovCountries = [
     {name:"파라나주", colors:["#008D41","#2147A7","#229738","#FFFFFF"], wikiFile:"Flag_of_Paraná.svg"},
     {name:"페르남부쿠주", colors:["#2D54A5","#C44140","#FFB609","#00AF49","#FFFFFF"], wikiFile:"Flag_of_Pernambuco.svg"},
     {name:"피아우이주", colors:["#030798","#55A231","#FFD600","#FFFFFF"], wikiFile:"Flag_of_Piauí.svg"},
-    {name:"리우데자네이루주", colors:["#00B1FE","#FFFFFF"], wikiFile:"Flag_of_Rio_de_Janeiro_(state).svg",
+    {name:"리우데자네이루주", colors:["#00B1FE","#FFFFFF"], image:"assets/emblems/rio-de-janeiro.svg",
         crest:{groups:[
       {label:"방패", colors:["#FFDE1B","#00B1FE","#C1C3C9","#00AA58","#AA393E","#343131","#FFFFFF"]},
       {label:"식물", colors:["#EEDD00","#77C14D","#F48631","#343131",]},
@@ -557,7 +557,7 @@ const localGovCountries = [
       {label:"작은 방패", colors:["#FEE000","#D4D3D3","#00A44E","#97D31A","#E39120","#FFFFFF","#000000",]},
       {label:"나무&리본", colors:["#1C9943","#E49220","#CBC450","#FFF200","#000000"]},
     ]}},
-    {name:"히우그란지두술주", colors:["#00933D","#DB2017","#FFF500","#FFFFFF"], wikiFile:"Flag_of_Rio_Grande_do_Sul.svg",
+    {name:"히우그란지두술주", colors:["#00933D","#DB2017","#FFF500","#FFFFFF"], image:"assets/emblems/rio-grande-do-sul.svg",
           crest:{groups:[
       {label:"방패", colors:["#7C9CCD","#5F7D59","#BF9F62","#495E5F","#417169","#E8CB05","#D9251C","#000000","#FFFFFF"]},
       {label:"깃발", colors:["#009A51","#DE4044","#FCDB00","#BC9C60","#000000"]},
@@ -572,7 +572,7 @@ const localGovCountries = [
       {label:"별&열쇠", colors:["#FFF200","#FFFFFF","#000000"]},
       {label:"식물&리본", colors:["#00A650","#ED1C24","#FAED00","#000000"]},
     ]}},
-    {name:"상파울루주", colors:["#C50002","#244093","#FFED00","#1B1B20","#FFFFFF"], wikiFile:"Flag_of_São_Paulo_(state).svg"},
+    {name:"상파울루주", colors:["#C50002","#244093","#FFED00","#1B1B20","#FFFFFF"], image:"assets/emblems/sao-paulo.svg"},
     {name:"세르지피주", colors:["#230E6F","#00933D","#F8C400","#FFFFFF"], wikiFile:"Flag_of_Sergipe.svg"},
     {name:"토칸칭스주", colors:["#1233B5","#FFD800","#FFFFFF"], wikiFile:"Flag_of_Tocantins.svg"},
     {name:"연방구(브라질리아)", colors:["#00B33F","#FEB916","#FFFFFF"], wikiFile:"Bandeira_do_Distrito_Federal_(Brasil).svg"}
