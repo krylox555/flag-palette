@@ -29,12 +29,19 @@ function copyHex(hex){
 
 function buildHexStack(container, colors){
   container.innerHTML = "";
-  colors.forEach(hex => {
+  colors.forEach((hex, i) => {
     const bar = document.createElement("div");
     bar.className = "hexbar";
     bar.style.background = hex;
     bar.style.color = luminance(hex) > 0.55 ? "#141312" : "#F2EFEA";
-    bar.textContent = hex.toUpperCase();
+
+    const label = document.createElement("span");
+    label.className = "hex-label";
+    label.textContent = hex.toUpperCase();
+
+    bar.appendChild(label);
+
+    bar.dataset.index = String(i + 1).padStart(3, '0');
     bar.onclick = () => copyHex(hex);
     container.appendChild(bar);
   });
@@ -123,20 +130,15 @@ function goHome(){
 /* ============================================================
    테마 전환
 ============================================================ */
-function applyTheme(theme){
+function setTheme(theme){
   document.documentElement.setAttribute('data-theme', theme);
-  document.getElementById('themeIcon').textContent = theme === 'light' ? '🌙' : '☀️';
+  localStorage.setItem('flagPaletteTheme', theme);
+  const picker = document.getElementById('themePicker');
+  if (picker) picker.value = theme;
 }
 
-function toggleTheme(){
-  const current = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
-  const next = current === 'light' ? 'dark' : 'light';
-  applyTheme(next);
-  localStorage.setItem('flagPaletteTheme', next);
-}
-
-// 페이지 로드 시 마지막으로 선택한 테마 복원 (없으면 기본값 dark)
-applyTheme(localStorage.getItem('flagPaletteTheme') || 'dark');
+// 페이지 로드 시 마지막으로 선택한 테마 복원 (없으면 기본값 passport)
+setTheme(localStorage.getItem('flagPaletteTheme') || 'passport');
 
 /* ============================================================
    공통: 국가/역사/행정구역 항목을 함께 다루는 유틸
@@ -164,40 +166,96 @@ function buildFlagPreview(type, entry){
   const wrap = document.createElement('div');
   wrap.className = 'fav-card-flag';
 
-if (type === 'historical' || type === 'other' || type === 'localgov'){
+  // 이미지가 있으면 이미지의 실제 원본 비율을 그대로 사용
+  const applyImageRatio = (img) => {
+    if (img.naturalWidth && img.naturalHeight) {
+      wrap.style.aspectRatio = `${img.naturalWidth} / ${img.naturalHeight}`;
+    }
+  };
+
+  if (type === 'historical' || type === 'other' || type === 'localgov') {
+
     const showStripe = () => {
       wrap.innerHTML = '';
+      wrap.style.aspectRatio = '3 / 2';
+
       const stripe = document.createElement('div');
       stripe.className = 'fav-card-stripe';
+
       entry.colors.forEach(hex => {
         const s = document.createElement('span');
         s.style.background = hex;
         stripe.appendChild(s);
       });
+
       wrap.appendChild(stripe);
     };
-const imageUrl = entry.image || (entry.wikiFile ? `https://commons.wikimedia.org/wiki/Special:FilePath/${entry.wikiFile}?width=160` : null);
 
-    if (imageUrl){
+    const imageUrl =
+      entry.image ||
+      (
+        entry.wikiFile
+          ? `https://commons.wikimedia.org/wiki/Special:FilePath/${entry.wikiFile}?width=160`
+          : null
+      );
+
+    if (imageUrl) {
       const img = document.createElement('img');
+
       img.src = imageUrl;
       img.alt = entry.name + ' 상징기';
+
+      // 이미지가 로드되면 실제 이미지 비율을 적용
+      img.addEventListener('load', () => {
+        applyImageRatio(img);
+      });
+
+      // 이미지 로딩 실패 → 기존 색상 스트라이프
       img.onerror = showStripe;
+
       wrap.appendChild(img);
+
+      // 캐시된 이미지 대응
+      if (img.complete && img.naturalWidth) {
+        applyImageRatio(img);
+      }
+
     } else {
       showStripe();
     }
+
   } else {
+
     const img = document.createElement('img');
+
     img.src = `https://flagcdn.com/w160/${entry.iso}.png`;
     img.alt = entry.name + ' 국기';
+
     const emoji = document.createElement('div');
+
     emoji.className = 'fav-card-flag-emoji';
     emoji.textContent = flagEmojiFromIso(entry.iso);
-    img.onerror = () => { img.style.display = 'none'; emoji.style.display = 'flex'; };
+
+    // FlagCDN 이미지의 실제 비율 적용
+    img.addEventListener('load', () => {
+      applyImageRatio(img);
+    });
+
+    img.onerror = () => {
+      img.style.display = 'none';
+      wrap.style.aspectRatio = '3 / 2';
+      emoji.style.display = 'flex';
+    };
+
     wrap.appendChild(img);
     wrap.appendChild(emoji);
+
+    // 캐시된 이미지 대응
+    if (img.complete && img.naturalWidth) {
+      applyImageRatio(img);
+    }
   }
+
   return wrap;
 }
 
@@ -891,3 +949,4 @@ function closeChangelog(){
 document.getElementById('changelogOverlay').addEventListener('click', (e) => {
   if (e.target.id === 'changelogOverlay') closeChangelog();
 });
+renderLocalGovPicker();
