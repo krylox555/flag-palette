@@ -3,7 +3,7 @@ const historicalFlags = [
 {name:"고려",period:"918–1392",colors:["#FEDD8A","#FACC56","#3D6864","#F6584A","#B7D793","#BEC6EF","#3C4186"],wikiFile:"Royal flag of Goryeo (Bong-gi).svg"},
 {name:"남베트남",period:"1955–1975",colors:["#FFFF00","#DB2017"],wikiFile:"Flag_of_South_Vietnam.svg"},
 {name:"내몽골 인민공화국",period:"1945",colors:["#DF2407","#000097","#FFCC22"],wikiFile:"Flag_of_Inner-Mongolian_Autonomous_Government.svg"},
-{name:"대한제국",period:"1897–1910",colors:["#FFFFFF","#D9241D","#29176E","#000000"],wikiFile:"Flag_of_Korea_(1899).svg"},
+{name:"대한제국",period:"1897–1910",colors:["#FFFFFF","#D9241D","#29176E"],wikiFile:"Flag_of_Korea_(1899).svg"},
 {name:"류큐",period:"1429-1879",colors:["#6262CF","#FF0000","#000000","#FFFFFF"],wikiFile:"Fictional_Flag_of_Ryukyu.svg"},
 {name:"만주국",period:"1932-1945",colors:["#FEC600","#DF1B12","#02639D","#FFFFFF","#000000"],wikiFile:"Flag_of_Manchukuo.svg"},
 {name:"몽골 제국",period:"~1917 이전",colors:["#004CB1","#FFFFFF"],wikiFile:"Flag_of_the_Mongol_Empire_3.png"},

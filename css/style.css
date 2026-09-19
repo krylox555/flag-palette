@@ -3965,44 +3965,32 @@ html[data-theme="pop"]{
   font-weight:800;
 }
 /* =========================================================
-   AETHER THEME
-   Clean / Minimal / Modern Data UI
+   AETHER
+   Clean / Airy / Modern
    ========================================================= */
 
 [data-theme="aether"] {
-  --bg: #f4f6f8;
+  --bg: #f4f7f7;
   --nav-bg: #ffffff;
-  --nav-text: #172027;
-  --nav-muted: #7b8790;
+  --nav-text: #253338;
+  --nav-muted: #7b898d;
 
   --card-bg: #ffffff;
-  --text: #172027;
-  --muted: #77838c;
+  --text: #253338;
+  --muted: #7a898e;
 
   --accent: #16a6a1;
-  --accent-dark: #0d8581;
-  --accent-soft: #e6f6f5;
+  --accent-dark: #0c817d;
+  --accent-soft: #e7f7f6;
 
-  --cream: #ffffff;
-  --pink: #eef2f3;
-  --red: #e45f62;
+  --line: #dfe7e8;
+  --line-soft: #edf2f2;
+  --hover: #f3f8f8;
 
-  --dark: #172027;
-  --line: #e3e8ea;
+  /* AETHER 전용 */
+  --stamp: #16a6a1;
 
-  --shadow: 0 2px 8px rgba(23, 32, 39, 0.06);
-  --shadow-hover: 0 8px 24px rgba(23, 32, 39, 0.10);
-}
-
-
-/* ---------------------------------------------------------
-   BODY
-   --------------------------------------------------------- */
-
-[data-theme="aether"] body {
-  background: #f4f6f8;
-  color: var(--text);
-  font-family:
+  --font-display:
     "Inter",
     "Pretendard",
     "Noto Sans KR",
@@ -4010,23 +3998,61 @@ html[data-theme="pop"]{
     BlinkMacSystemFont,
     "Segoe UI",
     sans-serif;
+
+  --font-body:
+    "Inter",
+    "Pretendard",
+    "Noto Sans KR",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  --font-mono:
+    "JetBrains Mono",
+    "SFMono-Regular",
+    Consolas,
+    "Liberation Mono",
+    monospace;
 }
 
 
-/* ---------------------------------------------------------
-   NAVIGATION
-   --------------------------------------------------------- */
+/* =========================================================
+   BODY
+   ========================================================= */
+
+[data-theme="aether"] body {
+  background:
+    linear-gradient(
+      180deg,
+      #f8fbfb 0%,
+      #f3f7f7 100%
+    );
+
+  color: var(--text);
+  font-family: var(--font-body);
+}
+
+
+/* =========================================================
+   NAV
+   ========================================================= */
 
 [data-theme="aether"] nav {
-  background: rgba(255, 255, 255, 0.94);
+  background: rgba(255,255,255,.94);
   color: var(--nav-text);
-  border-bottom: 1px solid #e5e9eb;
-  box-shadow: 0 1px 4px rgba(23, 32, 39, 0.04);
+
+  border-bottom: 1px solid var(--line);
+
+  box-shadow:
+    0 1px 10px rgba(35,55,58,.045);
+
   backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
 [data-theme="aether"] nav a {
-  color: var(--nav-text);
+  color: var(--nav-muted);
 }
 
 [data-theme="aether"] nav a:hover {
@@ -4038,111 +4064,107 @@ html[data-theme="pop"]{
 }
 
 
-/* ---------------------------------------------------------
-   MAIN CONTAINER
-   --------------------------------------------------------- */
+/* =========================================================
+   MAIN
+   ========================================================= */
 
 [data-theme="aether"] main {
   background: #ffffff;
   color: var(--text);
-  border: 1px solid #e5e9eb;
+
+  border: 1px solid var(--line);
   border-radius: 18px;
-  box-shadow: var(--shadow);
+
+  box-shadow:
+    0 2px 12px rgba(35,55,58,.045);
 }
 
 
-/* ---------------------------------------------------------
-   HEADINGS
-   --------------------------------------------------------- */
+/* =========================================================
+   TYPOGRAPHY
+   ========================================================= */
 
 [data-theme="aether"] h1,
 [data-theme="aether"] h2,
 [data-theme="aether"] h3 {
-  color: #172027;
-  letter-spacing: -0.025em;
+  color: var(--text);
+  font-family: var(--font-display);
 }
 
-[data-theme="aether"] h1 {
-  font-weight: 750;
+[data-theme="aether"] .eyebrow {
+  color: var(--accent-dark);
+  font-family: var(--font-mono);
 }
 
-[data-theme="aether"] h2 {
-  font-weight: 700;
-}
-
-[data-theme="aether"] h3 {
-  font-weight: 650;
+[data-theme="aether"] .subline {
+  color: var(--muted);
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    SEARCH
-   --------------------------------------------------------- */
+   ========================================================= */
 
-[data-theme="aether"] .search-box,
-[data-theme="aether"] .search-wrap {
-  background: #f7f9fa;
-  border: 1px solid #dfe5e7;
-  border-radius: 12px;
+[data-theme="aether"] .search-wrap,
+[data-theme="aether"] .searchbox {
+  background: #f8fafa;
+
+  border: 1px solid var(--line);
+  border-radius: 11px;
+
   box-shadow: none;
+
   transition:
-    border-color 0.18s ease,
-    box-shadow 0.18s ease,
-    background 0.18s ease;
+    background .18s ease,
+    border-color .18s ease,
+    box-shadow .18s ease;
 }
 
-[data-theme="aether"] .search-box:focus-within,
-[data-theme="aether"] .search-wrap:focus-within {
+[data-theme="aether"] .search-wrap:focus-within,
+[data-theme="aether"] .searchbox:focus {
   background: #ffffff;
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(22, 166, 161, 0.12);
+
+  box-shadow:
+    0 0 0 3px rgba(22,166,161,.10);
 }
 
 [data-theme="aether"] input,
 [data-theme="aether"] textarea,
 [data-theme="aether"] select {
-  color: var(--text);
+  font-family: var(--font-body);
+}
+
+[data-theme="aether"] .suggestions {
   background: #ffffff;
-  border-color: #dfe5e7;
-  border-radius: 10px;
+  border-color: var(--line);
+
+  box-shadow:
+    0 10px 30px rgba(35,55,58,.08);
 }
 
-[data-theme="aether"] input::placeholder {
-  color: #9aa5ab;
+[data-theme="aether"] .suggestions div:hover {
+  background: var(--hover);
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    BUTTONS
-   --------------------------------------------------------- */
+   ========================================================= */
 
 [data-theme="aether"] button {
-  border-radius: 9px;
-  border: 1px solid #dfe5e7;
-  background: #ffffff;
-  color: #35434b;
-  box-shadow: none;
-  transition:
-    background 0.16s ease,
-    border-color 0.16s ease,
-    color 0.16s ease,
-    transform 0.16s ease;
-}
-
-[data-theme="aether"] button:hover {
-  background: #f5f8f8;
-  border-color: #cbd5d8;
-}
-
-[data-theme="aether"] button:active {
-  transform: translateY(1px);
+  font-family: var(--font-body);
 }
 
 [data-theme="aether"] .primary,
 [data-theme="aether"] .btn-primary {
   background: var(--accent);
   color: #ffffff;
+
   border-color: var(--accent);
+
+  box-shadow:
+    0 4px 12px rgba(22,166,161,.14);
 }
 
 [data-theme="aether"] .primary:hover,
@@ -4152,345 +4174,397 @@ html[data-theme="pop"]{
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    HOME CARDS
-   --------------------------------------------------------- */
+   ========================================================= */
 
-[data-theme="aether"] .home-card {
+[data-theme="aether"] .homecard {
   background: #ffffff;
   color: var(--text);
-  border: 1px solid #e3e8ea;
+
+  border: 1px solid var(--line);
   border-radius: 14px;
-  box-shadow: 0 1px 4px rgba(23, 32, 39, 0.04);
+
+  box-shadow:
+    0 1px 6px rgba(35,55,58,.035);
+
   transition:
-    transform 0.18s ease,
-    border-color 0.18s ease,
-    box-shadow 0.18s ease;
+    transform .18s ease,
+    border-color .18s ease,
+    box-shadow .18s ease;
 }
 
-[data-theme="aether"] .home-card:hover {
+[data-theme="aether"] .homecard:hover {
   transform: translateY(-3px);
-  border-color: #cbd7d9;
-  box-shadow: var(--shadow-hover);
+
+  border-color: #bdd9d8;
+
+  box-shadow:
+    0 10px 28px rgba(35,55,58,.09);
 }
 
-[data-theme="aether"] .home-card-icon {
-  color: var(--accent);
+[data-theme="aether"] .homecard-title {
+  color: var(--text);
+  font-family: var(--font-display);
+}
+
+[data-theme="aether"] .homecard-desc {
+  color: var(--muted);
 }
 
 
-/* ---------------------------------------------------------
-   FLAG PREVIEW
-   --------------------------------------------------------- */
+/* =========================================================
+   FLAG
+   ========================================================= */
 
-[data-theme="aether"] .flag-box {
-  background: #fafbfb;
-  border: 1px solid #e3e8ea;
+[data-theme="aether"] .flagbox {
+  background: #fafcfc;
+
+  border: 1px solid var(--line);
   border-radius: 14px;
-  box-shadow: none;
-}
 
-[data-theme="aether"] .flag-preview {
-  background: #ffffff;
-  border: 1px solid #e1e6e8;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(23, 32, 39, 0.06);
+  box-shadow:
+    0 3px 14px rgba(35,55,58,.045);
 }
 
 
-/* ---------------------------------------------------------
-   COLOR SWATCHES
-   --------------------------------------------------------- */
+/* =========================================================
+   HEX
+   ========================================================= */
 
-[data-theme="aether"] .color-item,
-[data-theme="aether"] .color-card {
-  background: #ffffff;
-  border: 1px solid #e3e8ea;
-  border-radius: 10px;
-  box-shadow: none;
-}
+[data-theme="aether"] .hexstack {
+  border: 1px solid var(--line);
+  border-radius: 11px;
 
-[data-theme="aether"] .color-item:hover,
-[data-theme="aether"] .color-card:hover {
-  border-color: #cbd5d8;
-  box-shadow: 0 4px 14px rgba(23, 32, 39, 0.07);
-}
-
-[data-theme="aether"] .hex-code {
-  color: #26343b;
-  font-family:
-    "SFMono-Regular",
-    Consolas,
-    "Liberation Mono",
-    monospace;
-}
-
-
-/* ---------------------------------------------------------
-   HEX STACK
-   --------------------------------------------------------- */
-
-[data-theme="aether"] .hex-stack {
-  border-radius: 12px;
   overflow: hidden;
-  border: 1px solid #dfe5e7;
   box-shadow: none;
 }
 
-[data-theme="aether"] .hex-stack > div {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-}
-
-[data-theme="aether"] .hex-stack > div:last-child {
-  border-bottom: none;
+[data-theme="aether"] .hexbar {
+  font-family: var(--font-mono);
 }
 
 
-/* ---------------------------------------------------------
-   CREST / EMBLEM
-   --------------------------------------------------------- */
+/* =========================================================
+   AETHER COPY EFFECT
+   ---------------------------------------------------------
+   여권 도장 대신:
+   "빛이 지나가는 글래스 토스트"
+   ========================================================= */
 
-[data-theme="aether"] .crest-box,
-[data-theme="aether"] .crest-container {
-  background: #fafbfb;
-  border: 1px solid #e3e8ea;
+[data-theme="aether"] .stamp-overlay {
+  position: fixed;
+
+  left: 50%;
+  bottom: 42px;
+
+  width: auto;
+  min-width: 250px;
+
+  transform:
+    translate(-50%, 16px);
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  z-index: 50;
+
+  transition:
+    opacity .18s ease,
+    transform .28s cubic-bezier(.22,.8,.25,1);
+}
+
+
+/* 표시 상태 */
+
+[data-theme="aether"] .stamp-overlay.show {
+  opacity: 1;
+
+  transform:
+    translate(-50%, 0);
+}
+
+
+/* 실제 토스트 */
+
+[data-theme="aether"] .stamp-mark {
+  position: relative;
+
+  width: auto;
+  height: auto;
+
+  min-height: 52px;
+
+  padding: 0 20px;
+
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 11px;
+
+  border: 1px solid rgba(22,166,161,.22);
+
   border-radius: 14px;
-  box-shadow: none;
+
+  background:
+    rgba(255,255,255,.90);
+
+  box-shadow:
+    0 12px 35px rgba(35,55,58,.13),
+    0 2px 8px rgba(35,55,58,.05);
+
+  overflow: hidden;
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  transform: none;
 }
 
-[data-theme="aether"] .crest-toggle {
-  background: #ffffff;
-  border: 1px solid #dfe5e7;
-  border-radius: 9px;
+
+/* 카드 위를 지나가는 빛 */
+
+[data-theme="aether"] .stamp-mark::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+
+  left: -45%;
+
+  width: 32%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(22,166,161,.20),
+      transparent
+    );
+
+  transform: skewX(-18deg);
+
+  opacity: 0;
 }
 
-[data-theme="aether"] .crest-toggle.active {
-  background: var(--accent-soft);
+
+/* show 될 때 한 번만 sweep */
+
+[data-theme="aether"] .stamp-overlay.show
+.stamp-mark::before {
+  animation:
+    aetherLightSweep .72s cubic-bezier(.4,0,.2,1);
+}
+
+
+/* HEX */
+
+[data-theme="aether"] .stamp-hex {
+  position: relative;
+  z-index: 2;
+
   color: var(--accent-dark);
-  border-color: #b9e3e1;
+
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+
+  letter-spacing: .02em;
 }
 
 
-/* ---------------------------------------------------------
+/* COPIED */
+
+[data-theme="aether"] .stamp-label {
+  position: relative;
+  z-index: 2;
+
+  color: #6d7e81;
+
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: .12em;
+
+  white-space: nowrap;
+}
+
+
+/* 작은 체크 표시처럼 보이도록 */
+
+[data-theme="aether"] .stamp-label::after {
+  content: "  ✓";
+
+  color: var(--accent);
+  font-size: 12px;
+}
+
+
+/* 빛의 이동 */
+
+@keyframes aetherLightSweep {
+
+  0% {
+    left: -45%;
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  75% {
+    opacity: 1;
+  }
+
+  100% {
+    left: 125%;
+    opacity: 0;
+  }
+
+}
+
+
+/* =========================================================
    FAVORITES / RECENT
-   --------------------------------------------------------- */
+   ========================================================= */
 
 [data-theme="aether"] .fav-card {
   background: #ffffff;
   color: var(--text);
-  border: 1px solid #e2e7e9;
+
+  border: 1px solid var(--line);
   border-radius: 13px;
-  box-shadow: 0 1px 5px rgba(23, 32, 39, 0.045);
+
+  box-shadow:
+    0 1px 6px rgba(35,55,58,.035);
 
   transition:
-    transform 0.18s ease,
-    border-color 0.18s ease,
-    box-shadow 0.18s ease;
+    transform .18s ease,
+    border-color .18s ease,
+    box-shadow .18s ease;
 }
 
 [data-theme="aether"] .fav-card:hover {
   transform: translateY(-3px);
-  border-color: #cbd5d8;
-  box-shadow: 0 8px 22px rgba(23, 32, 39, 0.09);
+
+  border-color: #bdd9d8;
+
+  box-shadow:
+    0 10px 25px rgba(35,55,58,.08);
 }
 
 [data-theme="aether"] .fav-card-name {
-  color: #172027;
-  font-weight: 650;
+  color: var(--text);
+  font-family: var(--font-display);
 }
 
-[data-theme="aether"] .fav-card-flag {
-  background: #f8fafb;
-  border: 1px solid #e5e9eb;
-  border-radius: 8px;
-}
-
-
-/* ---------------------------------------------------------
-   FAVORITE BUTTON
-   --------------------------------------------------------- */
-
-[data-theme="aether"] .favorite-btn,
 [data-theme="aether"] .fav-btn {
-  color: #8c999f;
-  background: transparent;
-  border: none;
+  color: #9aa7aa;
 }
 
-[data-theme="aether"] .favorite-btn:hover,
-[data-theme="aether"] .fav-btn:hover {
-  color: var(--accent);
-  background: var(--accent-soft);
-}
-
-[data-theme="aether"] .favorite-btn.active,
+[data-theme="aether"] .fav-btn:hover,
 [data-theme="aether"] .fav-btn.active {
   color: var(--accent);
 }
 
 
-/* ---------------------------------------------------------
-   SEARCH RESULTS
-   --------------------------------------------------------- */
-
-[data-theme="aether"] .search-result,
-[data-theme="aether"] .result-item {
-  background: #ffffff;
-  border-bottom: 1px solid #edf0f1;
-  color: var(--text);
-  transition: background 0.15s ease;
-}
-
-[data-theme="aether"] .search-result:hover,
-[data-theme="aether"] .result-item:hover {
-  background: #f7fafa;
-}
-
-[data-theme="aether"] .search-result-name,
-[data-theme="aether"] .result-name {
-  color: #172027;
-}
-
-[data-theme="aether"] .search-result-meta,
-[data-theme="aether"] .result-meta {
-  color: #8a969c;
-}
-
-
-/* ---------------------------------------------------------
-   CATEGORY / TAG
-   --------------------------------------------------------- */
-
-[data-theme="aether"] .tag,
-[data-theme="aether"] .badge,
-[data-theme="aether"] .category {
-  background: #f0f4f4;
-  color: #617077;
-  border: 1px solid #e0e7e8;
-  border-radius: 999px;
-}
-
-[data-theme="aether"] .tag.active,
-[data-theme="aether"] .badge.active {
-  background: var(--accent-soft);
-  color: var(--accent-dark);
-  border-color: #bfe3e1;
-}
-
-
-/* ---------------------------------------------------------
-   LOCAL GOVERNMENT PICKER
-   --------------------------------------------------------- */
+/* =========================================================
+   LOCAL GOVERNMENT
+   ========================================================= */
 
 [data-theme="aether"] .localgov-card,
 [data-theme="aether"] .localgov-item {
   background: #ffffff;
-  border: 1px solid #e2e7e9;
+  color: var(--text);
+
+  border: 1px solid var(--line);
   border-radius: 12px;
-  box-shadow: 0 1px 4px rgba(23, 32, 39, 0.04);
+
+  box-shadow:
+    0 1px 6px rgba(35,55,58,.035);
+
   transition:
-    border-color 0.16s ease,
-    box-shadow 0.16s ease,
-    transform 0.16s ease;
+    transform .16s ease,
+    border-color .16s ease,
+    box-shadow .16s ease;
 }
 
 [data-theme="aether"] .localgov-card:hover,
 [data-theme="aether"] .localgov-item:hover {
-  border-color: #c7d5d7;
-  box-shadow: 0 6px 18px rgba(23, 32, 39, 0.08);
   transform: translateY(-2px);
+
+  border-color: #bdd9d8;
+
+  box-shadow:
+    0 8px 22px rgba(35,55,58,.075);
 }
 
 
-/* ---------------------------------------------------------
-   LOCAL GOVERNMENT TIER BUTTONS
-   --------------------------------------------------------- */
+/* =========================================================
+   CREST
+   ========================================================= */
 
-[data-theme="aether"] .tier-card,
-[data-theme="aether"] .tier-item {
-  background: #ffffff;
-  border: 1px solid #e2e7e9;
-  border-radius: 12px;
-  color: var(--text);
-}
+[data-theme="aether"] .crest-box,
+[data-theme="aether"] .crest-container {
+  background: #fafcfc;
 
-[data-theme="aether"] .tier-card:hover,
-[data-theme="aether"] .tier-item:hover {
-  background: #f8fbfb;
-  border-color: #bfd4d5;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+
+  box-shadow: none;
 }
 
 
-/* ---------------------------------------------------------
-   BACK BUTTON
-   --------------------------------------------------------- */
+/* =========================================================
+   EMPTY / DISCLAIMER
+   ========================================================= */
 
-[data-theme="aether"] .back-btn,
-[data-theme="aether"] .back-button {
-  background: transparent;
-  color: #69777e;
-  border-color: transparent;
+[data-theme="aether"] .empty,
+[data-theme="aether"] .disclaimer {
+  color: var(--muted);
 }
 
-[data-theme="aether"] .back-btn:hover,
-[data-theme="aether"] .back-button:hover {
-  color: var(--accent-dark);
-  background: var(--accent-soft);
-  border-color: transparent;
+[data-theme="aether"] .disclaimer {
+  border-color: var(--line);
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    MODAL
-   --------------------------------------------------------- */
+   ========================================================= */
 
-[data-theme="aether"] .modal {
-  background: rgba(20, 28, 33, 0.34);
+[data-theme="aether"] .confirm-overlay,
+[data-theme="aether"] .changelog-overlay {
+  background: rgba(28,42,45,.25);
+
   backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
-[data-theme="aether"] .modal-content,
-[data-theme="aether"] .modal-box {
+[data-theme="aether"] .confirm-modal,
+[data-theme="aether"] .changelog-modal {
   background: #ffffff;
   color: var(--text);
-  border: 1px solid #e0e6e8;
+
+  border: 1px solid var(--line);
   border-radius: 16px;
-  box-shadow: 0 20px 60px rgba(23, 32, 39, 0.16);
+
+  box-shadow:
+    0 20px 60px rgba(35,55,58,.15);
 }
 
 
-/* ---------------------------------------------------------
-   CONFIRM DIALOG
-   --------------------------------------------------------- */
-
-[data-theme="aether"] .confirm-dialog {
-  background: #ffffff;
-  border: 1px solid #e0e6e8;
-  border-radius: 15px;
-  box-shadow: 0 18px 50px rgba(23, 32, 39, 0.15);
-}
-
-
-/* ---------------------------------------------------------
-   CLOSE BUTTON
-   --------------------------------------------------------- */
-
-[data-theme="aether"] .close,
-[data-theme="aether"] .close-btn {
-  color: #879399;
-  border-radius: 8px;
-}
-
-[data-theme="aether"] .close:hover,
-[data-theme="aether"] .close-btn:hover {
-  color: #27353c;
-  background: #f0f3f4;
-}
-
-
-/* ---------------------------------------------------------
+/* =========================================================
    LINKS
-   --------------------------------------------------------- */
+   ========================================================= */
 
 [data-theme="aether"] a {
   color: var(--accent-dark);
@@ -4501,9 +4575,19 @@ html[data-theme="pop"]{
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
+   SELECTION
+   ========================================================= */
+
+[data-theme="aether"] ::selection {
+  background: #c7ecea;
+  color: #123b3a;
+}
+
+
+/* =========================================================
    SCROLLBAR
-   --------------------------------------------------------- */
+   ========================================================= */
 
 [data-theme="aether"] ::-webkit-scrollbar {
   width: 8px;
@@ -4515,165 +4599,209 @@ html[data-theme="pop"]{
 }
 
 [data-theme="aether"] ::-webkit-scrollbar-thumb {
-  background: #cfd7da;
+  background: #ccdada;
   border-radius: 999px;
 }
 
 [data-theme="aether"] ::-webkit-scrollbar-thumb:hover {
-  background: #aeb9be;
+  background: #aec1c1;
 }
 
 
-/* ---------------------------------------------------------
-   SELECTION
-   --------------------------------------------------------- */
-
-[data-theme="aether"] ::selection {
-  background: #bfe9e7;
-  color: #123638;
-}
-
-
-/* ---------------------------------------------------------
-   DIVIDERS
-   --------------------------------------------------------- */
-
-[data-theme="aether"] hr {
-  border: 0;
-  border-top: 1px solid #e7ebed;
-}
-
-
-/* ---------------------------------------------------------
-   EMPTY STATE
-   --------------------------------------------------------- */
-
-[data-theme="aether"] .empty-state {
-  color: #879399;
-}
-
-[data-theme="aether"] .empty-state strong {
-  color: #35434b;
-}
-
-
-/* ---------------------------------------------------------
+/* =========================================================
    MOBILE
-   --------------------------------------------------------- */
+   ========================================================= */
 
-@media (max-width: 700px) {
+@media (max-width: 680px) {
 
   [data-theme="aether"] main {
     border-radius: 14px;
   }
 
-  [data-theme="aether"] .home-card,
-  [data-theme="aether"] .fav-card,
-  [data-theme="aether"] .localgov-card {
-    border-radius: 11px;
+  [data-theme="aether"] .stamp-overlay {
+    bottom: 24px;
+    min-width: 225px;
   }
 
-  [data-theme="aether"] .search-box,
-  [data-theme="aether"] .search-wrap {
-    border-radius: 10px;
+  [data-theme="aether"] .stamp-mark {
+    min-height: 48px;
+    padding: 0 16px;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  [data-theme="aether"] .stamp-overlay {
+    min-width: 205px;
+  }
+
+  [data-theme="aether"] .stamp-hex {
+    font-size: 12px;
+  }
+
+  [data-theme="aether"] .stamp-label {
+    font-size: 9px;
   }
 
 }
 /* =========================================================
-   NEON
-   Neon Sign / Arcade / Fluorescent Interface
+   NEON THEME
+   Night City / Arcade / Neon Sign
    ========================================================= */
 
-:root[data-theme="neon"] {
-  --bg: #090909;
-  --nav-bg: #0a0a0a;
-  --card-bg: #111111;
+[data-theme="neon"] {
 
-  --text: #f5f5f5;
-  --muted: #8a8a8a;
+  /* ---------------------------------------------------------
+     CORE COLORS
+     --------------------------------------------------------- */
 
-  --accent: #00f5d4;
-  --accent-dark: #00bda5;
+  --bg: #10161b;
+  --nav-bg: #0b1116;
+  --nav-text: #f1f7f7;
+  --nav-muted: #87949b;
 
-  --neon-cyan: #00f5d4;
-  --neon-blue: #00a8ff;
-  --neon-green: #b6ff00;
-  --neon-pink: #ff2da8;
-  --neon-orange: #ff6a00;
+  --card-bg: #182126;
 
-  --line: #2b2b2b;
+  --text: #edf6f6;
+  --muted: #87959b;
 
+  --accent: #20e6e0;
+  --accent-dark: #00bdb8;
+  --accent-soft: rgba(32, 230, 224, .12);
+
+  --line: #303d43;
+  --line-soft: #253138;
+
+  --hover: #202b31;
+
+  /* neon palette */
+  --neon-cyan: #20e6e0;
+  --neon-blue: #4e8cff;
+  --neon-lime: #b8ef45;
+  --neon-pink: #ff4fc3;
+  --neon-orange: #ff9f43;
+
+  /* typography */
   --font-display:
-    "Arial Black",
+    "Orbitron",
+    "Rajdhani",
     "Pretendard",
+    "Noto Sans KR",
+    sans-serif;
+
+  --font-body:
+    "Pretendard",
+    "Noto Sans KR",
     sans-serif;
 
   --font-mono:
     "JetBrains Mono",
+    "D2Coding",
     "Consolas",
     monospace;
+
+  --stamp: #20e6e0;
+
+  --shadow:
+    0 8px 24px rgba(0, 0, 0, .22);
+
+  --shadow-hover:
+    0 14px 34px rgba(0, 0, 0, .32);
 }
 
 
 /* =========================================================
-   BASE
+   BODY
    ========================================================= */
 
 [data-theme="neon"] body {
-  background: #090909;
-  color: #f5f5f5;
+  background:
+    radial-gradient(
+      circle at 50% -10%,
+      rgba(32, 230, 224, .055),
+      transparent 42%
+    ),
+    #10161b;
+
+  color: var(--text);
+}
+
+
+/* 아주 미세한 도시/CRT 느낌 */
+
+[data-theme="neon"] body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  pointer-events: none;
+  z-index: 9999;
+
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255,255,255,.012) 0px,
+      rgba(255,255,255,.012) 1px,
+      transparent 1px,
+      transparent 4px
+    );
+
+  opacity: .18;
 }
 
 
 /* =========================================================
-   NAV
+   NAVIGATION
    ========================================================= */
 
-[data-theme="neon"] nav {
-  background: #050505;
+[data-theme="neon"] nav,
+[data-theme="neon"] .navbar,
+[data-theme="neon"] header {
+  background: var(--nav-bg);
+  color: var(--nav-text);
 
-  border-bottom: 3px solid #00f5d4;
+  border-bottom: 1px solid var(--line);
 
-  box-shadow: none;
-
-  backdrop-filter: none;
+  box-shadow:
+    0 1px 0 rgba(32,230,224,.035),
+    0 8px 24px rgba(0,0,0,.16);
 }
 
-[data-theme="neon"] .brand {
-  color: #ffffff;
-
-  font-weight: 900;
-  letter-spacing: -0.04em;
+[data-theme="neon"] nav a,
+[data-theme="neon"] .navbar a,
+[data-theme="neon"] header a {
+  color: var(--nav-muted);
+  transition:
+    color .18s ease,
+    text-shadow .18s ease;
 }
 
+[data-theme="neon"] nav a:hover,
+[data-theme="neon"] .navbar a:hover,
+[data-theme="neon"] header a:hover {
+  color: var(--neon-cyan);
+
+  text-shadow:
+    0 0 8px rgba(32,230,224,.35);
+}
+
+
+/* 로고 */
+
+[data-theme="neon"] .logo,
+[data-theme="neon"] .brand,
+[data-theme="neon"] .site-title {
+  color: #f5ffff;
+}
+
+[data-theme="neon"] .logo-mark,
 [data-theme="neon"] .brand-mark {
-  background: #00f5d4;
+  background: var(--neon-cyan);
 
-  color: #000000;
-
-  border: none;
-
-  box-shadow: none;
-
-  font-weight: 900;
-}
-
-[data-theme="neon"] .navlinks span {
-  color: #777777;
-
-  font-weight: 700;
-}
-
-[data-theme="neon"] .navlinks span:hover {
-  color: #ffffff;
-}
-
-[data-theme="neon"] .navlinks span.active {
-  color: #00f5d4;
-
-  border-color: #00f5d4;
-
-  box-shadow: none;
+  box-shadow:
+    0 0 8px rgba(32,230,224,.45),
+    0 0 18px rgba(32,230,224,.16);
 }
 
 
@@ -4682,129 +4810,60 @@ html[data-theme="pop"]{
    ========================================================= */
 
 [data-theme="neon"] main {
-  background: #0c0c0c;
-
-  border: 2px solid #292929;
-
-  border-radius: 4px;
-
-  box-shadow: none;
-}
-
-[data-theme="neon"] main::before {
-  display: none;
+  color: var(--text);
 }
 
 
 /* =========================================================
-   HEADINGS
+   HOME HERO
    ========================================================= */
 
-[data-theme="neon"] h1 {
-  color: #ffffff;
-
-  font-weight: 900;
-
-  letter-spacing: -0.055em;
-
-  text-shadow: none;
+[data-theme="neon"] .home {
+  color: var(--text);
 }
 
-[data-theme="neon"] h2,
-[data-theme="neon"] h3 {
-  color: #ffffff;
+[data-theme="neon"] .home h1,
+[data-theme="neon"] .home-title {
+  color: #f5ffff;
 
-  font-weight: 800;
+  text-shadow:
+    0 0 12px rgba(32,230,224,.08);
 }
 
+[data-theme="neon"] .home h1 span,
+[data-theme="neon"] .home-title span {
+  color: var(--neon-cyan);
+}
 
-/* =========================================================
-   LABEL
-   ========================================================= */
-
-[data-theme="neon"] .eyebrow,
-[data-theme="neon"] .home-meta {
-  display: inline-block;
-
-  padding: 3px 8px;
-
-  background: #00f5d4;
-
-  color: #000000;
-
-  font-weight: 900;
-
-  letter-spacing: .04em;
-
-  text-shadow: none;
+[data-theme="neon"] .home-subtitle,
+[data-theme="neon"] .home-description {
+  color: var(--muted);
 }
 
 
-/* =========================================================
-   SEARCH
-   ========================================================= */
+/* 작은 TYPE / PALETTE 같은 표시 */
 
-[data-theme="neon"] .searchbox {
-  background: #000000;
-
-  color: #ffffff;
-
-  border: 2px solid #3b3b3b;
-
-  border-radius: 2px;
-
-  box-shadow: none;
+[data-theme="neon"] .home-eyebrow,
+[data-theme="neon"] .eyebrow {
+  color: var(--neon-cyan);
 
   font-family: var(--font-mono);
 
-  transition:
-    border-color .15s ease,
-    background .15s ease;
-}
+  letter-spacing: .18em;
+  text-transform: uppercase;
 
-[data-theme="neon"] .searchbox:hover {
-  border-color: #777777;
-}
-
-[data-theme="neon"] .searchbox:focus {
-  border-color: #00f5d4;
-
-  outline: none;
-
-  box-shadow:
-    inset 4px 0 0 #00f5d4;
-}
-
-[data-theme="neon"] .searchbox::placeholder {
-  color: #555555;
+  text-shadow:
+    0 0 7px rgba(32,230,224,.3);
 }
 
 
 /* =========================================================
-   SEARCH RESULTS
+   HOME GRID
+   설명문과 카드 사이 간격 확보
    ========================================================= */
 
-[data-theme="neon"] .suggestions {
-  background: #0a0a0a;
-
-  border: 2px solid #333333;
-
-  border-radius: 2px;
-
-  box-shadow: none;
-}
-
-[data-theme="neon"] .suggestions div {
-  color: #cccccc;
-
-  border-bottom: 1px solid #222222;
-}
-
-[data-theme="neon"] .suggestions div:hover,
-[data-theme="neon"] .suggestions div.highlighted {
-  background: #00f5d4;
-
-  color: #000000;
+[data-theme="neon"] .home-grid {
+  margin-top: 30px;
 }
 
 
@@ -4815,300 +4874,794 @@ html[data-theme="pop"]{
 [data-theme="neon"] .homecard {
   position: relative;
 
-  background: #101010;
+  overflow: hidden;
 
-  border: 2px solid #303030;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.018),
+      transparent 60%
+    ),
+    var(--card-bg);
 
-  border-radius: 3px;
+  color: var(--text);
 
-  box-shadow: none;
+  border: 1px solid var(--line);
+
+  border-top: 1px solid var(--line) !important;
+
+  border-radius: 5px;
+
+  box-shadow: var(--shadow);
 
   transition:
-    border-color .15s ease,
-    transform .15s ease;
+    transform .18s ease,
+    border-color .18s ease,
+    box-shadow .18s ease,
+    background .18s ease;
+
+  /* 중요:
+     카드 전체가 깜빡이는 현상 제거 */
+  animation: none !important;
 }
+
+
+/* 카드 위쪽 네온 띠 */
+
+[data-theme="neon"] .homecard::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  top: -1px;
+
+  height: 4px;
+
+  border-radius: 5px 5px 0 0;
+
+  background: var(--neon-cyan);
+
+  pointer-events: none;
+
+  animation:
+    neonSignCyan
+    3.8s ease-in-out infinite;
+}
+
+
+/* 카드 hover */
 
 [data-theme="neon"] .homecard:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
 
-  border-color: #00f5d4;
+  border-color: #3a4a51;
 
-  box-shadow: none;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.028),
+      transparent 60%
+    ),
+    #1b272d;
+
+  box-shadow:
+    var(--shadow-hover),
+    0 0 20px rgba(32,230,224,.055);
 }
 
 
-/* alternating neon strips */
+/* ---------------------------------------------------------
+   카드별 색상
+   --------------------------------------------------------- */
 
-[data-theme="neon"] .homecard:nth-child(1) {
-  border-top: 6px solid #00f5d4;
+[data-theme="neon"] .homecard:nth-child(1)::before {
+  background: var(--neon-cyan);
+
+  box-shadow:
+    0 0 4px rgba(32,230,224,.55),
+    0 0 10px rgba(32,230,224,.20);
+
+  animation-name: neonSignCyan;
 }
 
-[data-theme="neon"] .homecard:nth-child(2) {
-  border-top: 6px solid #00a8ff;
+
+[data-theme="neon"] .homecard:nth-child(2)::before {
+  background: var(--neon-blue);
+
+  box-shadow:
+    0 0 4px rgba(78,140,255,.55),
+    0 0 10px rgba(78,140,255,.20);
+
+  animation-name: neonSignBlue;
 }
 
-[data-theme="neon"] .homecard:nth-child(3) {
-  border-top: 6px solid #b6ff00;
+
+[data-theme="neon"] .homecard:nth-child(3)::before {
+  background: var(--neon-lime);
+
+  box-shadow:
+    0 0 4px rgba(184,239,69,.55),
+    0 0 10px rgba(184,239,69,.20);
+
+  animation-name: neonSignLime;
 }
 
-[data-theme="neon"] .homecard:nth-child(4) {
-  border-top: 6px solid #ff2da8;
+
+[data-theme="neon"] .homecard:nth-child(4)::before {
+  background: var(--neon-pink);
+
+  box-shadow:
+    0 0 4px rgba(255,79,195,.55),
+    0 0 10px rgba(255,79,195,.20);
+
+  animation-name: neonSignPink;
 }
 
-[data-theme="neon"] .homecard:nth-child(5) {
-  border-top: 6px solid #ff6a00;
+
+[data-theme="neon"] .homecard:nth-child(5)::before {
+  background: var(--neon-orange);
+
+  box-shadow:
+    0 0 4px rgba(255,159,67,.55),
+    0 0 10px rgba(255,159,67,.20);
+
+  animation-name: neonSignOrange;
 }
 
-[data-theme="neon"] .homecard-stamp {
-  color: #ffffff;
 
-  font-weight: 900;
+[data-theme="neon"] .homecard:nth-child(6)::before {
+  background: var(--neon-cyan);
 
-  text-shadow: none;
+  box-shadow:
+    0 0 4px rgba(32,230,224,.55),
+    0 0 10px rgba(32,230,224,.20);
+
+  animation-name: neonSignCyan;
 }
 
 
 /* =========================================================
-   DIVIDER
+   HOME CARD CONTENT
    ========================================================= */
 
-[data-theme="neon"] .home-divider {
-  height: 4px;
+[data-theme="neon"] .homecard h2,
+[data-theme="neon"] .homecard h3,
+[data-theme="neon"] .homecard-title {
+  color: #f0f7f7;
+
+  font-family: var(--font-display);
+}
+
+[data-theme="neon"] .homecard p,
+[data-theme="neon"] .homecard-description {
+  color: var(--muted);
+}
+
+
+/* 카드 아이콘 */
+
+[data-theme="neon"] .homecard-icon {
+  border-color: var(--neon-cyan);
+
+  color: var(--neon-cyan);
+
+  box-shadow:
+    0 0 6px rgba(32,230,224,.24);
+}
+
+
+/* =========================================================
+   NEON SIGN FLICKER
+   카드 전체가 아니라 띠만 움직임
+   ========================================================= */
+
+@keyframes neonSignCyan {
+
+  0%,
+  100% {
+    opacity: .78;
+
+    box-shadow:
+      0 0 4px rgba(32,230,224,.45),
+      0 0 10px rgba(32,230,224,.15);
+  }
+
+  45% {
+    opacity: 1;
+
+    box-shadow:
+      0 0 5px rgba(32,230,224,.75),
+      0 0 14px rgba(32,230,224,.30);
+  }
+
+  52% {
+    opacity: .62;
+  }
+
+  58% {
+    opacity: .92;
+  }
+}
+
+
+@keyframes neonSignBlue {
+
+  0%,
+  100% {
+    opacity: .76;
+
+    box-shadow:
+      0 0 4px rgba(78,140,255,.45),
+      0 0 10px rgba(78,140,255,.15);
+  }
+
+  48% {
+    opacity: 1;
+
+    box-shadow:
+      0 0 5px rgba(78,140,255,.75),
+      0 0 14px rgba(78,140,255,.30);
+  }
+
+  55% {
+    opacity: .60;
+  }
+
+  62% {
+    opacity: .92;
+  }
+}
+
+
+@keyframes neonSignLime {
+
+  0%,
+  100% {
+    opacity: .76;
+
+    box-shadow:
+      0 0 4px rgba(184,239,69,.45),
+      0 0 10px rgba(184,239,69,.15);
+  }
+
+  42% {
+    opacity: 1;
+
+    box-shadow:
+      0 0 5px rgba(184,239,69,.75),
+      0 0 14px rgba(184,239,69,.30);
+  }
+
+  49% {
+    opacity: .62;
+  }
+
+  56% {
+    opacity: .94;
+  }
+}
+
+
+@keyframes neonSignPink {
+
+  0%,
+  100% {
+    opacity: .76;
+
+    box-shadow:
+      0 0 4px rgba(255,79,195,.45),
+      0 0 10px rgba(255,79,195,.15);
+  }
+
+  50% {
+    opacity: 1;
+
+    box-shadow:
+      0 0 5px rgba(255,79,195,.75),
+      0 0 14px rgba(255,79,195,.30);
+  }
+
+  57% {
+    opacity: .60;
+  }
+
+  64% {
+    opacity: .93;
+  }
+}
+
+
+@keyframes neonSignOrange {
+
+  0%,
+  100% {
+    opacity: .76;
+
+    box-shadow:
+      0 0 4px rgba(255,159,67,.45),
+      0 0 10px rgba(255,159,67,.15);
+  }
+
+  46% {
+    opacity: 1;
+
+    box-shadow:
+      0 0 5px rgba(255,159,67,.75),
+      0 0 14px rgba(255,159,67,.30);
+  }
+
+  53% {
+    opacity: .62;
+  }
+
+  60% {
+    opacity: .94;
+  }
+}
+
+/* =========================================================
+   NEON — SEARCH BAR
+   검색할 때 네온사인이 켜지는 듯한 효과
+   ========================================================= */
+
+[data-theme="neon"] .searchbox {
+  width: 100%;
+
+  background: #121a1f;
+  color: var(--text);
+
+  border: 1px solid #35434a;
+  border-radius: 4px;
+
+  font-family: var(--font-body);
+
+  outline: none;
+
+  transition:
+    border-color .18s ease,
+    box-shadow .18s ease,
+    background .18s ease;
+}
+
+
+/* 마우스를 올리면 아주 살짝 밝아짐 */
+
+[data-theme="neon"] .searchbox:hover {
+  border-color: #46575f;
+}
+
+
+/* 검색창 활성화 */
+
+[data-theme="neon"] .searchbox:focus {
+  background: #141f24;
+
+  border-color: var(--neon-cyan);
+
+  box-shadow:
+    0 0 0 2px rgba(32,230,224,.06),
+    0 0 12px rgba(32,230,224,.10);
+
+  animation: neonSearchFlicker 1.25s ease-in-out;
+}
+
+
+/* 검색창 placeholder */
+
+[data-theme="neon"] .searchbox::placeholder {
+  color: #68777e;
+}
+
+
+/* =========================================================
+   SEARCH BAR FLICKER
+   테두리만 짧게 깜빡임
+   ========================================================= */
+
+@keyframes neonSearchFlicker {
+
+  0% {
+    border-color: #35434a;
+
+    box-shadow:
+      0 0 0 0 rgba(32,230,224,0),
+      0 0 0 rgba(32,230,224,0);
+  }
+
+  18% {
+    border-color: var(--neon-cyan);
+
+    box-shadow:
+      0 0 0 2px rgba(32,230,224,.08),
+      0 0 16px rgba(32,230,224,.16);
+  }
+
+  27% {
+    border-color: #35434a;
+
+    box-shadow:
+      0 0 0 1px rgba(32,230,224,.025),
+      0 0 5px rgba(32,230,224,.05);
+  }
+
+  38% {
+    border-color: var(--neon-cyan);
+
+    box-shadow:
+      0 0 0 2px rgba(32,230,224,.07),
+      0 0 14px rgba(32,230,224,.13);
+  }
+
+  47% {
+    border-color: #35434a;
+  }
+
+  62% {
+    border-color: var(--neon-cyan);
+
+    box-shadow:
+      0 0 0 2px rgba(32,230,224,.055),
+      0 0 12px rgba(32,230,224,.10);
+  }
+
+  100% {
+    border-color: var(--neon-cyan);
+
+    box-shadow:
+      0 0 0 2px rgba(32,230,224,.06),
+      0 0 12px rgba(32,230,224,.10);
+  }
+}
+
+
+/* =========================================================
+   NEON — COPY STAMP
+   여권 도장 → 네온 간판형 COPY 알림
+   ========================================================= */
+
+
+/* 원형 여권 도장 구조 제거 */
+
+[data-theme="neon"] .stamp-overlay {
+  bottom: 38px;
+  left: 50%;
+
+  transform:
+    translateX(-50%)
+    translateY(10px)
+    scale(.94);
+
+  opacity: 0;
+
+  transition:
+    opacity .18s ease,
+    transform .24s cubic-bezier(.22,1,.36,1);
+}
+
+
+/* 표시될 때 */
+
+[data-theme="neon"] .stamp-overlay.show {
+  opacity: 1;
+
+  transform:
+    translateX(-50%)
+    translateY(0)
+    scale(1);
+}
+
+
+/* 네온 간판 */
+
+[data-theme="neon"] .stamp-mark {
+  width: auto;
+  height: auto;
+
+  min-width: 170px;
+
+  padding: 12px 20px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 4px;
+
+  border: 1px solid var(--neon-cyan);
+
+  border-radius: 4px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(32,230,224,.08),
+      rgba(15,24,29,.96)
+    );
+
+  box-shadow:
+    0 0 5px rgba(32,230,224,.35),
+    0 0 18px rgba(32,230,224,.12),
+    inset 0 0 14px rgba(32,230,224,.035);
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+
+/* 간판 안쪽의 얇은 빛 */
+
+[data-theme="neon"] .stamp-mark::before {
+  content: "";
+
+  position: absolute;
+
+  left: -30%;
+  top: 0;
+  bottom: 0;
+
+  width: 30%;
 
   background:
     linear-gradient(
       90deg,
-      #00f5d4 0 20%,
-      #00a8ff 20% 40%,
-      #b6ff00 40% 60%,
-      #ff2da8 60% 80%,
-      #ff6a00 80% 100%
+      transparent,
+      rgba(255,255,255,.15),
+      transparent
     );
 
-  box-shadow: none;
+  transform: skewX(-20deg);
+
+  animation: neonStampSweep 1.1s ease-out;
 }
 
 
-/* =========================================================
-   FLAG
-   ========================================================= */
+@keyframes neonStampSweep {
 
-[data-theme="neon"] .flagbox {
-  background: #000000;
+  0% {
+    left: -30%;
+  }
 
-  border: 3px solid #222222;
-
-  border-radius: 2px;
-
-  box-shadow: none;
+  100% {
+    left: 130%;
+  }
 }
 
 
-/* =========================================================
-   FLAG DATA
-   ========================================================= */
+/* COPY */
 
 [data-theme="neon"] .stamp-label {
-  color: #b6ff00;
+  color: var(--neon-cyan);
 
-  background: #000000;
-
-  font-weight: 900;
-}
-
-[data-theme="neon"] .stamp-hex {
-  color: #ffffff;
+  background: transparent;
 
   font-family: var(--font-mono);
 
+  font-size: 9px;
+
   font-weight: 800;
 
-  text-shadow: none;
+  letter-spacing: .18em;
+
+  text-transform: uppercase;
+
+  text-shadow:
+    0 0 7px rgba(32,230,224,.45);
+}
+
+
+/* HEX */
+
+[data-theme="neon"] .stamp-hex {
+  color: #f2ffff;
+
+  background: transparent;
+
+  font-family: var(--font-mono);
+
+  font-size: 14px;
+
+  font-weight: 800;
+
+  letter-spacing: .04em;
+
+  text-shadow:
+    0 0 8px rgba(32,230,224,.20);
+}
+
+
+/* 기존 원형 도장의 내부 장식 제거 */
+
+[data-theme="neon"] .stamp-mark {
+  border-radius: 4px;
 }
 
 
 /* =========================================================
-   HEX BAR
+   REDUCED MOTION
    ========================================================= */
 
-[data-theme="neon"] .hexbar,
-[data-theme="neon"] .hexstack {
-  border: 2px solid #292929;
+@media (prefers-reduced-motion: reduce) {
 
-  border-radius: 2px;
+  [data-theme="neon"] .searchbox {
+    animation: none !important;
+  }
 
-  background: #050505;
+  [data-theme="neon"] .stamp-mark::before {
+    animation: none !important;
+  }
 
-  box-shadow: none;
 }
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+[data-theme="neon"] button {
+  font-family: var(--font-body);
+
+  color: var(--text);
+
+  background: #172127;
+
+  border: 1px solid var(--line);
+
+  transition:
+    background .16s ease,
+    border-color .16s ease,
+    color .16s ease,
+    box-shadow .16s ease,
+    transform .16s ease;
+}
+
+
+[data-theme="neon"] button:hover {
+  background: #202c32;
+
+  border-color: #405158;
+
+  color: #ffffff;
+}
+
+
+[data-theme="neon"] button:active {
+  transform: translateY(1px);
+}
+
+
+/* 주요 버튼 */
+
+[data-theme="neon"] .primary,
+[data-theme="neon"] .btn-primary,
+[data-theme="neon"] button.primary {
+  background: rgba(32,230,224,.10);
+
+  color: var(--neon-cyan);
+
+  border-color: rgba(32,230,224,.42);
+}
+
+
+[data-theme="neon"] .primary:hover,
+[data-theme="neon"] .btn-primary:hover,
+[data-theme="neon"] button.primary:hover {
+  background: rgba(32,230,224,.16);
+
+  border-color: var(--neon-cyan);
+
+  box-shadow:
+    0 0 12px rgba(32,230,224,.12);
+}
+
+
+/* =========================================================
+   FLAG CARDS / COLOR CARDS
+   ========================================================= */
+
+[data-theme="neon"] .flag-card,
+[data-theme="neon"] .color-card,
+[data-theme="neon"] .country-card {
+  background: var(--card-bg);
+
+  color: var(--text);
+
+  border: 1px solid var(--line);
+
+  box-shadow: var(--shadow);
+
+  transition:
+    border-color .18s ease,
+    box-shadow .18s ease,
+    transform .18s ease;
+}
+
+
+[data-theme="neon"] .flag-card:hover,
+[data-theme="neon"] .color-card:hover,
+[data-theme="neon"] .country-card:hover {
+  border-color: #405158;
+
+  box-shadow:
+    var(--shadow-hover),
+    0 0 16px rgba(32,230,224,.045);
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   HEX CODE
+   ========================================================= */
+
+[data-theme="neon"] .hex,
+[data-theme="neon"] .hex-code,
+[data-theme="neon"] .color-hex {
+  color: var(--neon-cyan);
+
+  font-family: var(--font-mono);
+
+  letter-spacing: .02em;
+}
+
+
+/* HEX 복사 버튼은 기존 JS/기믹 유지
+   NEON에서는 별도의 복사 애니메이션을 추가하지 않음 */
 
 
 /* =========================================================
    FAVORITES / RECENT
    ========================================================= */
 
-[data-theme="neon"] .fav-card {
-  background: #101010;
+[data-theme="neon"] .fav-card,
+[data-theme="neon"] .recent-card {
+  position: relative;
 
-  color: #ffffff;
+  background: var(--card-bg);
 
-  border: 2px solid #2d2d2d;
+  color: var(--text);
 
-  border-radius: 3px;
+  border: 1px solid var(--line);
 
-  box-shadow: none;
+  box-shadow: var(--shadow);
 
-  transition:
-    border-color .15s ease,
-    transform .15s ease;
-}
-
-[data-theme="neon"] .fav-card:hover {
-  transform: translateY(-2px);
-
-  border-color: #00f5d4;
-
-  box-shadow: none;
-}
-
-[data-theme="neon"] .fav-card-name {
-  color: #ffffff;
-
-  font-weight: 800;
+  overflow: hidden;
 }
 
 
-/* alternating card accents */
+[data-theme="neon"] .fav-card::before,
+[data-theme="neon"] .recent-card::before {
+  content: "";
 
-[data-theme="neon"] .fav-card:nth-child(5n+1) {
-  border-left: 5px solid #00f5d4;
-}
+  position: absolute;
 
-[data-theme="neon"] .fav-card:nth-child(5n+2) {
-  border-left: 5px solid #00a8ff;
-}
+  left: 0;
+  top: 0;
+  bottom: 0;
 
-[data-theme="neon"] .fav-card:nth-child(5n+3) {
-  border-left: 5px solid #b6ff00;
-}
+  width: 3px;
 
-[data-theme="neon"] .fav-card:nth-child(5n+4) {
-  border-left: 5px solid #ff2da8;
-}
+  background: var(--neon-cyan);
 
-[data-theme="neon"] .fav-card:nth-child(5n+5) {
-  border-left: 5px solid #ff6a00;
-}
+  opacity: .85;
 
+  box-shadow:
+    0 0 8px rgba(32,230,224,.18);
 
-/* =========================================================
-   FAVORITE BUTTON
-   ========================================================= */
-
-[data-theme="neon"] .fav-btn {
-  color: #666666;
-
-  background: transparent;
-
-  border: none;
-}
-
-[data-theme="neon"] .fav-btn:hover {
-  color: #00f5d4;
-
-  background: #161616;
-
-  box-shadow: none;
-}
-
-[data-theme="neon"] .fav-btn.active {
-  color: #b6ff00;
-
-  text-shadow: none;
+  pointer-events: none;
 }
 
 
-/* =========================================================
-   GENERAL BUTTON
-   ========================================================= */
+[data-theme="neon"] .fav-card-name,
+[data-theme="neon"] .recent-card-name {
+  color: var(--text);
 
-[data-theme="neon"] button {
-  background: #111111;
-
-  color: #dddddd;
-
-  border: 2px solid #333333;
-
-  border-radius: 2px;
+  font-family: var(--font-display);
 
   font-weight: 700;
-
-  box-shadow: none;
-}
-
-[data-theme="neon"] button:hover {
-  background: #00f5d4;
-
-  color: #000000;
-
-  border-color: #00f5d4;
-
-  box-shadow: none;
-}
-
-
-/* =========================================================
-   PRIMARY BUTTON
-   ========================================================= */
-
-[data-theme="neon"] .primary,
-[data-theme="neon"] .btn-primary {
-  background: #00f5d4;
-
-  color: #000000;
-
-  border-color: #00f5d4;
-
-  font-weight: 900;
-
-  box-shadow: none;
-}
-
-[data-theme="neon"] .primary:hover,
-[data-theme="neon"] .btn-primary:hover {
-  background: #b6ff00;
-
-  border-color: #b6ff00;
-
-  color: #000000;
-}
-
-
-/* =========================================================
-   TAGS
-   ========================================================= */
-
-[data-theme="neon"] .tag,
-[data-theme="neon"] .badge,
-[data-theme="neon"] .category {
-  background: #151515;
-
-  color: #999999;
-
-  border: 1px solid #3a3a3a;
-
-  border-radius: 2px;
-}
-
-[data-theme="neon"] .tag.active,
-[data-theme="neon"] .badge.active {
-  background: #b6ff00;
-
-  color: #000000;
-
-  border-color: #b6ff00;
-
-  font-weight: 800;
 }
 
 
@@ -5118,71 +5671,91 @@ html[data-theme="pop"]{
 
 [data-theme="neon"] .localgov-card,
 [data-theme="neon"] .localgov-item,
-[data-theme="neon"] .tier-card,
-[data-theme="neon"] .tier-item {
-  background: #101010;
+[data-theme="neon"] .tier-card {
+  background: var(--card-bg);
 
-  border: 2px solid #2d2d2d;
+  color: var(--text);
 
-  border-radius: 3px;
+  border: 1px solid var(--line);
 
-  box-shadow: none;
+  box-shadow: var(--shadow);
 
   transition:
-    border-color .15s ease,
-    background .15s ease;
+    border-color .18s ease,
+    box-shadow .18s ease,
+    transform .18s ease;
 }
+
 
 [data-theme="neon"] .localgov-card:hover,
 [data-theme="neon"] .localgov-item:hover,
-[data-theme="neon"] .tier-card:hover,
-[data-theme="neon"] .tier-item:hover {
-  background: #151515;
+[data-theme="neon"] .tier-card:hover {
+  border-color: #405158;
 
-  border-color: #ff2da8;
+  box-shadow:
+    var(--shadow-hover),
+    0 0 16px rgba(32,230,224,.045);
+
+  transform: translateY(-2px);
+}
+
+
+[data-theme="neon"] .localgov-title,
+[data-theme="neon"] .tier-title {
+  color: var(--text);
+}
+
+
+[data-theme="neon"] .localgov-subtitle,
+[data-theme="neon"] .tier-subtitle {
+  color: var(--muted);
 }
 
 
 /* =========================================================
-   CREST
+   CREST / EMBLEM
    ========================================================= */
 
-[data-theme="neon"] .crest-toggle {
-  background: #0b0b0b;
+[data-theme="neon"] .crest-card,
+[data-theme="neon"] .emblem-card {
+  background: var(--card-bg);
 
-  color: #888888;
+  border: 1px solid var(--line);
 
-  border: 2px solid #333333;
-
-  border-radius: 2px;
+  color: var(--text);
 }
+
+
+[data-theme="neon"] .crest-toggle,
+[data-theme="neon"] .emblem-toggle {
+  color: var(--neon-cyan);
+
+  border-color: var(--line);
+}
+
 
 [data-theme="neon"] .crest-toggle:hover,
-[data-theme="neon"] .crest-toggle.active {
-  background: #ff2da8;
+[data-theme="neon"] .emblem-toggle:hover {
+  border-color: var(--neon-cyan);
 
-  color: #000000;
-
-  border-color: #ff2da8;
+  box-shadow:
+    0 0 10px rgba(32,230,224,.10);
 }
 
 
 /* =========================================================
-   BACK BUTTON
+   TAGS
    ========================================================= */
 
-[data-theme="neon"] .back-btn {
-  color: #777777;
+[data-theme="neon"] .tag,
+[data-theme="neon"] .badge {
+  background: rgba(32,230,224,.07);
 
-  border-color: transparent;
-}
+  color: var(--neon-cyan);
 
-[data-theme="neon"] .back-btn:hover {
-  color: #00a8ff;
+  border: 1px solid rgba(32,230,224,.22);
 
-  background: transparent;
-
-  border-color: #00a8ff;
+  font-family: var(--font-mono);
 }
 
 
@@ -5190,40 +5763,95 @@ html[data-theme="pop"]{
    MODAL
    ========================================================= */
 
-[data-theme="neon"] .confirm-overlay,
-[data-theme="neon"] .changelog-overlay {
-  background: rgba(0,0,0,.82);
+[data-theme="neon"] .modal,
+[data-theme="neon"] .modal-content,
+[data-theme="neon"] .dialog {
+  background: #151e23;
 
-  backdrop-filter: none;
+  color: var(--text);
+
+  border: 1px solid var(--line);
+
+  box-shadow:
+    0 24px 60px rgba(0,0,0,.45),
+    0 0 25px rgba(32,230,224,.035);
 }
 
-[data-theme="neon"] .confirm-modal,
-[data-theme="neon"] .changelog-modal {
-  background: #0d0d0d;
 
-  color: #ffffff;
-
-  border: 3px solid #00f5d4;
-
-  border-radius: 2px;
-
-  box-shadow: 10px 10px 0 #ff2da8;
+[data-theme="neon"] .modal h2,
+[data-theme="neon"] .modal h3,
+[data-theme="neon"] .dialog h2,
+[data-theme="neon"] .dialog h3 {
+  color: #f5ffff;
 }
 
 
 /* =========================================================
-   EMPTY STATE
+   BACK BUTTON
+   ========================================================= */
+
+[data-theme="neon"] .back-button,
+[data-theme="neon"] .back-btn {
+  color: var(--muted);
+
+  background: transparent;
+
+  border-color: var(--line);
+}
+
+
+[data-theme="neon"] .back-button:hover,
+[data-theme="neon"] .back-btn:hover {
+  color: var(--neon-cyan);
+
+  border-color: var(--neon-cyan);
+
+  background: rgba(32,230,224,.055);
+
+  box-shadow:
+    0 0 10px rgba(32,230,224,.08);
+}
+
+
+/* =========================================================
+   EMPTY / COMING SOON
    ========================================================= */
 
 [data-theme="neon"] .empty,
-[data-theme="neon"] .comingsoon {
-  background: #0b0b0b;
+[data-theme="neon"] .empty-state,
+[data-theme="neon"] .coming-soon {
+  color: var(--muted);
 
-  border: 2px dashed #444444;
+  background: #141d22;
 
-  color: #777777;
+  border: 1px solid var(--line);
+}
 
-  border-radius: 2px;
+
+[data-theme="neon"] .coming-soon strong,
+[data-theme="neon"] .coming-soon-title {
+  color: var(--neon-cyan);
+}
+
+
+/* =========================================================
+   STAMP
+   기존 여권 테마의 도장 느낌 제거
+   ========================================================= */
+
+[data-theme="neon"] .stamp-overlay,
+[data-theme="neon"] .stamp-mark {
+  color: var(--neon-cyan);
+
+  border-color: var(--neon-cyan);
+}
+
+
+/* 필요 없는 여권식 장식 */
+
+[data-theme="neon"] .passport-stamp,
+[data-theme="neon"] .passport-decoration {
+  display: none !important;
 }
 
 
@@ -5232,44 +5860,35 @@ html[data-theme="pop"]{
    ========================================================= */
 
 [data-theme="neon"] ::-webkit-scrollbar {
-  width: 8px;
+  width: 9px;
+  height: 9px;
 }
 
 [data-theme="neon"] ::-webkit-scrollbar-track {
-  background: #050505;
+  background: #0c1216;
 }
 
 [data-theme="neon"] ::-webkit-scrollbar-thumb {
-  background: #00f5d4;
+  background: #334148;
 
-  border-radius: 0;
+  border-radius: 8px;
+
+  border: 2px solid #0c1216;
 }
 
 [data-theme="neon"] ::-webkit-scrollbar-thumb:hover {
-  background: #b6ff00;
+  background: #4a5b63;
 }
 
 
 /* =========================================================
-   SELECTION
+   TEXT SELECTION
    ========================================================= */
 
 [data-theme="neon"] ::selection {
-  background: #ff2da8;
+  background: rgba(32,230,224,.25);
 
   color: #ffffff;
-}
-
-
-/* =========================================================
-   MONOSPACE DATA
-   ========================================================= */
-
-[data-theme="neon"] .hex-code,
-[data-theme="neon"] code {
-  font-family: var(--font-mono);
-
-  color: #00f5d4;
 }
 
 
@@ -5277,472 +5896,37 @@ html[data-theme="pop"]{
    MOBILE
    ========================================================= */
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
 
-  [data-theme="neon"] main {
-    border-radius: 2px;
+  [data-theme="neon"] .home-grid {
+    margin-top: 24px;
   }
 
-  [data-theme="neon"] .homecard,
-  [data-theme="neon"] .fav-card {
-    border-radius: 2px;
+  [data-theme="neon"] .homecard {
+    border-radius: 4px;
+  }
+
+  [data-theme="neon"] .homecard::before {
+    height: 3px;
   }
 
 }
+
+
 /* =========================================================
-   NEON FINAL POLISH
+   REDUCED MOTION
    ========================================================= */
 
+@media (prefers-reduced-motion: reduce) {
 
-/* ---------------------------------------------------------
-   1. BACKGROUND
-   --------------------------------------------------------- */
+  [data-theme="neon"] *,
+  [data-theme="neon"] *::before,
+  [data-theme="neon"] *::after {
+    animation: none !important;
 
-[data-theme="neon"] body {
-  background:
-    radial-gradient(
-      circle at 15% 15%,
-      rgba(0, 245, 212, 0.055),
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at 85% 75%,
-      rgba(255, 45, 168, 0.035),
-      transparent 30%
-    ),
-    #101415;
+    transition-duration: 0.01ms !important;
+  }
 
-  color: #edfafa;
-}
-
-
-/* main도 완전 검정에서 살짝 띄움 */
-
-[data-theme="neon"] main {
-  background:
-    linear-gradient(
-      145deg,
-      #151b1c,
-      #101516
-    );
-
-  border-color: #303c3d;
-
-  box-shadow:
-    0 18px 55px rgba(0, 0, 0, .38),
-    0 0 35px rgba(0, 245, 212, .025);
-}
-
-
-/* ---------------------------------------------------------
-   2. HOME NEON DIVIDER 삭제
-   --------------------------------------------------------- */
-
-[data-theme="neon"] .home-divider {
-  display: none;
-}
-
-
-/* ---------------------------------------------------------
-   3. HOME CARD
-   --------------------------------------------------------- */
-
-[data-theme="neon"] .homecard {
-  background:
-    linear-gradient(
-      145deg,
-      #171d1e,
-      #121718
-    );
-
-  border: 1px solid #354142;
-
-  border-radius: 5px;
-
-  box-shadow:
-    0 7px 20px rgba(0, 0, 0, .25);
-
-  overflow: hidden;
-
-  transition:
-    transform .18s ease,
-    border-color .18s ease,
-    box-shadow .18s ease;
-}
-
-
-/* hover */
-
-[data-theme="neon"] .homecard:hover {
-  transform: translateY(-3px);
-
-  border-color: #00f5d4;
-
-  box-shadow:
-    0 10px 28px rgba(0, 0, 0, .4),
-    0 0 16px rgba(0, 245, 212, .08);
-}
-
-
-/* ---------------------------------------------------------
-   4. READY CARD NEON STRIP
-   5 COLORS → AUTOMATICALLY REPEATS
-   --------------------------------------------------------- */
-
-
-/* CYAN */
-
-[data-theme="neon"]
-.homecard:not(.homecard-disabled):nth-child(5n+1) {
-  border-top: 6px solid #00f5d4;
-
-  box-shadow:
-    0 -2px 12px rgba(0, 245, 212, .12),
-    0 7px 20px rgba(0, 0, 0, .25);
-}
-
-
-/* BLUE */
-
-[data-theme="neon"]
-.homecard:not(.homecard-disabled):nth-child(5n+2) {
-  border-top: 6px solid #00a8ff;
-
-  box-shadow:
-    0 -2px 12px rgba(0, 168, 255, .12),
-    0 7px 20px rgba(0, 0, 0, .25);
-}
-
-
-/* LIME */
-
-[data-theme="neon"]
-.homecard:not(.homecard-disabled):nth-child(5n+3) {
-  border-top: 6px solid #b6ff00;
-
-  box-shadow:
-    0 -2px 12px rgba(182, 255, 0, .12),
-    0 7px 20px rgba(0, 0, 0, .25);
-}
-
-
-/* PINK */
-
-[data-theme="neon"]
-.homecard:not(.homecard-disabled):nth-child(5n+4) {
-  border-top: 6px solid #ff2da8;
-
-  box-shadow:
-    0 -2px 12px rgba(255, 45, 168, .12),
-    0 7px 20px rgba(0, 0, 0, .25);
-}
-
-
-/* ORANGE */
-
-[data-theme="neon"]
-.homecard:not(.homecard-disabled):nth-child(5n+5) {
-  border-top: 6px solid #ff6a00;
-
-  box-shadow:
-    0 -2px 12px rgba(255, 106, 0, .12),
-    0 7px 20px rgba(0, 0, 0, .25);
-}
-
-
-/* ---------------------------------------------------------
-   5. PREPARING CARD
-   준비중에는 네온 띠 절대 없음
-   --------------------------------------------------------- */
-
-[data-theme="neon"] .homecard.homecard-disabled {
-  border-top: 1px solid #354142;
-
-  background:
-    linear-gradient(
-      145deg,
-      #14191a,
-      #101415
-    );
-
-  opacity: .72;
-
-  cursor: default;
-
-  box-shadow:
-    0 5px 18px rgba(0, 0, 0, .25);
-}
-
-
-/* hover도 없음 */
-
-[data-theme="neon"] .homecard.homecard-disabled:hover {
-  transform: none;
-
-  border-color: #354142;
-
-  box-shadow:
-    0 5px 18px rgba(0, 0, 0, .25);
-}
-
-
-/* ---------------------------------------------------------
-   6. 준비중 BADGE
-   --------------------------------------------------------- */
-
-[data-theme="neon"] .homecard-badge {
-  background: #242b2c;
-
-  color: #8d9b9c;
-
-  border: 1px solid #3d494a;
-
-  border-radius: 999px;
-
-  box-shadow: none;
-}
-
-
-/* ---------------------------------------------------------
-   7. PREPARING TEXT
-   --------------------------------------------------------- */
-
-[data-theme="neon"] .homecard-disabled .homecard-title {
-  color: #929c9d;
-}
-
-[data-theme="neon"] .homecard-disabled .homecard-desc {
-  color: #687476;
-}
-
-
-/* ---------------------------------------------------------
-   8. COUNTRY ICON
-   --------------------------------------------------------- */
-
-[data-theme="neon"] .homecard-stamp {
-  color: #ffffff;
-
-  filter:
-    drop-shadow(0 0 4px rgba(255,255,255,.08));
-}
-
-
-/* 준비중 아이콘은 약하게 */
-
-[data-theme="neon"] .homecard-disabled .homecard-stamp {
-  color: #687273;
-
-  filter: none;
-}
-
-
-/* ---------------------------------------------------------
-   9. CARD TITLE
-   --------------------------------------------------------- */
-
-[data-theme="neon"] .homecard-title {
-  color: #f2ffff;
-
-  font-weight: 800;
-}
-
-[data-theme="neon"] .homecard-desc {
-  color: #849091;
-}
-
-
-/* ---------------------------------------------------------
-   10. RECENT / FAVORITE
-   --------------------------------------------------------- */
-
-[data-theme="neon"] .fav-card {
-  background:
-    linear-gradient(
-      145deg,
-      #171d1e,
-      #111617
-    );
-
-  border-color: #354142;
-
-  box-shadow:
-    0 6px 20px rgba(0, 0, 0, .3);
-}
-
-
-/* 최근 기록도 5색 반복 */
-
-[data-theme="neon"]
-.fav-card:nth-child(5n+1) {
-  border-left: 5px solid #00f5d4;
-}
-
-[data-theme="neon"]
-.fav-card:nth-child(5n+2) {
-  border-left: 5px solid #00a8ff;
-}
-
-[data-theme="neon"]
-.fav-card:nth-child(5n+3) {
-  border-left: 5px solid #b6ff00;
-}
-
-[data-theme="neon"]
-.fav-card:nth-child(5n+4) {
-  border-left: 5px solid #ff2da8;
-}
-
-[data-theme="neon"]
-.fav-card:nth-child(5n+5) {
-  border-left: 5px solid #ff6a00;
-}
-
-
-/* ---------------------------------------------------------
-   11. RECENT / FAVORITE HOVER
-   --------------------------------------------------------- */
-
-[data-theme="neon"] .fav-card:hover {
-  border-color: #526364;
-
-  box-shadow:
-    0 10px 28px rgba(0, 0, 0, .4);
-}
-
-
-/* ---------------------------------------------------------
-   12. SEARCH — 주변이 아주 살짝 밝아짐
-   --------------------------------------------------------- */
-
-[data-theme="neon"] .searchbox {
-  background: #0b1011;
-
-  border-color: #3a494a;
-}
-
-[data-theme="neon"] .searchbox:focus {
-  border-color: #00f5d4;
-
-  box-shadow:
-    0 0 0 2px rgba(0, 245, 212, .07),
-    0 0 20px rgba(0, 245, 212, .07),
-    inset 3px 0 0 #00f5d4;
-}
-
-
-/* ---------------------------------------------------------
-   13. FLAG BOX
-   --------------------------------------------------------- */
-
-[data-theme="neon"] .flagbox {
-  background: #0a0e0f;
-
-  border-color: #354142;
-
-  box-shadow:
-    0 12px 30px rgba(0, 0, 0, .35),
-    0 0 20px rgba(0, 245, 212, .025);
-}
-
-
-/* ---------------------------------------------------------
-   14. BUTTON
-   --------------------------------------------------------- */
-
-[data-theme="neon"] button {
-  background: #141a1b;
-
-  border-color: #3a494a;
-
-  color: #d8e6e6;
-}
-
-[data-theme="neon"] button:hover {
-  background: #182223;
-
-  border-color: #00f5d4;
-
-  color: #00f5d4;
-
-  box-shadow:
-    0 0 10px rgba(0, 245, 212, .1);
-}
-
-
-/* ---------------------------------------------------------
-   15. PRIMARY BUTTON
-   --------------------------------------------------------- */
-
-[data-theme="neon"] .primary,
-[data-theme="neon"] .btn-primary {
-  background: #00f5d4;
-
-  color: #00100d;
-
-  border-color: #00f5d4;
-
-  box-shadow:
-    0 0 10px rgba(0, 245, 212, .2);
-}
-
-[data-theme="neon"] .primary:hover,
-[data-theme="neon"] .btn-primary:hover {
-  background: #7affef;
-
-  color: #00100d;
-
-  box-shadow:
-    0 0 18px rgba(0, 245, 212, .35);
-}
-
-
-/* ---------------------------------------------------------
-   16. HEADER TEXT
-   --------------------------------------------------------- */
-
-[data-theme="neon"] .eyebrow {
-  color: #00f5d4;
-
-  text-shadow:
-    0 0 7px rgba(0, 245, 212, .35);
-}
-
-[data-theme="neon"] h1 {
-  text-shadow:
-    0 2px 12px rgba(0, 0, 0, .35);
-}
-
-
-/* ---------------------------------------------------------
-   17. HEX
-   --------------------------------------------------------- */
-
-[data-theme="neon"] .stamp-hex {
-  color: #00f5d4;
-
-  text-shadow:
-    0 0 7px rgba(0, 245, 212, .3);
-}
-
-
-/* ---------------------------------------------------------
-   18. SCROLLBAR
-   --------------------------------------------------------- */
-
-[data-theme="neon"] ::-webkit-scrollbar-track {
-  background: #0c1112;
-}
-
-[data-theme="neon"] ::-webkit-scrollbar-thumb {
-  background: #365354;
-}
-
-[data-theme="neon"] ::-webkit-scrollbar-thumb:hover {
-  background: #00bda5;
-
-  box-shadow:
-    0 0 8px rgba(0,245,212,.25);
 }
 /* =========================================================
    COMMUNITY THEME

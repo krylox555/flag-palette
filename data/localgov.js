@@ -7,7 +7,7 @@ const localGovCountries = [
         regions:[
           {name:"서울특별시",colors:["#AE1932","#2E853C","#0079BC","#FFFFFF"],wikiFile:"Flag_of_Seoul.svg"},
           {name:"전남광주통합특별시",colors:["#002C9E","#0050DA","#FFFFFF"],wikiFile:"Logo_of_Jeonnam–Gwangju_(Temp).svg"},
-          {name:"부산광역시",colors:["#EB6DA5","#E72D91","#E40081","#B90282","#AA0383","#860A84","#621186","#453198","#393FA0","#2554AF","#1D5EB4","#0575C3"],wikiFile:"Flag_of_Busan_(2023).svg"},
+          {name:"부산광역시",colors:["#EB6DA5","#E72D91","#E40081","#B90282","#AA0383","#860A84","#621186","#453198","#393FA0","#2554AF","#1D5EB4","#0575C3","#FFFFFF"],wikiFile:"Flag_of_Busan_(2023).svg"},
           {name:"대구광역시",colors:["#13A439","#FFFFFF"],wikiFile:"Flag_of_Daegu.svg"},
           {name:"인천광역시",colors:["#005EB8","#00B2A9","#FFFFFF"],wikiFile:"Flag_of_Incheon.svg"},
           {name:"대전광역시",colors:["#00944E","#FFFFFF"],wikiFile:"Flag_of_Daejeon_(white_background).svg"},
