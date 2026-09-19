@@ -6,9 +6,9 @@
 <title>Flag Palette — 세계 국기 색상표</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;600;700&family=Public+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;600;700&family=Public+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&family=Archivo:wght@400;500;600&family=Archivo+Black&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
 <script>
-  document.documentElement.setAttribute('data-theme', localStorage.getItem('flagPaletteTheme') || 'dark');
+  document.documentElement.setAttribute('data-theme', localStorage.getItem('flagPaletteTheme') || 'passport');
 </script>
 <link rel="stylesheet" href="css/style.css">
 </head>
@@ -27,9 +27,16 @@
     <span data-view="favorites" onclick="switchView('favorites', this); renderFavorites();">즐겨찾기</span>
     <span data-view="recent" onclick="switchView('recent', this); renderRecent();">최근 입국 기록</span>
   </div>
-  <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="테마 전환">
-    <span id="themeIcon">☀️</span>
-  </button>
+<select class="theme-picker" id="themePicker" onchange="setTheme(this.value)" aria-label="테마 선택">
+  <option value="passport">여권</option>
+  <option value="aether">에어리</option>
+  <option value="paint">페인트 칩</option>
+  <option value="atlas">아틀라스</option>
+  <option value="neon">네온</option>
+  <option value="cosmos">코스모스</option>
+  <option value="community">커뮤니티</option>
+  <option value="pop">팝</option>
+</select>
 </nav>
 
 <!-- ===================== VIEW 0: 메인 페이지 ===================== -->

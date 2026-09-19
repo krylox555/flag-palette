@@ -1,4 +1,4 @@
-:root{
+:root, html[data-theme="passport"]{
   --bg:#3B0F14;
   --nav-bg:#2C0B10;
   --nav-text:#F3ECD9;
@@ -9,12 +9,15 @@
   --accent:#A9812E;
   --stamp:#A8342A;
   --line:#D9CBA8;
+  --font-display:'Spectral', serif;
+  --font-body:'Public Sans', sans-serif;
+  --font-mono:'Space Mono', monospace;
 }
 *{box-sizing:border-box; margin:0; padding:0;}
 body{
   background:var(--bg);
   color:var(--text);
-  font-family:'Public Sans', sans-serif;
+  font-family:var(--font-body);
   min-height:100vh;
   padding-bottom:60px;
 }
@@ -38,7 +41,7 @@ nav::-webkit-scrollbar{ display:none; }
   display:flex;
   align-items:center;
   gap:10px;
-  font-family:'Spectral', serif;
+  font-family:var(--font-display);
   font-weight:600;
   font-size:16px;
   color:var(--nav-text);
@@ -95,7 +98,7 @@ main{
 .home-main{ max-width:760px; }
 
 .eyebrow{
-  font-family:'Space Mono', monospace;
+  font-family:var(--font-mono);
   font-size:11px;
   letter-spacing:.14em;
   text-transform:uppercase;
@@ -104,7 +107,7 @@ main{
   margin-bottom:10px;
 }
 h1{
-  font-family:'Spectral', serif;
+  font-family:var(--font-display);
   font-weight:600;
   font-size:24px;
   text-align:center;
@@ -121,12 +124,12 @@ h1{
 
 .searchbox{
   width:100%;
-  font-family:'Public Sans', sans-serif;
+  font-family:var(--font-body);
   font-size:14px;
   padding:13px 18px;
   border:1px solid var(--line);
   border-radius:3px;
-  background:#FFFFFF;
+  background:var(--card-bg);
   color:var(--text);
   outline:none;
   margin-bottom:8px;
@@ -141,7 +144,7 @@ h1{
   border-radius:3px;
   overflow:hidden;
   display:none;
-  background:#FFFFFF;
+  background:var(--card-bg);
 }
 .suggestions div{
   padding:10px 16px;
@@ -150,9 +153,8 @@ h1{
   border-bottom:1px solid var(--line);
 }
 .suggestions div:last-child{ border-bottom:none; }
-.suggestions div:hover{ background:#F3ECD9; }
-.suggestions div.highlighted{ background:#EADFC2; color:var(--stamp); }
-
+.suggestions div:hover{ background:var(--line); }
+.suggestions div.highlighted{ background:var(--line); color:var(--stamp); }
 .result{ display:none; }
 .result.show{ display:block; margin-top:28px; }
 
@@ -169,7 +171,7 @@ h1{
   box-shadow:0 16px 32px -18px rgba(0,0,0,0.45);
   overflow:hidden;
   position:relative;
-  background:#FFFFFF;
+  background:var(--card-bg);
 }
 .flagbox img{
   width:100%;
@@ -183,7 +185,7 @@ h1{
   align-items:center;
   justify-content:center;
   font-size:72px;
-  background:#FFFFFF;
+  background:var(--card-bg);
 }
 .stripebanner{
   width:100%;
@@ -199,14 +201,14 @@ h1{
 
 .countryname{
   text-align:center;
-  font-family:'Spectral', serif;
+  font-family:var(--font-display);
   font-size:19px;
   margin-bottom:4px;
   color:var(--text);
 }
 .countrymeta{
   text-align:center;
-  font-family:'Space Mono', monospace;
+  font-family:var(--font-mono);
   font-size:11px;
   color:var(--muted);
   margin-bottom:24px;
@@ -219,7 +221,7 @@ h1{
 }
 .hexbar{
   padding:16px 20px;
-  font-family:'Space Mono', monospace;
+  font-family:var(--font-mono);
   font-weight:700;
   font-size:15px;
   text-align:center;
@@ -235,7 +237,7 @@ h1{
   right:16px;
   top:50%;
   transform:translateY(-50%);
-  font-family:'Public Sans', sans-serif;
+  font-family:var(--font-body);
   font-weight:400;
   font-size:10px;
   opacity:0;
@@ -246,7 +248,7 @@ h1{
 .empty{
   text-align:center;
   color:var(--muted);
-  font-family:'Space Mono', monospace;
+  font-family:var(--font-mono);
   font-size:13px;
   padding:40px 0;
 }
@@ -289,14 +291,14 @@ h1{
   box-shadow:inset 0 0 0 4px rgba(243,236,217,0.96), inset 0 0 0 5px var(--stamp), 0 14px 30px -12px rgba(0,0,0,0.55);
 }
 .stamp-hex{
-  font-family:'Space Mono', monospace;
+  font-family:var(--font-mono);
   font-weight:700;
   font-size:13px;
   color:var(--stamp);
   letter-spacing:0.02em;
 }
 .stamp-label{
-  font-family:'Space Mono', monospace;
+  font-family:var(--font-mono);
   font-size:8px;
   letter-spacing:.14em;
   color:var(--stamp);
@@ -309,7 +311,7 @@ h1{
 .home-meta{
   display:flex;
   justify-content:space-between;
-  font-family:'Space Mono', monospace;
+  font-family:var(--font-mono);
   font-size:9px;
   letter-spacing:.08em;
   color:var(--muted);
@@ -318,7 +320,7 @@ h1{
   border-bottom:1px solid var(--line);
 }
 .home-h1{
-  font-family:'Spectral', serif;
+  font-family:var(--font-display);
   font-weight:600;
   font-size:clamp(28px, 6vw, 36px);
   line-height:1.2;
@@ -353,7 +355,7 @@ h1{
   text-align:center;
   gap:12px;
   border:1px solid var(--line);
-  background:#FFFFFF;
+  background:var(--card-bg);
   border-radius:3px;
   padding:24px 18px;
   cursor:pointer;
@@ -369,7 +371,7 @@ h1{
 .homecard-badge{
   position:absolute;
   top:12px; right:12px;
-  font-family:'Space Mono', monospace;
+  font-family:var(--font-mono);
   font-size:9px;
   letter-spacing:.05em;
   color:var(--muted);
@@ -394,7 +396,7 @@ h1{
 }
 .homecard-body{ flex:1; min-width:0; }
 .homecard-title{
-  font-family:'Spectral', serif;
+  font-family:var(--font-display);
   font-weight:600;
   font-size:16px;
   margin-bottom:4px;
@@ -407,7 +409,7 @@ h1{
 }
 .home-footnote{
   text-align:center;
-  font-family:'Space Mono', monospace;
+  font-family:var(--font-mono);
   font-size:10px;
   letter-spacing:.05em;
   color:var(--muted);
@@ -422,7 +424,7 @@ h1{
 }
 .comingsoon-emoji{ font-size:32px; margin-bottom:16px; }
 .comingsoon-title{
-  font-family:'Spectral', serif;
+  font-family:var(--font-display);
   font-weight:600;
   font-size:18px;
   margin-bottom:8px;
@@ -464,7 +466,7 @@ h1{
 .fav-card{
   position:relative;
   border:1px solid var(--line);
-  background:#FFFFFF;
+  background:var(--card-bg);
   border-radius:3px;
   padding:16px;
   text-align:center;
@@ -475,32 +477,43 @@ h1{
   border-color:var(--accent);
   transform:translateY(-2px);
 }
+/* 국기 원본 비율 자동 적용 */
 .fav-card-flag{
   width:100%;
-  aspect-ratio:3/2;
+  height:auto;
   border-radius:2px;
   overflow:hidden;
-  background:#FFFFFF;
+  background:var(--card-bg);
   margin-bottom:10px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-.fav-card-flag img{
-  width:100%; height:100%;
-  object-fit:contain;
   display:block;
+  line-height:0;
 }
+
+.fav-card-flag img{
+  display:block;
+  width:100%;
+  height:auto;
+  object-fit:contain;
+}
+
 .fav-card-flag-emoji{
   display:none;
-  width:100%; height:100%;
+  width:100%;
+  aspect-ratio:3 / 2;
   align-items:center;
   justify-content:center;
   font-size:28px;
+  line-height:normal;
 }
+
 .fav-card-stripe{
-  width:100%; height:100%;
+  width:100%;
+  aspect-ratio:3 / 2;
   display:flex;
+}
+
+.fav-card-stripe span{
+  flex:1;
 }
 .fav-card-stripe span{ flex:1; }
 .fav-filter{
@@ -513,7 +526,7 @@ h1{
   padding:6px 14px;
   border:1px solid var(--line);
   border-radius:100px;
-  font-family:'Space Mono', monospace;
+  font-family:var(--font-mono);
   font-size:11px;
   color:var(--muted);
   cursor:pointer;
@@ -534,7 +547,7 @@ h1{
   border-radius:100px;
   background:transparent;
   color:var(--muted);
-  font-family:'Space Mono', monospace;
+  font-family:var(--font-mono);
   font-size:11px;
   cursor:pointer;
   transition:border-color .15s ease, color .15s ease;
@@ -568,7 +581,7 @@ h1{
   to{ transform:scale(1); opacity:1; }
 }
 .confirm-eyebrow{
-  font-family:'Space Mono', monospace;
+  font-family:var(--font-mono);
   font-size:10px;
   letter-spacing:.14em;
   text-transform:uppercase;
@@ -576,7 +589,7 @@ h1{
   margin-bottom:12px;
 }
 .confirm-title{
-  font-family:'Spectral', serif;
+  font-family:var(--font-display);
   font-weight:600;
   font-size:17px;
   color:var(--text);
@@ -596,7 +609,7 @@ h1{
   flex:1;
   padding:10px 0;
   border-radius:100px;
-  font-family:'Public Sans', sans-serif;
+  font-family:var(--font-body);
   font-size:13px;
   font-weight:600;
   cursor:pointer;
@@ -614,7 +627,7 @@ h1{
   color:#F3ECD9;
 }
 .fav-card-name{
-  font-family:'Spectral', serif;
+  font-family:var(--font-display);
   font-weight:600;
   font-size:13px;
   color:var(--text);
@@ -638,9 +651,9 @@ h1{
   padding:8px 18px;
   border:1px solid var(--line);
   border-radius:100px;
-  background:#FFFFFF;
+  background:var(--card-bg);
   color:var(--muted);
-  font-family:'Space Mono', monospace;
+  font-family:var(--font-mono);
   font-size:12px;
   cursor:pointer;
   transition:border-color .15s ease, color .15s ease;
@@ -658,7 +671,7 @@ h1{
 .crest-row:last-child{ border-bottom:none; }
 .crest-row-label{
   flex:0 0 80px;
-  font-family:'Space Mono', monospace;
+  font-family:var(--font-mono);
   font-size:12px;
   color:var(--muted);
   line-height:1.4;
@@ -692,23 +705,124 @@ html[data-theme="light"]{
   --stamp:#A8342A;
   --line:#DDD2B4;
 }
+html[data-theme="paint"]{
+  --bg:#F2ECE0;
+  --nav-bg:#FBF8F2;
+  --nav-text:#3A362E;
+  --nav-muted:#9C9484;
+  --card-bg:#FFFFFF;
+  --text:#3A362E;
+  --muted:#9C9484;
+  --accent:#7FB3D5;
+  --stamp:#F3866B;
+  --line:#E4DCC8;
+  --font-display:'Archivo Black', sans-serif;
+  --font-body:'Archivo', sans-serif;
+  --font-mono:'Space Mono', monospace;
+}
+/* ---------- 페인트 칩 시그니처 ---------- */
+
+/* 종이 질감 배경 */
+[data-theme="paint"] body{
+  background-image:
+    radial-gradient(rgba(58,54,46,0.035) 1px, transparent 1px);
+  background-size:14px 14px;
+}
+
+/* 손글씨 헤드라인 */
+[data-theme="paint"] .home-h1{
+  font-family:'Caveat', cursive;
+  font-weight:700;
+  font-size:clamp(34px, 7vw, 48px);
+}
+
+/* 카드 = 마스킹테이프 붙인 견본 카드, 살짝 기울어짐 */
+[data-theme="paint"] .homecard,
+[data-theme="paint"] .fav-card{
+  position:relative;
+  transform:rotate(-1.2deg);
+  box-shadow:0 10px 24px -10px rgba(58,54,46,0.25);
+}
+[data-theme="paint"] .homecard:nth-child(even),
+[data-theme="paint"] .fav-card:nth-child(even){
+  transform:rotate(1.2deg);
+}
+[data-theme="paint"] .homecard:hover,
+[data-theme="paint"] .fav-card:hover{
+  transform:rotate(0deg) translateY(-3px);
+}
+[data-theme="paint"] .homecard::before,
+[data-theme="paint"] .fav-card::before{
+  content:"";
+  position:absolute;
+  top:-8px;
+  left:50%;
+  transform:translateX(-50%) rotate(-3deg);
+  width:46px;
+  height:16px;
+  background:repeating-linear-gradient(-45deg, #FFF6D8, #FFF6D8 4px, #F5E9B8 4px, #F5E9B8 8px);
+  opacity:0.85;
+  box-shadow:0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* 헥스코드 = 견본 카드 라벨처럼, 하단에 큼직하게 + 일련번호 느낌 */
+[data-theme="paint"] .hexbar{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-end;
+  min-height:76px;
+  padding-bottom:10px;
+  font-size:17px;
+}
+[data-theme="paint"] .hexbar::before{
+  content:"No. " attr(data-index);
+  font-family:var(--font-mono);
+  font-size:9px;
+  opacity:0.7;
+  margin-bottom:4px;
+}
+
+/* 복사 인터랙션 = 종이 태그가 톡 튀어오르는 느낌 */
+[data-theme="paint"] .stamp-mark{
+  border-radius:8px;
+  border:none;
+  background:var(--card-bg);
+  box-shadow:0 14px 30px -10px rgba(58,54,46,0.35);
+  transform:rotate(-2deg);
+}
+[data-theme="paint"] .stamp-hex{ color:var(--text); }
+[data-theme="paint"] .stamp-label{ color:var(--stamp); }
+
+/* 홈 화면 구분선 = 파스텔 멀티컬러 점 */
+[data-theme="paint"] .home-divider{
+  height:8px;
+  max-width:160px;
+  background-image:none;
+  background:linear-gradient(90deg, #C9BBE4, #B7E1C9, #FFE680, #F7B3A7, #7FB3D5);
+  border-radius:100px;
+}
 body, nav, main, .searchbox, .suggestions, .homecard, .comingsoon, .disclaimer, .flagbox .emojifallback, .fav-card{
   transition:background-color .25s ease, color .25s ease, border-color .25s ease;
 }
-.theme-toggle{
+.theme-picker{
   margin-left:auto;
-  width:34px; height:34px;
-  border-radius:50%;
+  padding:7px 12px;
+  border-radius:100px;
   border:1px solid var(--accent);
   background:transparent;
   color:var(--nav-text);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:14px;
+  font-family:var(--font-mono);
+  font-size:11px;
   cursor:pointer;
-  flex-shrink:0;   /* 이미 있음, 확인만 */
-  transition:border-color .15s ease, background-color .2s ease, color .25s ease;
+  flex-shrink:0;
+  outline:none;
+  transition:border-color .15s ease, color .25s ease;
+}
+.theme-picker:hover{ border-color:var(--stamp); }
+.theme-picker option{
+  background:var(--card-bg);
+  color:var(--text);
 }
 .theme-toggle:hover{ border-color:var(--stamp); }
 @media (max-width:480px){
@@ -726,7 +840,7 @@ body, nav, main, .searchbox, .suggestions, .homecard, .comingsoon, .disclaimer, 
   border-radius:100px;
   background:transparent;
   color:var(--muted);
-  font-family:'Space Mono', monospace;
+  font-family:var(--font-mono);
   font-size:11px;
   cursor:pointer;
   transition:border-color .15s ease, color .15s ease;
@@ -789,13 +903,5640 @@ body, nav, main, .searchbox, .suggestions, .homecard, .comingsoon, .disclaimer, 
 }
 .changelog-entry:last-child{ border-bottom:none; margin-bottom:0; padding-bottom:0; }
 .changelog-entry .v{
-  font-family:'Space Mono', monospace;
+  font-family:var(--font-mono);
   font-weight:700;
   color:var(--stamp);
   margin-right:6px;
 }
 .changelog-entry .d{
-  font-family:'Space Mono', monospace;
+  font-family:var(--font-mono);
   font-size:10px;
   margin-right:6px;
+}
+
+
+/* ============================================================
+   아틀라스 테마
+   Flag Palette
+   Modern / Clean / Neumorphism / Teal
+============================================================ */
+
+html[data-theme="atlas"]{
+  --bg:#DDE7E6;
+  --nav-bg:#005B58;
+  --nav-text:#F4FAF9;
+  --nav-muted:#A8C7C4;
+
+  --card-bg:#F4F8F7;
+  --text:#163E3C;
+  --muted:#66817F;
+
+  --accent:#00847F;
+  --stamp:#006B68;
+  --line:#C7D8D6;
+
+  --font-display:'Archivo', sans-serif;
+  --font-body:'Archivo', sans-serif;
+  --font-mono:'Space Mono', monospace;
+}
+/* ============================================================
+   GLOBAL
+============================================================ */
+[data-theme="atlas"] body{
+  background:
+    radial-gradient(
+      circle at 20% 10%,
+      rgba(255,255,255,.72),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 85% 80%,
+      rgba(0,91,88,.06),
+      transparent 35%
+    ),
+    var(--bg);
+
+  color:var(--text);
+}
+
+/* 부드러운 테마 전환 */
+[data-theme="atlas"] nav,
+[data-theme="atlas"] main,
+[data-theme="atlas"] .searchbox,
+[data-theme="atlas"] .suggestions,
+[data-theme="atlas"] .homecard,
+[data-theme="atlas"] .fav-card,
+[data-theme="atlas"] .comingsoon,
+[data-theme="atlas"] .disclaimer,
+[data-theme="atlas"] .flagbox,
+[data-theme="atlas"] .stripebanner,
+[data-theme="atlas"] .hexstack,
+[data-theme="atlas"] .confirm-modal,
+[data-theme="atlas"] .changelog-modal{
+  transition:
+    background-color .25s ease,
+    color .25s ease,
+    border-color .25s ease,
+    box-shadow .25s ease,
+    transform .18s ease;
+}
+
+/* ============================================================
+   NAVIGATION
+============================================================ */
+[data-theme="atlas"] nav{
+  width:calc(100% - 28px);
+  max-width:1100px;
+  margin:14px auto 0;
+
+  height:54px;
+  padding:0 18px;
+
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:999px;
+
+  background:var(--nav-bg);
+
+  box-shadow:
+    7px 9px 20px rgba(28,65,63,.18),
+    -5px -5px 14px rgba(255,255,255,.62);
+
+  gap:20px;
+}
+
+
+/* 로고 */
+[data-theme="atlas"] .brand{
+  font-family:'Archivo', sans-serif;
+  font-weight:600;
+  letter-spacing:.03em;
+}
+[data-theme="atlas"] .brand-mark{
+  width:26px;
+  height:26px;
+
+  border:2px solid #D5EEEB;
+
+  box-shadow:
+    2px 2px 5px rgba(0,0,0,.15),
+    -2px -2px 5px rgba(255,255,255,.12);
+}
+[data-theme="atlas"] .brand-mark::after{
+  color:#D5EEEB;
+}
+
+/* 메뉴 */
+
+[data-theme="atlas"] .navlinks{
+  gap:6px;
+}
+
+[data-theme="atlas"] .navlinks span{
+  padding:8px 13px;
+
+  border:none;
+  border-radius:999px;
+
+  color:var(--nav-muted);
+
+  transition:
+    background-color .15s ease,
+    color .15s ease,
+    box-shadow .15s ease;
+}
+
+[data-theme="atlas"] .navlinks span:hover{
+  color:var(--nav-text);
+  background:rgba(255,255,255,.08);
+}
+
+[data-theme="atlas"] .navlinks span.active{
+  color:var(--nav-text);
+  border:none;
+
+  background:rgba(255,255,255,.13);
+
+  box-shadow:
+    inset 2px 2px 5px rgba(0,0,0,.12),
+    inset -2px -2px 5px rgba(255,255,255,.06);
+}
+
+
+/* ============================================================
+   THEME PICKER
+============================================================ */
+
+[data-theme="atlas"] .theme-picker{
+  padding:7px 14px;
+
+  border:1px solid rgba(255,255,255,.35);
+  border-radius:999px;
+
+  background:rgba(255,255,255,.08);
+  color:var(--nav-text);
+
+  box-shadow:
+    inset 2px 2px 5px rgba(0,0,0,.10),
+    inset -2px -2px 5px rgba(255,255,255,.08);
+}
+
+[data-theme="atlas"] .theme-picker:hover{
+  border-color:#D5EEEB;
+}
+
+
+/* ============================================================
+   MAIN CONTAINER
+============================================================ */
+
+[data-theme="atlas"] main{
+  max-width:760px;
+
+  margin:28px auto 0;
+  padding:42px 34px 54px;
+
+  border-radius:28px;
+
+  border:1px solid rgba(255,255,255,.72);
+
+  background:var(--card-bg);
+
+  background-image:none;
+
+  box-shadow:
+    12px 16px 32px rgba(46,77,75,.17),
+    -10px -10px 28px rgba(255,255,255,.82);
+}
+
+
+/* ============================================================
+   HEADINGS
+============================================================ */
+
+[data-theme="atlas"] .eyebrow{
+  color:var(--accent);
+  font-family:var(--font-mono);
+  letter-spacing:.18em;
+}
+
+[data-theme="atlas"] h1{
+  font-family:'Archivo', sans-serif;
+  font-weight:600;
+  letter-spacing:-.03em;
+}
+
+[data-theme="atlas"] .home-h1{
+  font-family:'Archivo', sans-serif;
+  font-weight:600;
+  letter-spacing:-.045em;
+
+  font-size:clamp(30px,6vw,42px);
+}
+
+[data-theme="atlas"] .subline,
+[data-theme="atlas"] .home-sub{
+  color:var(--muted);
+}
+
+
+/* ============================================================
+   HOME META
+============================================================ */
+
+[data-theme="atlas"] .home-meta{
+  border-bottom:1px solid var(--line);
+  color:var(--muted);
+}
+
+
+/* ============================================================
+   SEARCH
+============================================================ */
+
+[data-theme="atlas"] .searchbox{
+  padding:15px 20px;
+
+  border:1px solid rgba(255,255,255,.8);
+  border-radius:18px;
+
+  background:#EDF5F3;
+  color:var(--text);
+
+  box-shadow:
+    inset 3px 3px 8px rgba(47,77,75,.10),
+    inset -4px -4px 9px rgba(255,255,255,.82);
+}
+
+[data-theme="atlas"] .searchbox:focus{
+  border-color:var(--accent);
+
+  box-shadow:
+    inset 3px 3px 8px rgba(47,77,75,.10),
+    inset -4px -4px 9px rgba(255,255,255,.82),
+    0 0 0 3px rgba(0,132,127,.08);
+}
+
+[data-theme="atlas"] .searchbox::placeholder{
+  color:#7C9694;
+}
+
+
+/* ============================================================
+   SEARCH SUGGESTIONS
+============================================================ */
+
+[data-theme="atlas"] .suggestions{
+  border:1px solid var(--line);
+  border-radius:18px;
+
+  background:var(--card-bg);
+
+  box-shadow:
+    7px 9px 18px rgba(46,77,75,.12),
+    -5px -5px 12px rgba(255,255,255,.7);
+}
+
+[data-theme="atlas"] .suggestions div{
+  border-bottom:1px solid var(--line);
+}
+
+[data-theme="atlas"] .suggestions div:hover{
+  background:#E5F0EE;
+}
+
+[data-theme="atlas"] .suggestions div.highlighted{
+  background:#D7EAE7;
+  color:var(--stamp);
+}
+
+
+/* ============================================================
+   FLAG PREVIEW
+============================================================ */
+
+[data-theme="atlas"] .flagbox,
+[data-theme="atlas"] .stripebanner{
+  border:1px solid rgba(255,255,255,.85);
+  border-radius:18px;
+
+  box-shadow:
+    10px 14px 25px rgba(43,72,70,.18),
+    -6px -6px 16px rgba(255,255,255,.75);
+}
+
+[data-theme="atlas"] .flagbox .emojifallback{
+  background:var(--card-bg);
+}
+
+
+/* ============================================================
+   COUNTRY NAME / META
+============================================================ */
+
+[data-theme="atlas"] .countryname{
+  font-family:'Archivo', sans-serif;
+  font-weight:600;
+  letter-spacing:-.02em;
+}
+
+[data-theme="atlas"] .countrymeta{
+  color:var(--muted);
+}
+
+
+/* ============================================================
+   HEX STACK
+============================================================ */
+
+[data-theme="atlas"] .hexstack{
+  border:1px solid rgba(255,255,255,.85);
+  border-radius:18px;
+
+  box-shadow:
+    8px 10px 20px rgba(43,72,70,.13),
+    -5px -5px 14px rgba(255,255,255,.72);
+}
+
+[data-theme="atlas"] .hexbar{
+  padding:17px 20px;
+
+  font-family:var(--font-mono);
+  font-size:14px;
+
+  transition:
+    filter .12s ease,
+    transform .12s ease;
+}
+
+[data-theme="atlas"] .hexbar:hover{
+  filter:brightness(1.05);
+}
+
+
+/* ============================================================
+   HOME CARDS
+============================================================ */
+
+[data-theme="atlas"] .homecards{
+  gap:18px;
+}
+
+[data-theme="atlas"] .homecard{
+  border:1px solid rgba(255,255,255,.8);
+  border-radius:22px;
+
+  padding:25px 18px;
+
+  background:var(--card-bg);
+
+  box-shadow:
+    8px 10px 22px rgba(43,72,70,.14),
+    -7px -7px 18px rgba(255,255,255,.78);
+}
+
+[data-theme="atlas"] .homecard:hover{
+  border-color:rgba(0,132,127,.35);
+
+  transform:translateY(-4px);
+
+  box-shadow:
+    11px 15px 28px rgba(43,72,70,.18),
+    -8px -8px 20px rgba(255,255,255,.85);
+}
+
+
+/* 비활성 카드 */
+
+[data-theme="atlas"] .homecard-disabled{
+  opacity:.62;
+}
+
+[data-theme="atlas"] .homecard-disabled:hover{
+  transform:none;
+  box-shadow:
+    8px 10px 22px rgba(43,72,70,.14),
+    -7px -7px 18px rgba(255,255,255,.78);
+}
+
+
+/* 카드 아이콘 */
+
+[data-theme="atlas"] .homecard-stamp{
+  width:46px;
+  height:46px;
+
+  border:1px solid rgba(0,132,127,.35);
+
+  color:var(--accent);
+
+  background:#EAF3F1;
+
+  box-shadow:
+    4px 5px 10px rgba(43,72,70,.12),
+    -4px -4px 9px rgba(255,255,255,.85);
+}
+
+
+/* 카드 뱃지 */
+
+[data-theme="atlas"] .homecard-badge{
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.35);
+  color:var(--muted);
+}
+
+
+/* 카드 텍스트 */
+
+[data-theme="atlas"] .homecard-title{
+  font-family:'Archivo', sans-serif;
+  font-weight:600;
+}
+
+[data-theme="atlas"] .homecard-desc{
+  color:var(--muted);
+}
+
+
+/* ============================================================
+   HOME DIVIDER
+============================================================ */
+
+[data-theme="atlas"] .home-divider{
+  height:5px;
+  max-width:150px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--accent),
+      transparent
+    );
+
+  border-radius:999px;
+}
+
+
+/* ============================================================
+   FAVORITES
+============================================================ */
+
+[data-theme="atlas"] .fav-card{
+  border:1px solid rgba(255,255,255,.8);
+  border-radius:20px;
+
+  background:var(--card-bg);
+
+  box-shadow:
+    7px 9px 19px rgba(43,72,70,.13),
+    -6px -6px 16px rgba(255,255,255,.75);
+}
+
+[data-theme="atlas"] .fav-card:hover{
+  border-color:rgba(0,132,127,.35);
+
+  transform:translateY(-3px);
+
+  box-shadow:
+    10px 13px 24px rgba(43,72,70,.17),
+    -7px -7px 18px rgba(255,255,255,.82);
+}
+
+[data-theme="atlas"] .fav-card-flag{
+  border-radius:13px;
+
+  background:#E7F0EF;
+
+  box-shadow:
+    inset 2px 2px 6px rgba(43,72,70,.08),
+    inset -2px -2px 6px rgba(255,255,255,.7);
+}
+
+[data-theme="atlas"] .fav-card-name{
+  font-family:'Archivo', sans-serif;
+}
+
+
+/* ============================================================
+   FAVORITE FILTER
+============================================================ */
+
+[data-theme="atlas"] .fav-filter-chip{
+  border:1px solid var(--line);
+  border-radius:999px;
+
+  background:rgba(255,255,255,.25);
+}
+
+[data-theme="atlas"] .fav-filter-chip:hover{
+  border-color:var(--accent);
+  color:var(--text);
+}
+
+[data-theme="atlas"] .fav-filter-chip.active{
+  border-color:var(--accent);
+  color:var(--stamp);
+  background:rgba(0,132,127,.08);
+}
+
+
+/* ============================================================
+   FAVORITE BUTTON
+============================================================ */
+
+[data-theme="atlas"] .fav-btn{
+  color:var(--muted);
+}
+
+[data-theme="atlas"] .fav-btn.active{
+  color:var(--stamp);
+}
+
+
+/* ============================================================
+   RECENT / CLEAR BUTTON
+============================================================ */
+
+[data-theme="atlas"] .clear-recent-btn{
+  border:1px solid var(--line);
+
+  background:rgba(255,255,255,.25);
+  color:var(--muted);
+
+  box-shadow:
+    3px 4px 8px rgba(43,72,70,.08),
+    -3px -3px 7px rgba(255,255,255,.65);
+}
+
+[data-theme="atlas"] .clear-recent-btn:hover{
+  border-color:var(--accent);
+  color:var(--accent);
+}
+
+
+/* ============================================================
+   CREST
+============================================================ */
+
+[data-theme="atlas"] .crest-toggle{
+  border:1px solid var(--line);
+  border-radius:999px;
+
+  background:var(--card-bg);
+  color:var(--muted);
+
+  box-shadow:
+    4px 5px 10px rgba(43,72,70,.10),
+    -4px -4px 9px rgba(255,255,255,.72);
+}
+
+[data-theme="atlas"] .crest-toggle:hover{
+  border-color:var(--accent);
+  color:var(--text);
+}
+
+[data-theme="atlas"] .crest-toggle.active{
+  border-color:var(--stamp);
+  color:var(--stamp);
+}
+
+[data-theme="atlas"] .crest-row{
+  border-bottom:1px solid var(--line);
+}
+
+[data-theme="atlas"] .crest-swatch{
+  border-radius:9px;
+
+  box-shadow:
+    2px 3px 6px rgba(0,0,0,.12);
+}
+
+
+/* ============================================================
+   DISCLAIMER / EMPTY / COMING SOON
+============================================================ */
+
+[data-theme="atlas"] .disclaimer{
+  border:1px dashed var(--line);
+  border-radius:16px;
+
+  background:rgba(255,255,255,.28);
+  color:var(--muted);
+}
+
+[data-theme="atlas"] .comingsoon{
+  border:1px dashed var(--line);
+  border-radius:22px;
+
+  background:rgba(255,255,255,.25);
+
+  box-shadow:
+    inset 3px 3px 8px rgba(43,72,70,.06),
+    inset -3px -3px 8px rgba(255,255,255,.65);
+}
+
+[data-theme="atlas"] .empty{
+  color:var(--muted);
+}
+
+
+/* ============================================================
+   COPY HEX STAMP
+============================================================ */
+
+[data-theme="atlas"] .stamp-mark{
+  width:118px;
+  height:118px;
+
+  border:1px solid rgba(0,107,104,.35);
+  border-radius:50%;
+
+  background:var(--card-bg);
+
+  box-shadow:
+    9px 12px 24px rgba(43,72,70,.18),
+    -7px -7px 17px rgba(255,255,255,.78);
+}
+
+[data-theme="atlas"] .stamp-hex{
+  color:var(--stamp);
+}
+
+[data-theme="atlas"] .stamp-label{
+  color:var(--accent);
+}
+
+
+/* ============================================================
+   CONFIRM MODAL
+============================================================ */
+
+[data-theme="atlas"] .confirm-overlay,
+[data-theme="atlas"] .changelog-overlay{
+  background:rgba(0,65,63,.34);
+  backdrop-filter:blur(4px);
+}
+
+[data-theme="atlas"] .confirm-modal,
+[data-theme="atlas"] .changelog-modal{
+  border:1px solid rgba(255,255,255,.82);
+  border-top:4px solid var(--accent);
+  border-radius:22px;
+
+  box-shadow:
+    14px 18px 38px rgba(32,65,63,.24),
+    -8px -8px 22px rgba(255,255,255,.65);
+}
+
+[data-theme="atlas"] .confirm-eyebrow{
+  color:var(--accent);
+}
+
+[data-theme="atlas"] .confirm-title{
+  font-family:'Archivo', sans-serif;
+}
+
+[data-theme="atlas"] .confirm-desc{
+  color:var(--muted);
+}
+
+[data-theme="atlas"] .confirm-btn{
+  border-radius:999px;
+}
+
+[data-theme="atlas"] .confirm-cancel{
+  background:transparent;
+  color:var(--muted);
+}
+
+[data-theme="atlas"] .confirm-ok{
+  background:var(--nav-bg);
+  border-color:var(--nav-bg);
+  color:#F4FAF9;
+}
+
+
+/* ============================================================
+   CHANGELOG
+============================================================ */
+
+[data-theme="atlas"] .changelog-btn{
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.25);
+  color:var(--muted);
+
+  box-shadow:
+    3px 4px 8px rgba(43,72,70,.08),
+    -3px -3px 7px rgba(255,255,255,.65);
+}
+
+[data-theme="atlas"] .changelog-btn:hover{
+  border-color:var(--accent);
+  color:var(--text);
+}
+
+[data-theme="atlas"] .changelog-entry{
+  border-bottom:1px dashed var(--line);
+  color:var(--muted);
+}
+
+[data-theme="atlas"] .changelog-entry .v{
+  color:var(--accent);
+}
+
+
+/* ============================================================
+   MOBILE
+============================================================ */
+
+@media (max-width:680px){
+
+  [data-theme="atlas"] nav{
+    width:calc(100% - 18px);
+    margin-top:9px;
+  }
+
+  [data-theme="atlas"] main{
+    width:calc(100% - 18px);
+
+    margin-top:18px;
+
+    padding:
+      32px
+      20px
+      44px;
+
+    border-radius:22px;
+  }
+
+  [data-theme="atlas"] .homecards{
+    gap:14px;
+  }
+
+  [data-theme="atlas"] .homecard{
+    border-radius:18px;
+  }
+
+}
+
+@media (max-width:480px){
+
+  [data-theme="atlas"] nav{
+    height:50px;
+    padding:0 12px;
+  }
+
+  [data-theme="atlas"] .navlinks{
+    gap:2px;
+  }
+
+  [data-theme="atlas"] .navlinks span{
+    padding:7px 9px;
+    font-size:12px;
+  }
+
+  [data-theme="atlas"] .theme-picker{
+    padding:6px 10px;
+  }
+
+  [data-theme="atlas"] main{
+    padding:28px 17px 40px;
+    border-radius:20px;
+  }
+
+}
+/* ============================================================
+   ATLAS — FLOATING HEX LABEL
+============================================================ */
+
+[data-theme="atlas"] .hexbar{
+  position:relative;
+
+  /* 색상 영역과 HEX 텍스트 분리 */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  min-height:68px;
+  padding:18px 20px;
+
+  font-family:var(--font-mono);
+  font-weight:700;
+  letter-spacing:.02em;
+}
+
+
+/* HEX 코드를 떠 있는 캡슐로 */
+
+[data-theme="atlas"] .hexbar span{
+  position:relative;
+  z-index:2;
+
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:7px 13px;
+
+  border-radius:999px;
+
+  /*
+    배경색 위에서 살짝 떠 있는 느낌
+    흰색 반투명 + 그림자
+  */
+  background:rgba(255,255,255,.16);
+
+  border:1px solid rgba(255,255,255,.35);
+
+  box-shadow:
+    4px 5px 10px rgba(0,0,0,.16),
+    -3px -3px 7px rgba(255,255,255,.18);
+
+  text-shadow:
+    0 1px 2px rgba(0,0,0,.18);
+
+  transition:
+    transform .16s ease,
+    box-shadow .16s ease,
+    background .16s ease;
+}
+
+
+/* 마우스를 올리면 살짝 떠오름 */
+
+[data-theme="atlas"] .hexbar:hover span{
+  transform:translateY(-2px);
+
+  background:rgba(255,255,255,.23);
+
+  box-shadow:
+    5px 7px 13px rgba(0,0,0,.18),
+    -4px -4px 8px rgba(255,255,255,.2);
+}
+
+
+/* ============================================================
+   HEX BAR가 흰색일 때
+   → 검은 HEX가 너무 묻히지 않도록 처리
+============================================================ */
+
+[data-theme="atlas"] .hexbar[style*="#FFFFFF"] span,
+[data-theme="atlas"] .hexbar.white span{
+  color:#163E3C;
+
+  background:rgba(255,255,255,.72);
+
+  border-color:rgba(22,62,60,.12);
+
+  box-shadow:
+    4px 5px 10px rgba(43,72,70,.13),
+    -3px -3px 7px rgba(255,255,255,.9);
+}
+
+
+/* ============================================================
+   작은 화면
+============================================================ */
+
+@media (max-width:480px){
+
+  [data-theme="atlas"] .hexbar{
+    min-height:58px;
+    padding:14px;
+  }
+
+  [data-theme="atlas"] .hexbar span{
+    padding:6px 10px;
+    font-size:12px;
+  }
+
+}
+/* ============================================================
+   ATLAS — FLOATING HEX LABEL
+============================================================ */
+
+[data-theme="atlas"] .hexbar{
+  position:relative;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  min-height:68px;
+  padding:18px 20px;
+
+  /* 기존 클릭 복사 효과 유지 */
+  transition:
+    filter .12s ease,
+    transform .12s ease;
+}
+
+
+/* 떠 있는 HEX 캡슐 */
+
+[data-theme="atlas"] .hex-label{
+  position:relative;
+  z-index:2;
+
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:7px 14px;
+
+  border-radius:999px;
+
+  background:rgba(255,255,255,.18);
+
+  border:1px solid rgba(255,255,255,.38);
+
+  box-shadow:
+    4px 5px 10px rgba(0,0,0,.16),
+    -3px -3px 7px rgba(255,255,255,.18);
+
+  text-shadow:
+    0 1px 2px rgba(0,0,0,.18);
+
+  transition:
+    transform .15s ease,
+    box-shadow .15s ease,
+    background .15s ease;
+}
+
+
+/* 마우스를 올리면 살짝 위로 */
+
+[data-theme="atlas"] .hexbar:hover .hex-label{
+  transform:translateY(-2px);
+
+  background:rgba(255,255,255,.25);
+
+  box-shadow:
+    5px 7px 13px rgba(0,0,0,.18),
+    -4px -4px 8px rgba(255,255,255,.22);
+}
+
+
+/* 클릭할 때 살짝 눌리는 느낌 */
+
+[data-theme="atlas"] .hexbar:active .hex-label{
+  transform:translateY(1px);
+
+  box-shadow:
+    2px 3px 6px rgba(0,0,0,.15),
+    -2px -2px 5px rgba(255,255,255,.15);
+}
+
+
+/* 흰색 색상 */
+
+[data-theme="atlas"] .hexbar[style*="#FFFFFF"] .hex-label,
+[data-theme="atlas"] .hexbar[style*="#ffffff"] .hex-label{
+  color:#163E3C !important;
+
+  background:rgba(255,255,255,.78);
+
+  border-color:rgba(22,62,60,.12);
+
+  text-shadow:none;
+
+  box-shadow:
+    4px 5px 10px rgba(43,72,70,.13),
+    -3px -3px 7px rgba(255,255,255,.9);
+}
+
+
+/* 모바일 */
+
+@media (max-width:480px){
+
+  [data-theme="atlas"] .hexbar{
+    min-height:58px;
+    padding:14px;
+  }
+
+  [data-theme="atlas"] .hex-label{
+    padding:6px 11px;
+    font-size:12px;
+  }
+
+}
+
+/* ============================================================
+   COSMOS THEME
+   Deep Space / Cosmic HUD / Neon Observatory
+============================================================ */
+
+
+html[data-theme="cosmos"]{
+--bg:#03050D;
+  --nav-bg:#050712;
+  --nav-text:#F5F1FF;
+  --nav-muted:#8E8BA3;
+
+  --card-bg:rgba(11,13,27,.86);
+
+  --text:#F4F1FF;
+  --muted:#9693AA;
+
+  --accent:#A970FF;
+  --stamp:#D58BFF;
+  --line:rgba(173,143,255,.28);
+
+  --cyan:#54D8FF;
+  --purple:#A970FF;
+  --pink:#EA8CFF;
+
+  --font-display:'Public Sans',sans-serif;
+  --font-body:'Public Sans',sans-serif;
+  --font-mono:'Space Mono',monospace;
+}
+
+
+/* ============================================================
+   BACKGROUND
+============================================================ */
+
+[data-theme="cosmos"] body{
+
+  background:
+    radial-gradient(
+      circle at 50% 8%,
+      rgba(113,73,255,.22),
+      transparent 27%
+    ),
+    radial-gradient(
+      circle at 85% 75%,
+      rgba(41,198,255,.08),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 15% 60%,
+      rgba(196,80,255,.08),
+      transparent 25%
+    ),
+    #03050D;
+
+  color:var(--text);
+
+  position:relative;
+}
+
+
+/* 별밭 */
+
+[data-theme="cosmos"] body::before{
+
+  content:"";
+
+  position:fixed;
+
+  inset:0;
+
+  pointer-events:none;
+
+  opacity:.5;
+
+  background-image:
+    radial-gradient(circle,rgba(255,255,255,.9) 0 1px,transparent 1.5px),
+    radial-gradient(circle,rgba(185,151,255,.65) 0 1px,transparent 1.5px),
+    radial-gradient(circle,rgba(255,255,255,.45) 0 1px,transparent 1.5px);
+
+  background-size:
+    137px 173px,
+    211px 239px,
+    89px 127px;
+
+  background-position:
+    13px 31px,
+    72px 11px,
+    31px 91px;
+
+  z-index:-1;
+}
+
+
+/* ============================================================
+   NAV
+============================================================ */
+
+[data-theme="cosmos"] nav{
+
+  background:rgba(4,6,16,.88);
+
+  border-bottom:1px solid rgba(174,122,255,.35);
+
+  backdrop-filter:blur(14px);
+
+  box-shadow:
+    0 0 30px rgba(120,72,255,.08);
+}
+
+
+[data-theme="cosmos"] .brand{
+
+  color:#fff;
+
+  letter-spacing:.08em;
+}
+
+
+[data-theme="cosmos"] .brand-mark{
+
+  border-radius:50%;
+
+  border:1px solid var(--purple);
+
+  box-shadow:
+    0 0 8px rgba(169,112,255,.55),
+    inset 0 0 6px rgba(169,112,255,.2);
+}
+
+
+[data-theme="cosmos"] .brand-mark::after{
+
+  content:"✦";
+
+  color:#DCC9FF;
+
+  text-shadow:
+    0 0 8px #A970FF;
+}
+
+
+/* ============================================================
+   NAV LINKS
+============================================================ */
+
+[data-theme="cosmos"] .navlinks span{
+
+  color:#817E97;
+
+  border-bottom-color:transparent;
+
+  transition:
+    color .2s ease,
+    text-shadow .2s ease;
+}
+
+
+[data-theme="cosmos"] .navlinks span:hover{
+
+  color:#D9C8FF;
+
+  text-shadow:
+    0 0 9px rgba(169,112,255,.6);
+}
+
+
+[data-theme="cosmos"] .navlinks span.active{
+
+  color:#FFFFFF;
+
+  border-color:var(--purple);
+
+  text-shadow:
+    0 0 9px rgba(169,112,255,.65);
+}
+
+
+/* ============================================================
+   THEME PICKER
+============================================================ */
+
+[data-theme="cosmos"] .theme-picker{
+
+  background:#080A16;
+
+  color:#EDE7FF;
+
+  border:1px solid rgba(169,112,255,.45);
+
+  border-radius:4px;
+
+  box-shadow:
+    0 0 12px rgba(169,112,255,.08);
+}
+
+
+[data-theme="cosmos"] .theme-picker:hover{
+
+  border-color:var(--purple);
+
+  box-shadow:
+    0 0 14px rgba(169,112,255,.25);
+}
+
+
+/* ============================================================
+   MAIN PANEL
+============================================================ */
+
+[data-theme="cosmos"] main{
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(18,19,39,.92),
+      rgba(5,7,17,.92)
+    );
+
+  border:1px solid rgba(168,125,255,.22);
+
+  border-radius:2px;
+
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.025),
+    0 20px 70px rgba(0,0,0,.55),
+    0 0 45px rgba(106,65,255,.07);
+
+  position:relative;
+
+  overflow:hidden;
+}
+
+
+/* 상단 네온 라인 */
+
+[data-theme="cosmos"] main::before{
+
+  content:"";
+
+  position:absolute;
+
+  top:0;
+  left:8%;
+  right:8%;
+
+  height:1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--cyan),
+      var(--purple),
+      var(--pink),
+      transparent
+    );
+
+  box-shadow:
+    0 0 12px rgba(169,112,255,.7);
+}
+
+
+/* ============================================================
+   HEADINGS
+============================================================ */
+
+[data-theme="cosmos"] .eyebrow{
+
+  color:#B8A4E8;
+
+  letter-spacing:.22em;
+
+  text-shadow:
+    0 0 8px rgba(169,112,255,.35);
+}
+
+
+[data-theme="cosmos"] h1{
+
+  color:#FFFFFF;
+
+  font-weight:600;
+
+  letter-spacing:-.035em;
+
+  text-shadow:
+    0 0 20px rgba(169,112,255,.12);
+}
+
+
+[data-theme="cosmos"] .subline{
+
+  color:#89869D;
+}
+
+
+/* ============================================================
+   HOME
+============================================================ */
+
+[data-theme="cosmos"] .home-meta{
+
+  border-bottom:1px solid rgba(169,112,255,.18);
+
+  color:#89869D;
+}
+
+
+[data-theme="cosmos"] .home-h1{
+
+  letter-spacing:-.05em;
+
+  position:relative;
+}
+
+
+/* 작은 별 */
+
+[data-theme="cosmos"] .home-h1::after{
+
+  content:"✦";
+
+  position:absolute;
+
+  margin-left:9px;
+
+  font-size:13px;
+
+  color:#D8BEFF;
+
+  text-shadow:
+    0 0 10px #A970FF;
+}
+
+
+[data-theme="cosmos"] .home-sub{
+
+  color:#858298;
+}
+
+
+[data-theme="cosmos"] .home-divider{
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(169,112,255,.6),
+      rgba(84,216,255,.45),
+      transparent
+    );
+
+  height:1px;
+
+  border-radius:0;
+}
+
+
+/* ============================================================
+   SEARCH
+============================================================ */
+
+[data-theme="cosmos"] .searchbox{
+
+  background:
+    rgba(3,5,13,.78);
+
+  color:#FFFFFF;
+
+  border:1px solid rgba(169,112,255,.3);
+
+  border-radius:2px;
+
+  box-shadow:
+    inset 0 0 20px rgba(100,70,180,.04);
+
+  font-family:var(--font-mono);
+}
+
+
+[data-theme="cosmos"] .searchbox::placeholder{
+
+  color:#656278;
+}
+
+
+[data-theme="cosmos"] .searchbox:focus{
+
+  border-color:var(--purple);
+
+  outline:none;
+
+  box-shadow:
+    0 0 0 1px rgba(169,112,255,.18),
+    0 0 18px rgba(169,112,255,.15);
+}
+
+
+/* ============================================================
+   SUGGESTIONS
+============================================================ */
+
+[data-theme="cosmos"] .suggestions{
+
+  background:#080A15;
+
+  border:1px solid rgba(169,112,255,.28);
+
+  border-radius:2px;
+
+  box-shadow:
+    0 18px 40px rgba(0,0,0,.5);
+}
+
+
+[data-theme="cosmos"] .suggestions div{
+
+  border-bottom:1px solid rgba(255,255,255,.06);
+
+  border-radius:0;
+
+  color:#C8C4D5;
+}
+
+
+[data-theme="cosmos"] .suggestions div:hover{
+
+  background:rgba(169,112,255,.10);
+
+  color:#FFFFFF;
+}
+
+
+[data-theme="cosmos"] .suggestions div.highlighted{
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(169,112,255,.18),
+      transparent
+    );
+
+  color:#FFFFFF;
+
+  border-left:2px solid var(--purple);
+}
+
+
+/* ============================================================
+   HOME CARDS
+============================================================ */
+
+[data-theme="cosmos"] .homecard{
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(20,22,43,.9),
+      rgba(7,9,19,.92)
+    );
+
+  border:1px solid rgba(169,112,255,.22);
+
+  border-radius:2px;
+
+  box-shadow:
+    0 8px 30px rgba(0,0,0,.3);
+
+  position:relative;
+
+  overflow:hidden;
+
+  transition:
+    transform .2s ease,
+    border-color .2s ease,
+    box-shadow .2s ease;
+}
+
+
+/* 카드의 궤도 라인 */
+
+[data-theme="cosmos"] .homecard::before{
+
+  content:"";
+
+  position:absolute;
+
+  width:120px;
+  height:120px;
+
+  right:-55px;
+  top:-65px;
+
+  border:1px solid rgba(169,112,255,.18);
+
+  border-radius:50%;
+
+  box-shadow:
+    0 0 0 12px rgba(84,216,255,.025),
+    0 0 0 25px rgba(169,112,255,.025);
+}
+
+
+[data-theme="cosmos"] .homecard:hover{
+
+  transform:translateY(-3px);
+
+  border-color:rgba(169,112,255,.55);
+
+  box-shadow:
+    0 10px 35px rgba(0,0,0,.4),
+    0 0 25px rgba(120,72,255,.12);
+}
+
+
+[data-theme="cosmos"] .homecard-stamp{
+
+  background:rgba(169,112,255,.08);
+
+  color:#D5C2FF;
+
+  border:1px solid rgba(169,112,255,.25);
+
+  border-radius:2px;
+}
+
+
+[data-theme="cosmos"] .homecard-title{
+
+  color:#F7F4FF;
+}
+
+
+[data-theme="cosmos"] .homecard-desc{
+
+  color:#858297;
+}
+
+
+/* ============================================================
+   FLAG BOX
+============================================================ */
+
+[data-theme="cosmos"] .flagbox{
+
+  background:#05060D;
+
+  border:1px solid rgba(169,112,255,.25);
+
+  border-radius:2px;
+
+  box-shadow:
+    0 12px 35px rgba(0,0,0,.5);
+}
+
+
+/* ============================================================
+   COUNTRY
+============================================================ */
+
+[data-theme="cosmos"] .countryname{
+
+  color:#FFFFFF;
+
+  text-shadow:
+    0 0 12px rgba(169,112,255,.12);
+}
+
+
+[data-theme="cosmos"] .countrymeta{
+
+  color:#858197;
+
+  font-family:var(--font-mono);
+}
+
+
+/* ============================================================
+   HEX STACK
+============================================================ */
+
+[data-theme="cosmos"] .hexstack{
+
+  border:1px solid rgba(169,112,255,.25);
+
+  border-radius:2px;
+
+  overflow:hidden;
+
+  box-shadow:
+    0 12px 35px rgba(0,0,0,.4);
+}
+
+
+[data-theme="cosmos"] .hexbar{
+
+  border-radius:0;
+
+  min-height:68px;
+
+  border-bottom:1px solid rgba(255,255,255,.14);
+
+  font-family:var(--font-mono);
+
+  position:relative;
+
+  transition:
+    filter .2s ease,
+    box-shadow .2s ease;
+}
+
+
+[data-theme="cosmos"] .hexbar:last-child{
+
+  border-bottom:none;
+}
+
+
+/* HEX 라벨 */
+
+[data-theme="cosmos"] .hex-label{
+
+  padding:6px 12px;
+
+  border-radius:2px;
+
+  border:1px solid rgba(255,255,255,.42);
+
+  background:rgba(0,0,0,.20);
+
+  box-shadow:
+    0 3px 10px rgba(0,0,0,.22);
+
+  font-family:var(--font-mono);
+
+  font-size:12px;
+
+  letter-spacing:.04em;
+
+  backdrop-filter:blur(3px);
+
+  transition:
+    transform .15s ease,
+    box-shadow .15s ease;
+}
+
+
+[data-theme="cosmos"] .hexbar:hover .hex-label{
+
+  transform:translateY(-2px);
+
+  box-shadow:
+    0 5px 15px rgba(0,0,0,.3);
+}
+
+
+/* ============================================================
+   CREST
+============================================================ */
+
+[data-theme="cosmos"] .crest-toggle{
+
+  background:#080A15;
+
+  color:#A7A2B9;
+
+  border:1px solid rgba(169,112,255,.28);
+
+  border-radius:2px;
+}
+
+
+[data-theme="cosmos"] .crest-toggle:hover{
+
+  color:#FFFFFF;
+
+  border-color:var(--purple);
+}
+
+
+[data-theme="cosmos"] .crest-toggle.active{
+
+  background:rgba(169,112,255,.12);
+
+  color:#D9C5FF;
+
+  border-color:var(--purple);
+
+  box-shadow:
+    0 0 12px rgba(169,112,255,.12);
+}
+
+
+[data-theme="cosmos"] .crest-row{
+
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+
+[data-theme="cosmos"] .crest-swatch{
+
+  border-radius:2px;
+
+  border:1px solid rgba(255,255,255,.18);
+}
+
+
+/* ============================================================
+   FAVORITES
+============================================================ */
+
+[data-theme="cosmos"] .fav-card{
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(19,21,41,.9),
+      rgba(6,8,17,.92)
+    );
+
+  border:1px solid rgba(169,112,255,.22);
+
+  border-radius:2px;
+
+  box-shadow:
+    0 8px 25px rgba(0,0,0,.3);
+}
+
+
+[data-theme="cosmos"] .fav-card:hover{
+
+  border-color:rgba(169,112,255,.55);
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.45),
+    0 0 20px rgba(120,72,255,.1);
+
+  transform:translateY(-3px);
+}
+
+
+[data-theme="cosmos"] .fav-card-flag{
+
+  border-radius:2px;
+
+  border:1px solid rgba(169,112,255,.18);
+}
+
+
+/* ============================================================
+   FILTER
+============================================================ */
+
+[data-theme="cosmos"] .fav-filter-chip{
+
+  border-radius:2px;
+
+  border:1px solid rgba(169,112,255,.25);
+
+  background:#080A15;
+
+  color:#9792A9;
+}
+
+
+[data-theme="cosmos"] .fav-filter-chip:hover{
+
+  color:#FFFFFF;
+
+  border-color:var(--purple);
+}
+
+
+[data-theme="cosmos"] .fav-filter-chip.active{
+
+  background:rgba(169,112,255,.13);
+
+  color:#D9C5FF;
+
+  border-color:var(--purple);
+}
+
+
+/* ============================================================
+   RECENT
+============================================================ */
+
+[data-theme="cosmos"] .clear-recent-btn{
+
+  border-radius:2px;
+
+  background:#080A15;
+
+  border:1px solid rgba(169,112,255,.25);
+
+  color:#9994A9;
+}
+
+
+[data-theme="cosmos"] .clear-recent-btn:hover{
+
+  border-color:var(--pink);
+
+  color:#E9B9FF;
+}
+
+
+/* ============================================================
+   STAMP
+============================================================ */
+
+[data-theme="cosmos"] .stamp-mark{
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(169,112,255,.18),
+      transparent 65%
+    );
+
+  border:1px solid rgba(169,112,255,.35);
+
+  border-radius:50%;
+
+  box-shadow:
+    0 0 25px rgba(169,112,255,.12);
+}
+
+
+[data-theme="cosmos"] .stamp-hex{
+
+  color:#D7C3FF;
+}
+
+
+[data-theme="cosmos"] .stamp-label{
+
+  color:#A970FF;
+}
+
+
+/* ============================================================
+   DISCLAIMER
+============================================================ */
+
+[data-theme="cosmos"] .disclaimer{
+
+  background:rgba(169,112,255,.035);
+
+  border:1px solid rgba(169,112,255,.18);
+
+  border-radius:2px;
+
+  color:#858197;
+}
+
+
+/* ============================================================
+   COMING SOON
+============================================================ */
+
+[data-theme="cosmos"] .comingsoon{
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(17,19,39,.85),
+      rgba(6,8,18,.9)
+    );
+
+  border:1px dashed rgba(169,112,255,.3);
+
+  border-radius:2px;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.3);
+}
+
+
+/* ============================================================
+   CONFIRM MODAL
+============================================================ */
+
+[data-theme="cosmos"] .confirm-overlay,
+[data-theme="cosmos"] .changelog-overlay{
+
+  background:rgba(0,0,0,.72);
+
+  backdrop-filter:blur(7px);
+}
+
+
+[data-theme="cosmos"] .confirm-modal,
+[data-theme="cosmos"] .changelog-modal{
+
+  background:
+    linear-gradient(
+      145deg,
+      #121429,
+      #060812
+    );
+
+  border:1px solid rgba(169,112,255,.35);
+
+  border-radius:2px;
+
+  box-shadow:
+    0 20px 70px rgba(0,0,0,.65),
+    0 0 35px rgba(120,72,255,.1);
+}
+
+
+[data-theme="cosmos"] .confirm-eyebrow{
+
+  color:#BDA9ED;
+}
+
+
+[data-theme="cosmos"] .confirm-title{
+
+  color:#FFFFFF;
+}
+
+
+[data-theme="cosmos"] .confirm-desc{
+
+  color:#8B879E;
+}
+
+
+[data-theme="cosmos"] .confirm-btn{
+
+  border-radius:2px;
+
+  border:1px solid rgba(169,112,255,.28);
+
+  background:#080A15;
+
+  color:#B9B3C9;
+}
+
+
+[data-theme="cosmos"] .confirm-ok{
+
+  background:rgba(169,112,255,.16);
+
+  border-color:var(--purple);
+
+  color:#E7DAFF;
+
+  box-shadow:
+    0 0 14px rgba(169,112,255,.1);
+}
+
+
+/* ============================================================
+   CHANGELOG
+============================================================ */
+
+[data-theme="cosmos"] .changelog-btn{
+
+  border-radius:2px;
+
+  background:#080A15;
+
+  color:#9C97AA;
+
+  border:1px solid rgba(169,112,255,.25);
+}
+
+
+[data-theme="cosmos"] .changelog-btn:hover{
+
+  border-color:var(--purple);
+
+  color:#FFFFFF;
+}
+
+
+[data-theme="cosmos"] .changelog-entry{
+
+  border-bottom:1px dashed rgba(255,255,255,.1);
+}
+
+
+[data-theme="cosmos"] .changelog-entry .v{
+
+  color:#B987FF;
+
+  font-family:var(--font-mono);
+}
+
+
+/* ============================================================
+   MOBILE
+============================================================ */
+
+@media (max-width:680px){
+
+  [data-theme="cosmos"] main{
+
+    margin-top:20px;
+
+    width:calc(100% - 16px);
+
+    box-shadow:
+      0 15px 50px rgba(0,0,0,.55);
+  }
+
+}
+
+
+@media (max-width:480px){
+
+  [data-theme="cosmos"] main{
+
+    padding:
+      32px
+      18px
+      44px;
+  }
+
+  [data-theme="cosmos"] .home-h1{
+
+    font-size:30px;
+  }
+
+  [data-theme="cosmos"] .hexbar{
+
+    min-height:60px;
+  }
+
+}
+/* ============================================================
+   POP THEME
+   Retro Poster / Geometric / Graphic / Y2K
+============================================================ */
+
+html[data-theme="pop"]{
+
+  --bg:#D95755;
+  --nav-bg:#B83E43;
+  --nav-text:#FFF8F2;
+  --nav-muted:#F3B5AE;
+
+  --card-bg:#E96A68;
+
+  --text:#FFF9F5;
+  --muted:#FFD0CA;
+
+  --accent:#FF9B96;
+  --accent-dark:#A92F38;
+
+  --cream:#FFF8EF;
+  --pink:#FFB0AA;
+  --red:#C83F48;
+  --dark:#421D27;
+
+  --line:#FFF8EF;
+}
+
+
+/* ============================================================
+   BACKGROUND
+============================================================ */
+
+[data-theme="pop"] body{
+
+  background-color:var(--bg);
+
+  background-image:
+    radial-gradient(
+      circle,
+      rgba(255,255,255,.20) 0 2px,
+      transparent 2.5px
+    );
+
+  background-size:34px 34px;
+
+  color:var(--text);
+
+  position:relative;
+}
+
+
+/* 큰 대각선 그래픽 */
+
+[data-theme="pop"] body::before{
+
+  content:"";
+
+  position:fixed;
+
+  width:140vw;
+  height:180px;
+
+  left:-20vw;
+  top:28vh;
+
+  transform:rotate(-27deg);
+
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 100px,
+      rgba(255,177,170,.5) 100px 180px,
+      transparent 180px 280px
+    );
+
+  opacity:.5;
+
+  pointer-events:none;
+
+  z-index:-1;
+}
+
+
+/* ============================================================
+   NAV
+============================================================ */
+
+[data-theme="pop"] nav{
+
+  background:var(--cream);
+
+  color:var(--dark);
+
+  border:3px solid var(--dark);
+
+  border-radius:0;
+
+  box-shadow:
+    7px 7px 0 var(--dark);
+
+  transform:rotate(-.4deg);
+}
+
+
+[data-theme="pop"] .brand{
+
+  color:var(--dark);
+
+  font-weight:900;
+
+  letter-spacing:-.04em;
+
+  text-transform:uppercase;
+}
+
+
+[data-theme="pop"] .brand-mark{
+
+  border-radius:0;
+
+  border:3px solid var(--dark);
+
+  background:var(--red);
+
+  color:white;
+
+  transform:rotate(8deg);
+}
+
+
+[data-theme="pop"] .brand-mark::after{
+
+  content:"×";
+
+  color:#fff;
+
+  font-weight:900;
+}
+
+
+/* ============================================================
+   NAV LINKS
+============================================================ */
+
+[data-theme="pop"] .navlinks span{
+
+  color:var(--dark);
+
+  border-radius:0;
+
+  font-weight:700;
+
+  transition:
+    transform .15s ease,
+    background .15s ease;
+}
+
+
+[data-theme="pop"] .navlinks span:hover{
+
+  background:var(--pink);
+
+  color:var(--dark);
+
+  transform:translateY(-2px) rotate(-2deg);
+}
+
+
+[data-theme="pop"] .navlinks span.active{
+
+  background:var(--red);
+
+  color:#fff;
+
+  border-radius:0;
+
+  box-shadow:
+    3px 3px 0 var(--dark);
+}
+
+
+/* ============================================================
+   THEME PICKER
+============================================================ */
+
+[data-theme="pop"] .theme-picker{
+
+  background:var(--red);
+
+  color:#fff;
+
+  border:2px solid var(--dark);
+
+  border-radius:0;
+
+  box-shadow:
+    3px 3px 0 var(--dark);
+
+  font-weight:700;
+}
+
+
+/* ============================================================
+   MAIN
+============================================================ */
+
+[data-theme="pop"] main{
+
+  background:var(--cream);
+
+  color:var(--dark);
+
+  border:3px solid var(--dark);
+
+  border-radius:0;
+
+  box-shadow:
+    10px 10px 0 var(--dark);
+
+  position:relative;
+
+  overflow:hidden;
+}
+
+
+/* 커다란 X 그래픽 */
+
+[data-theme="pop"] main::after{
+
+  content:"×";
+
+  position:absolute;
+
+  right:-35px;
+  top:-55px;
+
+  font-family:Arial,sans-serif;
+
+  font-size:190px;
+
+  line-height:1;
+
+  font-weight:900;
+
+  color:rgba(217,87,85,.12);
+
+  pointer-events:none;
+}
+
+
+/* ============================================================
+   HEADINGS
+============================================================ */
+
+[data-theme="pop"] .eyebrow{
+
+  color:var(--red);
+
+  font-weight:800;
+
+  letter-spacing:.18em;
+
+  text-transform:uppercase;
+}
+
+
+[data-theme="pop"] h1{
+
+  color:var(--dark);
+
+  font-weight:900;
+
+  letter-spacing:-.07em;
+
+  text-transform:uppercase;
+}
+
+
+[data-theme="pop"] .home-h1{
+
+  position:relative;
+}
+
+
+[data-theme="pop"] .home-h1::before{
+
+  content:"＋";
+
+  position:absolute;
+
+  left:-25px;
+  top:0;
+
+  color:var(--red);
+
+  font-size:18px;
+
+  font-weight:900;
+}
+
+
+[data-theme="pop"] .home-h1::after{
+
+  content:"×";
+
+  margin-left:8px;
+
+  color:var(--red);
+
+  font-weight:900;
+}
+
+
+[data-theme="pop"] .subline,
+[data-theme="pop"] .home-sub{
+
+  color:#875057;
+
+  font-weight:600;
+}
+
+
+/* ============================================================
+   DIVIDER
+============================================================ */
+
+[data-theme="pop"] .home-divider{
+
+  height:3px;
+
+  background:var(--dark);
+
+  border-radius:0;
+
+  position:relative;
+}
+
+
+[data-theme="pop"] .home-divider::after{
+
+  content:"＋";
+
+  position:absolute;
+
+  right:15%;
+
+  top:-13px;
+
+  background:var(--cream);
+
+  color:var(--red);
+
+  font-size:18px;
+
+  padding:0 5px;
+}
+
+
+/* ============================================================
+   SEARCH
+============================================================ */
+
+[data-theme="pop"] .searchbox{
+
+  background:#fff;
+
+  color:var(--dark);
+
+  border:3px solid var(--dark);
+
+  border-radius:0;
+
+  box-shadow:
+    5px 5px 0 var(--red);
+
+  font-weight:600;
+}
+
+
+[data-theme="pop"] .searchbox::placeholder{
+
+  color:#9E686B;
+}
+
+
+[data-theme="pop"] .searchbox:focus{
+
+  outline:none;
+
+  border-color:var(--dark);
+
+  box-shadow:
+    7px 7px 0 var(--red);
+}
+
+
+/* ============================================================
+   SUGGESTIONS
+============================================================ */
+
+[data-theme="pop"] .suggestions{
+
+  background:#fff;
+
+  border:3px solid var(--dark);
+
+  border-radius:0;
+
+  box-shadow:
+    6px 6px 0 var(--dark);
+}
+
+
+[data-theme="pop"] .suggestions div{
+
+  border-bottom:2px solid #E5C7C3;
+
+  border-radius:0;
+
+  color:var(--dark);
+}
+
+
+[data-theme="pop"] .suggestions div:hover{
+
+  background:var(--pink);
+
+  color:var(--dark);
+}
+
+
+[data-theme="pop"] .suggestions div.highlighted{
+
+  background:var(--red);
+
+  color:#fff;
+
+  border-left:5px solid var(--dark);
+}
+
+
+/* ============================================================
+   HOME CARDS
+============================================================ */
+
+[data-theme="pop"] .homecard{
+
+  background:var(--red);
+
+  color:#fff;
+
+  border:3px solid var(--dark);
+
+  border-radius:0;
+
+  box-shadow:
+    6px 6px 0 var(--dark);
+
+  position:relative;
+
+  overflow:hidden;
+
+  transition:
+    transform .15s ease,
+    box-shadow .15s ease;
+}
+
+
+/* 반복되는 + 패턴 */
+
+[data-theme="pop"] .homecard::before{
+
+  content:"×   ×   ×   ×   ×   ×";
+
+  position:absolute;
+
+  top:7px;
+  right:10px;
+
+  color:rgba(255,255,255,.35);
+
+  font-size:13px;
+
+  letter-spacing:7px;
+
+  white-space:nowrap;
+}
+
+
+[data-theme="pop"] .homecard:hover{
+
+  transform:translate(-3px,-3px) rotate(-.5deg);
+
+  box-shadow:
+    9px 9px 0 var(--dark);
+}
+
+
+[data-theme="pop"] .homecard-stamp{
+
+  border-radius:0;
+
+  border:2px solid #fff;
+
+  background:var(--cream);
+
+  color:var(--dark);
+
+  box-shadow:
+    3px 3px 0 var(--dark);
+}
+
+
+[data-theme="pop"] .homecard-title{
+
+  color:#fff;
+
+  font-weight:900;
+}
+
+
+[data-theme="pop"] .homecard-desc{
+
+  color:#FFD5D0;
+}
+
+
+/* ============================================================
+   FLAG BOX
+============================================================ */
+
+[data-theme="pop"] .flagbox{
+
+  background:#fff;
+
+  border:3px solid var(--dark);
+
+  border-radius:0;
+
+  box-shadow:
+    7px 7px 0 var(--dark);
+}
+
+
+/* ============================================================
+   COUNTRY
+============================================================ */
+
+[data-theme="pop"] .countryname{
+
+  color:var(--dark);
+
+  font-weight:900;
+
+  letter-spacing:-.05em;
+}
+
+
+[data-theme="pop"] .countrymeta{
+
+  color:#895158;
+}
+
+
+/* ============================================================
+   HEX STACK
+============================================================ */
+
+[data-theme="pop"] .hexstack{
+
+  border:3px solid var(--dark);
+
+  border-radius:0;
+
+  box-shadow:
+    7px 7px 0 var(--dark);
+
+  overflow:hidden;
+}
+
+
+[data-theme="pop"] .hexbar{
+
+  border-radius:0;
+
+  min-height:72px;
+
+  border-bottom:2px solid rgba(0,0,0,.25);
+
+  font-weight:900;
+
+  font-family:monospace;
+
+  position:relative;
+}
+
+
+[data-theme="pop"] .hexbar:last-child{
+
+  border-bottom:none;
+}
+
+
+/* HEX 코드가 포스터 스티커처럼 */
+
+[data-theme="pop"] .hex-label{
+
+  padding:6px 12px;
+
+  background:rgba(255,255,255,.18);
+
+  border:2px solid currentColor;
+
+  border-radius:0;
+
+  box-shadow:
+    3px 3px 0 rgba(0,0,0,.25);
+
+  font-family:monospace;
+
+  font-weight:900;
+
+  transition:
+    transform .15s ease;
+}
+
+
+[data-theme="pop"] .hexbar:hover .hex-label{
+
+  transform:
+    translate(-2px,-2px)
+    rotate(-2deg);
+}
+
+
+/* ============================================================
+   CREST
+============================================================ */
+
+[data-theme="pop"] .crest-toggle{
+
+  background:#fff;
+
+  color:var(--dark);
+
+  border:2px solid var(--dark);
+
+  border-radius:0;
+
+  box-shadow:
+    3px 3px 0 var(--dark);
+}
+
+
+[data-theme="pop"] .crest-toggle.active{
+
+  background:var(--red);
+
+  color:#fff;
+
+  border-color:var(--dark);
+}
+
+
+[data-theme="pop"] .crest-row{
+
+  border-bottom:2px solid var(--dark);
+}
+
+
+[data-theme="pop"] .crest-swatch{
+
+  border-radius:0;
+
+  border:2px solid var(--dark);
+}
+
+
+/* ============================================================
+   FAVORITES
+============================================================ */
+
+[data-theme="pop"] .fav-card{
+
+  background:#fff;
+
+  color:var(--dark);
+
+  border:3px solid var(--dark);
+
+  border-radius:0;
+
+  box-shadow:
+    6px 6px 0 var(--dark);
+}
+
+
+[data-theme="pop"] .fav-card:hover{
+
+  transform:
+    translate(-3px,-3px)
+    rotate(.5deg);
+
+  box-shadow:
+    9px 9px 0 var(--dark);
+}
+
+
+[data-theme="pop"] .fav-card-flag{
+
+  border-radius:0;
+
+  border:2px solid var(--dark);
+}
+
+
+/* ============================================================
+   FILTER
+============================================================ */
+
+[data-theme="pop"] .fav-filter-chip{
+
+  background:#fff;
+
+  color:var(--dark);
+
+  border:2px solid var(--dark);
+
+  border-radius:0;
+
+  box-shadow:
+    3px 3px 0 var(--dark);
+}
+
+
+[data-theme="pop"] .fav-filter-chip:hover{
+
+  background:var(--pink);
+
+  color:var(--dark);
+}
+
+
+[data-theme="pop"] .fav-filter-chip.active{
+
+  background:var(--red);
+
+  color:#fff;
+}
+
+
+/* ============================================================
+   RECENT
+============================================================ */
+
+[data-theme="pop"] .clear-recent-btn{
+
+  background:#fff;
+
+  color:var(--dark);
+
+  border:2px solid var(--dark);
+
+  border-radius:0;
+
+  box-shadow:
+    3px 3px 0 var(--dark);
+}
+
+
+[data-theme="pop"] .clear-recent-btn:hover{
+
+  background:var(--red);
+
+  color:#fff;
+}
+
+
+/* ============================================================
+   STAMP
+============================================================ */
+
+[data-theme="pop"] .stamp-mark{
+
+  background:var(--red);
+
+  color:#fff;
+
+  border:3px solid var(--dark);
+
+  border-radius:0;
+
+  box-shadow:
+    6px 6px 0 var(--dark);
+
+  transform:rotate(-3deg);
+}
+
+
+[data-theme="pop"] .stamp-hex{
+
+  color:#fff;
+
+  font-weight:900;
+}
+
+
+/* ============================================================
+   DISCLAIMER
+============================================================ */
+
+[data-theme="pop"] .disclaimer{
+
+  background:#FFD0CC;
+
+  color:var(--dark);
+
+  border:2px solid var(--dark);
+
+  border-radius:0;
+}
+
+
+/* ============================================================
+   COMING SOON
+============================================================ */
+
+[data-theme="pop"] .comingsoon{
+
+  background:#fff;
+
+  color:var(--dark);
+
+  border:3px dashed var(--dark);
+
+  border-radius:0;
+
+  box-shadow:
+    6px 6px 0 var(--dark);
+}
+
+
+/* ============================================================
+   MODAL
+============================================================ */
+
+[data-theme="pop"] .confirm-overlay,
+[data-theme="pop"] .changelog-overlay{
+
+  background:rgba(54,18,25,.72);
+
+  backdrop-filter:blur(3px);
+}
+
+
+[data-theme="pop"] .confirm-modal,
+[data-theme="pop"] .changelog-modal{
+
+  background:var(--cream);
+
+  color:var(--dark);
+
+  border:3px solid var(--dark);
+
+  border-radius:0;
+
+  box-shadow:
+    10px 10px 0 var(--dark);
+}
+
+
+[data-theme="pop"] .confirm-eyebrow{
+
+  color:var(--red);
+
+  font-weight:900;
+}
+
+
+[data-theme="pop"] .confirm-title{
+
+  color:var(--dark);
+
+  font-weight:900;
+}
+
+
+[data-theme="pop"] .confirm-desc{
+
+  color:#815055;
+}
+
+
+[data-theme="pop"] .confirm-btn{
+
+  border:2px solid var(--dark);
+
+  border-radius:0;
+
+  background:#fff;
+
+  color:var(--dark);
+
+  box-shadow:
+    3px 3px 0 var(--dark);
+}
+
+
+[data-theme="pop"] .confirm-ok{
+
+  background:var(--red);
+
+  color:#fff;
+}
+
+
+/* ============================================================
+   CHANGELOG
+============================================================ */
+
+[data-theme="pop"] .changelog-btn{
+
+  background:#fff;
+
+  color:var(--dark);
+
+  border:2px solid var(--dark);
+
+  border-radius:0;
+
+  box-shadow:
+    3px 3px 0 var(--dark);
+}
+
+
+[data-theme="pop"] .changelog-btn:hover{
+
+  background:var(--red);
+
+  color:#fff;
+}
+
+
+[data-theme="pop"] .changelog-entry{
+
+  border-bottom:2px dashed #D59B98;
+}
+
+
+[data-theme="pop"] .changelog-entry .v{
+
+  color:var(--red);
+
+  font-weight:900;
+}
+
+
+/* ============================================================
+   MOBILE
+============================================================ */
+
+@media (max-width:680px){
+
+  [data-theme="pop"] main{
+
+    width:calc(100% - 16px);
+
+    box-shadow:
+      7px 7px 0 var(--dark);
+  }
+
+  [data-theme="pop"] nav{
+
+    box-shadow:
+      5px 5px 0 var(--dark);
+  }
+
+}
+
+
+@media (max-width:480px){
+
+  [data-theme="pop"] main{
+
+    padding:
+      30px
+      17px
+      42px;
+  }
+
+  [data-theme="pop"] .home-h1{
+
+    font-size:30px;
+  }
+
+  [data-theme="pop"] .hexbar{
+
+    min-height:60px;
+  }
+
+}
+/* POP - 즐겨찾기/최근 기록 이름 */
+[data-theme="pop"] .fav-card-name{
+  color:var(--dark);
+  font-weight:800;
+}
+/* =========================================================
+   AETHER THEME
+   Clean / Minimal / Modern Data UI
+   ========================================================= */
+
+[data-theme="aether"] {
+  --bg: #f4f6f8;
+  --nav-bg: #ffffff;
+  --nav-text: #172027;
+  --nav-muted: #7b8790;
+
+  --card-bg: #ffffff;
+  --text: #172027;
+  --muted: #77838c;
+
+  --accent: #16a6a1;
+  --accent-dark: #0d8581;
+  --accent-soft: #e6f6f5;
+
+  --cream: #ffffff;
+  --pink: #eef2f3;
+  --red: #e45f62;
+
+  --dark: #172027;
+  --line: #e3e8ea;
+
+  --shadow: 0 2px 8px rgba(23, 32, 39, 0.06);
+  --shadow-hover: 0 8px 24px rgba(23, 32, 39, 0.10);
+}
+
+
+/* ---------------------------------------------------------
+   BODY
+   --------------------------------------------------------- */
+
+[data-theme="aether"] body {
+  background: #f4f6f8;
+  color: var(--text);
+  font-family:
+    "Inter",
+    "Pretendard",
+    "Noto Sans KR",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+
+/* ---------------------------------------------------------
+   NAVIGATION
+   --------------------------------------------------------- */
+
+[data-theme="aether"] nav {
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--nav-text);
+  border-bottom: 1px solid #e5e9eb;
+  box-shadow: 0 1px 4px rgba(23, 32, 39, 0.04);
+  backdrop-filter: blur(14px);
+}
+
+[data-theme="aether"] nav a {
+  color: var(--nav-text);
+}
+
+[data-theme="aether"] nav a:hover {
+  color: var(--accent);
+}
+
+[data-theme="aether"] .nav-muted {
+  color: var(--nav-muted);
+}
+
+
+/* ---------------------------------------------------------
+   MAIN CONTAINER
+   --------------------------------------------------------- */
+
+[data-theme="aether"] main {
+  background: #ffffff;
+  color: var(--text);
+  border: 1px solid #e5e9eb;
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+}
+
+
+/* ---------------------------------------------------------
+   HEADINGS
+   --------------------------------------------------------- */
+
+[data-theme="aether"] h1,
+[data-theme="aether"] h2,
+[data-theme="aether"] h3 {
+  color: #172027;
+  letter-spacing: -0.025em;
+}
+
+[data-theme="aether"] h1 {
+  font-weight: 750;
+}
+
+[data-theme="aether"] h2 {
+  font-weight: 700;
+}
+
+[data-theme="aether"] h3 {
+  font-weight: 650;
+}
+
+
+/* ---------------------------------------------------------
+   SEARCH
+   --------------------------------------------------------- */
+
+[data-theme="aether"] .search-box,
+[data-theme="aether"] .search-wrap {
+  background: #f7f9fa;
+  border: 1px solid #dfe5e7;
+  border-radius: 12px;
+  box-shadow: none;
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    background 0.18s ease;
+}
+
+[data-theme="aether"] .search-box:focus-within,
+[data-theme="aether"] .search-wrap:focus-within {
+  background: #ffffff;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(22, 166, 161, 0.12);
+}
+
+[data-theme="aether"] input,
+[data-theme="aether"] textarea,
+[data-theme="aether"] select {
+  color: var(--text);
+  background: #ffffff;
+  border-color: #dfe5e7;
+  border-radius: 10px;
+}
+
+[data-theme="aether"] input::placeholder {
+  color: #9aa5ab;
+}
+
+
+/* ---------------------------------------------------------
+   BUTTONS
+   --------------------------------------------------------- */
+
+[data-theme="aether"] button {
+  border-radius: 9px;
+  border: 1px solid #dfe5e7;
+  background: #ffffff;
+  color: #35434b;
+  box-shadow: none;
+  transition:
+    background 0.16s ease,
+    border-color 0.16s ease,
+    color 0.16s ease,
+    transform 0.16s ease;
+}
+
+[data-theme="aether"] button:hover {
+  background: #f5f8f8;
+  border-color: #cbd5d8;
+}
+
+[data-theme="aether"] button:active {
+  transform: translateY(1px);
+}
+
+[data-theme="aether"] .primary,
+[data-theme="aether"] .btn-primary {
+  background: var(--accent);
+  color: #ffffff;
+  border-color: var(--accent);
+}
+
+[data-theme="aether"] .primary:hover,
+[data-theme="aether"] .btn-primary:hover {
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
+}
+
+
+/* ---------------------------------------------------------
+   HOME CARDS
+   --------------------------------------------------------- */
+
+[data-theme="aether"] .home-card {
+  background: #ffffff;
+  color: var(--text);
+  border: 1px solid #e3e8ea;
+  border-radius: 14px;
+  box-shadow: 0 1px 4px rgba(23, 32, 39, 0.04);
+  transition:
+    transform 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+[data-theme="aether"] .home-card:hover {
+  transform: translateY(-3px);
+  border-color: #cbd7d9;
+  box-shadow: var(--shadow-hover);
+}
+
+[data-theme="aether"] .home-card-icon {
+  color: var(--accent);
+}
+
+
+/* ---------------------------------------------------------
+   FLAG PREVIEW
+   --------------------------------------------------------- */
+
+[data-theme="aether"] .flag-box {
+  background: #fafbfb;
+  border: 1px solid #e3e8ea;
+  border-radius: 14px;
+  box-shadow: none;
+}
+
+[data-theme="aether"] .flag-preview {
+  background: #ffffff;
+  border: 1px solid #e1e6e8;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(23, 32, 39, 0.06);
+}
+
+
+/* ---------------------------------------------------------
+   COLOR SWATCHES
+   --------------------------------------------------------- */
+
+[data-theme="aether"] .color-item,
+[data-theme="aether"] .color-card {
+  background: #ffffff;
+  border: 1px solid #e3e8ea;
+  border-radius: 10px;
+  box-shadow: none;
+}
+
+[data-theme="aether"] .color-item:hover,
+[data-theme="aether"] .color-card:hover {
+  border-color: #cbd5d8;
+  box-shadow: 0 4px 14px rgba(23, 32, 39, 0.07);
+}
+
+[data-theme="aether"] .hex-code {
+  color: #26343b;
+  font-family:
+    "SFMono-Regular",
+    Consolas,
+    "Liberation Mono",
+    monospace;
+}
+
+
+/* ---------------------------------------------------------
+   HEX STACK
+   --------------------------------------------------------- */
+
+[data-theme="aether"] .hex-stack {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #dfe5e7;
+  box-shadow: none;
+}
+
+[data-theme="aether"] .hex-stack > div {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="aether"] .hex-stack > div:last-child {
+  border-bottom: none;
+}
+
+
+/* ---------------------------------------------------------
+   CREST / EMBLEM
+   --------------------------------------------------------- */
+
+[data-theme="aether"] .crest-box,
+[data-theme="aether"] .crest-container {
+  background: #fafbfb;
+  border: 1px solid #e3e8ea;
+  border-radius: 14px;
+  box-shadow: none;
+}
+
+[data-theme="aether"] .crest-toggle {
+  background: #ffffff;
+  border: 1px solid #dfe5e7;
+  border-radius: 9px;
+}
+
+[data-theme="aether"] .crest-toggle.active {
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+  border-color: #b9e3e1;
+}
+
+
+/* ---------------------------------------------------------
+   FAVORITES / RECENT
+   --------------------------------------------------------- */
+
+[data-theme="aether"] .fav-card {
+  background: #ffffff;
+  color: var(--text);
+  border: 1px solid #e2e7e9;
+  border-radius: 13px;
+  box-shadow: 0 1px 5px rgba(23, 32, 39, 0.045);
+
+  transition:
+    transform 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+[data-theme="aether"] .fav-card:hover {
+  transform: translateY(-3px);
+  border-color: #cbd5d8;
+  box-shadow: 0 8px 22px rgba(23, 32, 39, 0.09);
+}
+
+[data-theme="aether"] .fav-card-name {
+  color: #172027;
+  font-weight: 650;
+}
+
+[data-theme="aether"] .fav-card-flag {
+  background: #f8fafb;
+  border: 1px solid #e5e9eb;
+  border-radius: 8px;
+}
+
+
+/* ---------------------------------------------------------
+   FAVORITE BUTTON
+   --------------------------------------------------------- */
+
+[data-theme="aether"] .favorite-btn,
+[data-theme="aether"] .fav-btn {
+  color: #8c999f;
+  background: transparent;
+  border: none;
+}
+
+[data-theme="aether"] .favorite-btn:hover,
+[data-theme="aether"] .fav-btn:hover {
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+[data-theme="aether"] .favorite-btn.active,
+[data-theme="aether"] .fav-btn.active {
+  color: var(--accent);
+}
+
+
+/* ---------------------------------------------------------
+   SEARCH RESULTS
+   --------------------------------------------------------- */
+
+[data-theme="aether"] .search-result,
+[data-theme="aether"] .result-item {
+  background: #ffffff;
+  border-bottom: 1px solid #edf0f1;
+  color: var(--text);
+  transition: background 0.15s ease;
+}
+
+[data-theme="aether"] .search-result:hover,
+[data-theme="aether"] .result-item:hover {
+  background: #f7fafa;
+}
+
+[data-theme="aether"] .search-result-name,
+[data-theme="aether"] .result-name {
+  color: #172027;
+}
+
+[data-theme="aether"] .search-result-meta,
+[data-theme="aether"] .result-meta {
+  color: #8a969c;
+}
+
+
+/* ---------------------------------------------------------
+   CATEGORY / TAG
+   --------------------------------------------------------- */
+
+[data-theme="aether"] .tag,
+[data-theme="aether"] .badge,
+[data-theme="aether"] .category {
+  background: #f0f4f4;
+  color: #617077;
+  border: 1px solid #e0e7e8;
+  border-radius: 999px;
+}
+
+[data-theme="aether"] .tag.active,
+[data-theme="aether"] .badge.active {
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+  border-color: #bfe3e1;
+}
+
+
+/* ---------------------------------------------------------
+   LOCAL GOVERNMENT PICKER
+   --------------------------------------------------------- */
+
+[data-theme="aether"] .localgov-card,
+[data-theme="aether"] .localgov-item {
+  background: #ffffff;
+  border: 1px solid #e2e7e9;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(23, 32, 39, 0.04);
+  transition:
+    border-color 0.16s ease,
+    box-shadow 0.16s ease,
+    transform 0.16s ease;
+}
+
+[data-theme="aether"] .localgov-card:hover,
+[data-theme="aether"] .localgov-item:hover {
+  border-color: #c7d5d7;
+  box-shadow: 0 6px 18px rgba(23, 32, 39, 0.08);
+  transform: translateY(-2px);
+}
+
+
+/* ---------------------------------------------------------
+   LOCAL GOVERNMENT TIER BUTTONS
+   --------------------------------------------------------- */
+
+[data-theme="aether"] .tier-card,
+[data-theme="aether"] .tier-item {
+  background: #ffffff;
+  border: 1px solid #e2e7e9;
+  border-radius: 12px;
+  color: var(--text);
+}
+
+[data-theme="aether"] .tier-card:hover,
+[data-theme="aether"] .tier-item:hover {
+  background: #f8fbfb;
+  border-color: #bfd4d5;
+}
+
+
+/* ---------------------------------------------------------
+   BACK BUTTON
+   --------------------------------------------------------- */
+
+[data-theme="aether"] .back-btn,
+[data-theme="aether"] .back-button {
+  background: transparent;
+  color: #69777e;
+  border-color: transparent;
+}
+
+[data-theme="aether"] .back-btn:hover,
+[data-theme="aether"] .back-button:hover {
+  color: var(--accent-dark);
+  background: var(--accent-soft);
+  border-color: transparent;
+}
+
+
+/* ---------------------------------------------------------
+   MODAL
+   --------------------------------------------------------- */
+
+[data-theme="aether"] .modal {
+  background: rgba(20, 28, 33, 0.34);
+  backdrop-filter: blur(5px);
+}
+
+[data-theme="aether"] .modal-content,
+[data-theme="aether"] .modal-box {
+  background: #ffffff;
+  color: var(--text);
+  border: 1px solid #e0e6e8;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(23, 32, 39, 0.16);
+}
+
+
+/* ---------------------------------------------------------
+   CONFIRM DIALOG
+   --------------------------------------------------------- */
+
+[data-theme="aether"] .confirm-dialog {
+  background: #ffffff;
+  border: 1px solid #e0e6e8;
+  border-radius: 15px;
+  box-shadow: 0 18px 50px rgba(23, 32, 39, 0.15);
+}
+
+
+/* ---------------------------------------------------------
+   CLOSE BUTTON
+   --------------------------------------------------------- */
+
+[data-theme="aether"] .close,
+[data-theme="aether"] .close-btn {
+  color: #879399;
+  border-radius: 8px;
+}
+
+[data-theme="aether"] .close:hover,
+[data-theme="aether"] .close-btn:hover {
+  color: #27353c;
+  background: #f0f3f4;
+}
+
+
+/* ---------------------------------------------------------
+   LINKS
+   --------------------------------------------------------- */
+
+[data-theme="aether"] a {
+  color: var(--accent-dark);
+}
+
+[data-theme="aether"] a:hover {
+  color: var(--accent);
+}
+
+
+/* ---------------------------------------------------------
+   SCROLLBAR
+   --------------------------------------------------------- */
+
+[data-theme="aether"] ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+[data-theme="aether"] ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+[data-theme="aether"] ::-webkit-scrollbar-thumb {
+  background: #cfd7da;
+  border-radius: 999px;
+}
+
+[data-theme="aether"] ::-webkit-scrollbar-thumb:hover {
+  background: #aeb9be;
+}
+
+
+/* ---------------------------------------------------------
+   SELECTION
+   --------------------------------------------------------- */
+
+[data-theme="aether"] ::selection {
+  background: #bfe9e7;
+  color: #123638;
+}
+
+
+/* ---------------------------------------------------------
+   DIVIDERS
+   --------------------------------------------------------- */
+
+[data-theme="aether"] hr {
+  border: 0;
+  border-top: 1px solid #e7ebed;
+}
+
+
+/* ---------------------------------------------------------
+   EMPTY STATE
+   --------------------------------------------------------- */
+
+[data-theme="aether"] .empty-state {
+  color: #879399;
+}
+
+[data-theme="aether"] .empty-state strong {
+  color: #35434b;
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 700px) {
+
+  [data-theme="aether"] main {
+    border-radius: 14px;
+  }
+
+  [data-theme="aether"] .home-card,
+  [data-theme="aether"] .fav-card,
+  [data-theme="aether"] .localgov-card {
+    border-radius: 11px;
+  }
+
+  [data-theme="aether"] .search-box,
+  [data-theme="aether"] .search-wrap {
+    border-radius: 10px;
+  }
+
+}
+/* =========================================================
+   NEON
+   Neon Sign / Arcade / Fluorescent Interface
+   ========================================================= */
+
+:root[data-theme="neon"] {
+  --bg: #090909;
+  --nav-bg: #0a0a0a;
+  --card-bg: #111111;
+
+  --text: #f5f5f5;
+  --muted: #8a8a8a;
+
+  --accent: #00f5d4;
+  --accent-dark: #00bda5;
+
+  --neon-cyan: #00f5d4;
+  --neon-blue: #00a8ff;
+  --neon-green: #b6ff00;
+  --neon-pink: #ff2da8;
+  --neon-orange: #ff6a00;
+
+  --line: #2b2b2b;
+
+  --font-display:
+    "Arial Black",
+    "Pretendard",
+    sans-serif;
+
+  --font-mono:
+    "JetBrains Mono",
+    "Consolas",
+    monospace;
+}
+
+
+/* =========================================================
+   BASE
+   ========================================================= */
+
+[data-theme="neon"] body {
+  background: #090909;
+  color: #f5f5f5;
+}
+
+
+/* =========================================================
+   NAV
+   ========================================================= */
+
+[data-theme="neon"] nav {
+  background: #050505;
+
+  border-bottom: 3px solid #00f5d4;
+
+  box-shadow: none;
+
+  backdrop-filter: none;
+}
+
+[data-theme="neon"] .brand {
+  color: #ffffff;
+
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+
+[data-theme="neon"] .brand-mark {
+  background: #00f5d4;
+
+  color: #000000;
+
+  border: none;
+
+  box-shadow: none;
+
+  font-weight: 900;
+}
+
+[data-theme="neon"] .navlinks span {
+  color: #777777;
+
+  font-weight: 700;
+}
+
+[data-theme="neon"] .navlinks span:hover {
+  color: #ffffff;
+}
+
+[data-theme="neon"] .navlinks span.active {
+  color: #00f5d4;
+
+  border-color: #00f5d4;
+
+  box-shadow: none;
+}
+
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+[data-theme="neon"] main {
+  background: #0c0c0c;
+
+  border: 2px solid #292929;
+
+  border-radius: 4px;
+
+  box-shadow: none;
+}
+
+[data-theme="neon"] main::before {
+  display: none;
+}
+
+
+/* =========================================================
+   HEADINGS
+   ========================================================= */
+
+[data-theme="neon"] h1 {
+  color: #ffffff;
+
+  font-weight: 900;
+
+  letter-spacing: -0.055em;
+
+  text-shadow: none;
+}
+
+[data-theme="neon"] h2,
+[data-theme="neon"] h3 {
+  color: #ffffff;
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   LABEL
+   ========================================================= */
+
+[data-theme="neon"] .eyebrow,
+[data-theme="neon"] .home-meta {
+  display: inline-block;
+
+  padding: 3px 8px;
+
+  background: #00f5d4;
+
+  color: #000000;
+
+  font-weight: 900;
+
+  letter-spacing: .04em;
+
+  text-shadow: none;
+}
+
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+[data-theme="neon"] .searchbox {
+  background: #000000;
+
+  color: #ffffff;
+
+  border: 2px solid #3b3b3b;
+
+  border-radius: 2px;
+
+  box-shadow: none;
+
+  font-family: var(--font-mono);
+
+  transition:
+    border-color .15s ease,
+    background .15s ease;
+}
+
+[data-theme="neon"] .searchbox:hover {
+  border-color: #777777;
+}
+
+[data-theme="neon"] .searchbox:focus {
+  border-color: #00f5d4;
+
+  outline: none;
+
+  box-shadow:
+    inset 4px 0 0 #00f5d4;
+}
+
+[data-theme="neon"] .searchbox::placeholder {
+  color: #555555;
+}
+
+
+/* =========================================================
+   SEARCH RESULTS
+   ========================================================= */
+
+[data-theme="neon"] .suggestions {
+  background: #0a0a0a;
+
+  border: 2px solid #333333;
+
+  border-radius: 2px;
+
+  box-shadow: none;
+}
+
+[data-theme="neon"] .suggestions div {
+  color: #cccccc;
+
+  border-bottom: 1px solid #222222;
+}
+
+[data-theme="neon"] .suggestions div:hover,
+[data-theme="neon"] .suggestions div.highlighted {
+  background: #00f5d4;
+
+  color: #000000;
+}
+
+
+/* =========================================================
+   HOME CARDS
+   ========================================================= */
+
+[data-theme="neon"] .homecard {
+  position: relative;
+
+  background: #101010;
+
+  border: 2px solid #303030;
+
+  border-radius: 3px;
+
+  box-shadow: none;
+
+  transition:
+    border-color .15s ease,
+    transform .15s ease;
+}
+
+[data-theme="neon"] .homecard:hover {
+  transform: translateY(-2px);
+
+  border-color: #00f5d4;
+
+  box-shadow: none;
+}
+
+
+/* alternating neon strips */
+
+[data-theme="neon"] .homecard:nth-child(1) {
+  border-top: 6px solid #00f5d4;
+}
+
+[data-theme="neon"] .homecard:nth-child(2) {
+  border-top: 6px solid #00a8ff;
+}
+
+[data-theme="neon"] .homecard:nth-child(3) {
+  border-top: 6px solid #b6ff00;
+}
+
+[data-theme="neon"] .homecard:nth-child(4) {
+  border-top: 6px solid #ff2da8;
+}
+
+[data-theme="neon"] .homecard:nth-child(5) {
+  border-top: 6px solid #ff6a00;
+}
+
+[data-theme="neon"] .homecard-stamp {
+  color: #ffffff;
+
+  font-weight: 900;
+
+  text-shadow: none;
+}
+
+
+/* =========================================================
+   DIVIDER
+   ========================================================= */
+
+[data-theme="neon"] .home-divider {
+  height: 4px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #00f5d4 0 20%,
+      #00a8ff 20% 40%,
+      #b6ff00 40% 60%,
+      #ff2da8 60% 80%,
+      #ff6a00 80% 100%
+    );
+
+  box-shadow: none;
+}
+
+
+/* =========================================================
+   FLAG
+   ========================================================= */
+
+[data-theme="neon"] .flagbox {
+  background: #000000;
+
+  border: 3px solid #222222;
+
+  border-radius: 2px;
+
+  box-shadow: none;
+}
+
+
+/* =========================================================
+   FLAG DATA
+   ========================================================= */
+
+[data-theme="neon"] .stamp-label {
+  color: #b6ff00;
+
+  background: #000000;
+
+  font-weight: 900;
+}
+
+[data-theme="neon"] .stamp-hex {
+  color: #ffffff;
+
+  font-family: var(--font-mono);
+
+  font-weight: 800;
+
+  text-shadow: none;
+}
+
+
+/* =========================================================
+   HEX BAR
+   ========================================================= */
+
+[data-theme="neon"] .hexbar,
+[data-theme="neon"] .hexstack {
+  border: 2px solid #292929;
+
+  border-radius: 2px;
+
+  background: #050505;
+
+  box-shadow: none;
+}
+
+
+/* =========================================================
+   FAVORITES / RECENT
+   ========================================================= */
+
+[data-theme="neon"] .fav-card {
+  background: #101010;
+
+  color: #ffffff;
+
+  border: 2px solid #2d2d2d;
+
+  border-radius: 3px;
+
+  box-shadow: none;
+
+  transition:
+    border-color .15s ease,
+    transform .15s ease;
+}
+
+[data-theme="neon"] .fav-card:hover {
+  transform: translateY(-2px);
+
+  border-color: #00f5d4;
+
+  box-shadow: none;
+}
+
+[data-theme="neon"] .fav-card-name {
+  color: #ffffff;
+
+  font-weight: 800;
+}
+
+
+/* alternating card accents */
+
+[data-theme="neon"] .fav-card:nth-child(5n+1) {
+  border-left: 5px solid #00f5d4;
+}
+
+[data-theme="neon"] .fav-card:nth-child(5n+2) {
+  border-left: 5px solid #00a8ff;
+}
+
+[data-theme="neon"] .fav-card:nth-child(5n+3) {
+  border-left: 5px solid #b6ff00;
+}
+
+[data-theme="neon"] .fav-card:nth-child(5n+4) {
+  border-left: 5px solid #ff2da8;
+}
+
+[data-theme="neon"] .fav-card:nth-child(5n+5) {
+  border-left: 5px solid #ff6a00;
+}
+
+
+/* =========================================================
+   FAVORITE BUTTON
+   ========================================================= */
+
+[data-theme="neon"] .fav-btn {
+  color: #666666;
+
+  background: transparent;
+
+  border: none;
+}
+
+[data-theme="neon"] .fav-btn:hover {
+  color: #00f5d4;
+
+  background: #161616;
+
+  box-shadow: none;
+}
+
+[data-theme="neon"] .fav-btn.active {
+  color: #b6ff00;
+
+  text-shadow: none;
+}
+
+
+/* =========================================================
+   GENERAL BUTTON
+   ========================================================= */
+
+[data-theme="neon"] button {
+  background: #111111;
+
+  color: #dddddd;
+
+  border: 2px solid #333333;
+
+  border-radius: 2px;
+
+  font-weight: 700;
+
+  box-shadow: none;
+}
+
+[data-theme="neon"] button:hover {
+  background: #00f5d4;
+
+  color: #000000;
+
+  border-color: #00f5d4;
+
+  box-shadow: none;
+}
+
+
+/* =========================================================
+   PRIMARY BUTTON
+   ========================================================= */
+
+[data-theme="neon"] .primary,
+[data-theme="neon"] .btn-primary {
+  background: #00f5d4;
+
+  color: #000000;
+
+  border-color: #00f5d4;
+
+  font-weight: 900;
+
+  box-shadow: none;
+}
+
+[data-theme="neon"] .primary:hover,
+[data-theme="neon"] .btn-primary:hover {
+  background: #b6ff00;
+
+  border-color: #b6ff00;
+
+  color: #000000;
+}
+
+
+/* =========================================================
+   TAGS
+   ========================================================= */
+
+[data-theme="neon"] .tag,
+[data-theme="neon"] .badge,
+[data-theme="neon"] .category {
+  background: #151515;
+
+  color: #999999;
+
+  border: 1px solid #3a3a3a;
+
+  border-radius: 2px;
+}
+
+[data-theme="neon"] .tag.active,
+[data-theme="neon"] .badge.active {
+  background: #b6ff00;
+
+  color: #000000;
+
+  border-color: #b6ff00;
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   LOCAL GOVERNMENT
+   ========================================================= */
+
+[data-theme="neon"] .localgov-card,
+[data-theme="neon"] .localgov-item,
+[data-theme="neon"] .tier-card,
+[data-theme="neon"] .tier-item {
+  background: #101010;
+
+  border: 2px solid #2d2d2d;
+
+  border-radius: 3px;
+
+  box-shadow: none;
+
+  transition:
+    border-color .15s ease,
+    background .15s ease;
+}
+
+[data-theme="neon"] .localgov-card:hover,
+[data-theme="neon"] .localgov-item:hover,
+[data-theme="neon"] .tier-card:hover,
+[data-theme="neon"] .tier-item:hover {
+  background: #151515;
+
+  border-color: #ff2da8;
+}
+
+
+/* =========================================================
+   CREST
+   ========================================================= */
+
+[data-theme="neon"] .crest-toggle {
+  background: #0b0b0b;
+
+  color: #888888;
+
+  border: 2px solid #333333;
+
+  border-radius: 2px;
+}
+
+[data-theme="neon"] .crest-toggle:hover,
+[data-theme="neon"] .crest-toggle.active {
+  background: #ff2da8;
+
+  color: #000000;
+
+  border-color: #ff2da8;
+}
+
+
+/* =========================================================
+   BACK BUTTON
+   ========================================================= */
+
+[data-theme="neon"] .back-btn {
+  color: #777777;
+
+  border-color: transparent;
+}
+
+[data-theme="neon"] .back-btn:hover {
+  color: #00a8ff;
+
+  background: transparent;
+
+  border-color: #00a8ff;
+}
+
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+
+[data-theme="neon"] .confirm-overlay,
+[data-theme="neon"] .changelog-overlay {
+  background: rgba(0,0,0,.82);
+
+  backdrop-filter: none;
+}
+
+[data-theme="neon"] .confirm-modal,
+[data-theme="neon"] .changelog-modal {
+  background: #0d0d0d;
+
+  color: #ffffff;
+
+  border: 3px solid #00f5d4;
+
+  border-radius: 2px;
+
+  box-shadow: 10px 10px 0 #ff2da8;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+[data-theme="neon"] .empty,
+[data-theme="neon"] .comingsoon {
+  background: #0b0b0b;
+
+  border: 2px dashed #444444;
+
+  color: #777777;
+
+  border-radius: 2px;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+[data-theme="neon"] ::-webkit-scrollbar {
+  width: 8px;
+}
+
+[data-theme="neon"] ::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+[data-theme="neon"] ::-webkit-scrollbar-thumb {
+  background: #00f5d4;
+
+  border-radius: 0;
+}
+
+[data-theme="neon"] ::-webkit-scrollbar-thumb:hover {
+  background: #b6ff00;
+}
+
+
+/* =========================================================
+   SELECTION
+   ========================================================= */
+
+[data-theme="neon"] ::selection {
+  background: #ff2da8;
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   MONOSPACE DATA
+   ========================================================= */
+
+[data-theme="neon"] .hex-code,
+[data-theme="neon"] code {
+  font-family: var(--font-mono);
+
+  color: #00f5d4;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  [data-theme="neon"] main {
+    border-radius: 2px;
+  }
+
+  [data-theme="neon"] .homecard,
+  [data-theme="neon"] .fav-card {
+    border-radius: 2px;
+  }
+
+}
+/* =========================================================
+   NEON FINAL POLISH
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   1. BACKGROUND
+   --------------------------------------------------------- */
+
+[data-theme="neon"] body {
+  background:
+    radial-gradient(
+      circle at 15% 15%,
+      rgba(0, 245, 212, 0.055),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 85% 75%,
+      rgba(255, 45, 168, 0.035),
+      transparent 30%
+    ),
+    #101415;
+
+  color: #edfafa;
+}
+
+
+/* main도 완전 검정에서 살짝 띄움 */
+
+[data-theme="neon"] main {
+  background:
+    linear-gradient(
+      145deg,
+      #151b1c,
+      #101516
+    );
+
+  border-color: #303c3d;
+
+  box-shadow:
+    0 18px 55px rgba(0, 0, 0, .38),
+    0 0 35px rgba(0, 245, 212, .025);
+}
+
+
+/* ---------------------------------------------------------
+   2. HOME NEON DIVIDER 삭제
+   --------------------------------------------------------- */
+
+[data-theme="neon"] .home-divider {
+  display: none;
+}
+
+
+/* ---------------------------------------------------------
+   3. HOME CARD
+   --------------------------------------------------------- */
+
+[data-theme="neon"] .homecard {
+  background:
+    linear-gradient(
+      145deg,
+      #171d1e,
+      #121718
+    );
+
+  border: 1px solid #354142;
+
+  border-radius: 5px;
+
+  box-shadow:
+    0 7px 20px rgba(0, 0, 0, .25);
+
+  overflow: hidden;
+
+  transition:
+    transform .18s ease,
+    border-color .18s ease,
+    box-shadow .18s ease;
+}
+
+
+/* hover */
+
+[data-theme="neon"] .homecard:hover {
+  transform: translateY(-3px);
+
+  border-color: #00f5d4;
+
+  box-shadow:
+    0 10px 28px rgba(0, 0, 0, .4),
+    0 0 16px rgba(0, 245, 212, .08);
+}
+
+
+/* ---------------------------------------------------------
+   4. READY CARD NEON STRIP
+   5 COLORS → AUTOMATICALLY REPEATS
+   --------------------------------------------------------- */
+
+
+/* CYAN */
+
+[data-theme="neon"]
+.homecard:not(.homecard-disabled):nth-child(5n+1) {
+  border-top: 6px solid #00f5d4;
+
+  box-shadow:
+    0 -2px 12px rgba(0, 245, 212, .12),
+    0 7px 20px rgba(0, 0, 0, .25);
+}
+
+
+/* BLUE */
+
+[data-theme="neon"]
+.homecard:not(.homecard-disabled):nth-child(5n+2) {
+  border-top: 6px solid #00a8ff;
+
+  box-shadow:
+    0 -2px 12px rgba(0, 168, 255, .12),
+    0 7px 20px rgba(0, 0, 0, .25);
+}
+
+
+/* LIME */
+
+[data-theme="neon"]
+.homecard:not(.homecard-disabled):nth-child(5n+3) {
+  border-top: 6px solid #b6ff00;
+
+  box-shadow:
+    0 -2px 12px rgba(182, 255, 0, .12),
+    0 7px 20px rgba(0, 0, 0, .25);
+}
+
+
+/* PINK */
+
+[data-theme="neon"]
+.homecard:not(.homecard-disabled):nth-child(5n+4) {
+  border-top: 6px solid #ff2da8;
+
+  box-shadow:
+    0 -2px 12px rgba(255, 45, 168, .12),
+    0 7px 20px rgba(0, 0, 0, .25);
+}
+
+
+/* ORANGE */
+
+[data-theme="neon"]
+.homecard:not(.homecard-disabled):nth-child(5n+5) {
+  border-top: 6px solid #ff6a00;
+
+  box-shadow:
+    0 -2px 12px rgba(255, 106, 0, .12),
+    0 7px 20px rgba(0, 0, 0, .25);
+}
+
+
+/* ---------------------------------------------------------
+   5. PREPARING CARD
+   준비중에는 네온 띠 절대 없음
+   --------------------------------------------------------- */
+
+[data-theme="neon"] .homecard.homecard-disabled {
+  border-top: 1px solid #354142;
+
+  background:
+    linear-gradient(
+      145deg,
+      #14191a,
+      #101415
+    );
+
+  opacity: .72;
+
+  cursor: default;
+
+  box-shadow:
+    0 5px 18px rgba(0, 0, 0, .25);
+}
+
+
+/* hover도 없음 */
+
+[data-theme="neon"] .homecard.homecard-disabled:hover {
+  transform: none;
+
+  border-color: #354142;
+
+  box-shadow:
+    0 5px 18px rgba(0, 0, 0, .25);
+}
+
+
+/* ---------------------------------------------------------
+   6. 준비중 BADGE
+   --------------------------------------------------------- */
+
+[data-theme="neon"] .homecard-badge {
+  background: #242b2c;
+
+  color: #8d9b9c;
+
+  border: 1px solid #3d494a;
+
+  border-radius: 999px;
+
+  box-shadow: none;
+}
+
+
+/* ---------------------------------------------------------
+   7. PREPARING TEXT
+   --------------------------------------------------------- */
+
+[data-theme="neon"] .homecard-disabled .homecard-title {
+  color: #929c9d;
+}
+
+[data-theme="neon"] .homecard-disabled .homecard-desc {
+  color: #687476;
+}
+
+
+/* ---------------------------------------------------------
+   8. COUNTRY ICON
+   --------------------------------------------------------- */
+
+[data-theme="neon"] .homecard-stamp {
+  color: #ffffff;
+
+  filter:
+    drop-shadow(0 0 4px rgba(255,255,255,.08));
+}
+
+
+/* 준비중 아이콘은 약하게 */
+
+[data-theme="neon"] .homecard-disabled .homecard-stamp {
+  color: #687273;
+
+  filter: none;
+}
+
+
+/* ---------------------------------------------------------
+   9. CARD TITLE
+   --------------------------------------------------------- */
+
+[data-theme="neon"] .homecard-title {
+  color: #f2ffff;
+
+  font-weight: 800;
+}
+
+[data-theme="neon"] .homecard-desc {
+  color: #849091;
+}
+
+
+/* ---------------------------------------------------------
+   10. RECENT / FAVORITE
+   --------------------------------------------------------- */
+
+[data-theme="neon"] .fav-card {
+  background:
+    linear-gradient(
+      145deg,
+      #171d1e,
+      #111617
+    );
+
+  border-color: #354142;
+
+  box-shadow:
+    0 6px 20px rgba(0, 0, 0, .3);
+}
+
+
+/* 최근 기록도 5색 반복 */
+
+[data-theme="neon"]
+.fav-card:nth-child(5n+1) {
+  border-left: 5px solid #00f5d4;
+}
+
+[data-theme="neon"]
+.fav-card:nth-child(5n+2) {
+  border-left: 5px solid #00a8ff;
+}
+
+[data-theme="neon"]
+.fav-card:nth-child(5n+3) {
+  border-left: 5px solid #b6ff00;
+}
+
+[data-theme="neon"]
+.fav-card:nth-child(5n+4) {
+  border-left: 5px solid #ff2da8;
+}
+
+[data-theme="neon"]
+.fav-card:nth-child(5n+5) {
+  border-left: 5px solid #ff6a00;
+}
+
+
+/* ---------------------------------------------------------
+   11. RECENT / FAVORITE HOVER
+   --------------------------------------------------------- */
+
+[data-theme="neon"] .fav-card:hover {
+  border-color: #526364;
+
+  box-shadow:
+    0 10px 28px rgba(0, 0, 0, .4);
+}
+
+
+/* ---------------------------------------------------------
+   12. SEARCH — 주변이 아주 살짝 밝아짐
+   --------------------------------------------------------- */
+
+[data-theme="neon"] .searchbox {
+  background: #0b1011;
+
+  border-color: #3a494a;
+}
+
+[data-theme="neon"] .searchbox:focus {
+  border-color: #00f5d4;
+
+  box-shadow:
+    0 0 0 2px rgba(0, 245, 212, .07),
+    0 0 20px rgba(0, 245, 212, .07),
+    inset 3px 0 0 #00f5d4;
+}
+
+
+/* ---------------------------------------------------------
+   13. FLAG BOX
+   --------------------------------------------------------- */
+
+[data-theme="neon"] .flagbox {
+  background: #0a0e0f;
+
+  border-color: #354142;
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, .35),
+    0 0 20px rgba(0, 245, 212, .025);
+}
+
+
+/* ---------------------------------------------------------
+   14. BUTTON
+   --------------------------------------------------------- */
+
+[data-theme="neon"] button {
+  background: #141a1b;
+
+  border-color: #3a494a;
+
+  color: #d8e6e6;
+}
+
+[data-theme="neon"] button:hover {
+  background: #182223;
+
+  border-color: #00f5d4;
+
+  color: #00f5d4;
+
+  box-shadow:
+    0 0 10px rgba(0, 245, 212, .1);
+}
+
+
+/* ---------------------------------------------------------
+   15. PRIMARY BUTTON
+   --------------------------------------------------------- */
+
+[data-theme="neon"] .primary,
+[data-theme="neon"] .btn-primary {
+  background: #00f5d4;
+
+  color: #00100d;
+
+  border-color: #00f5d4;
+
+  box-shadow:
+    0 0 10px rgba(0, 245, 212, .2);
+}
+
+[data-theme="neon"] .primary:hover,
+[data-theme="neon"] .btn-primary:hover {
+  background: #7affef;
+
+  color: #00100d;
+
+  box-shadow:
+    0 0 18px rgba(0, 245, 212, .35);
+}
+
+
+/* ---------------------------------------------------------
+   16. HEADER TEXT
+   --------------------------------------------------------- */
+
+[data-theme="neon"] .eyebrow {
+  color: #00f5d4;
+
+  text-shadow:
+    0 0 7px rgba(0, 245, 212, .35);
+}
+
+[data-theme="neon"] h1 {
+  text-shadow:
+    0 2px 12px rgba(0, 0, 0, .35);
+}
+
+
+/* ---------------------------------------------------------
+   17. HEX
+   --------------------------------------------------------- */
+
+[data-theme="neon"] .stamp-hex {
+  color: #00f5d4;
+
+  text-shadow:
+    0 0 7px rgba(0, 245, 212, .3);
+}
+
+
+/* ---------------------------------------------------------
+   18. SCROLLBAR
+   --------------------------------------------------------- */
+
+[data-theme="neon"] ::-webkit-scrollbar-track {
+  background: #0c1112;
+}
+
+[data-theme="neon"] ::-webkit-scrollbar-thumb {
+  background: #365354;
+}
+
+[data-theme="neon"] ::-webkit-scrollbar-thumb:hover {
+  background: #00bda5;
+
+  box-shadow:
+    0 0 8px rgba(0,245,212,.25);
+}
+/* =========================================================
+   COMMUNITY THEME
+   Korean Web Community / Subculture Portal
+   Navy Blue + Cool Gray
+   ========================================================= */
+
+:root[data-theme="community"] {
+  --bg: #f1f3f6;
+  --nav-bg: #263b63;
+  --nav-text: #ffffff;
+  --nav-muted: #c8d1df;
+
+  --card-bg: #ffffff;
+  --text: #252a31;
+  --muted: #78818d;
+
+  --accent: #3565a3;
+  --accent-dark: #263b63;
+
+  --line: #d9dee5;
+  --line-dark: #c5ccd5;
+
+  --hover: #f5f7fa;
+
+  --cool-gray: #eef1f5;
+}
+
+
+/* =========================================================
+   BODY
+   ========================================================= */
+
+[data-theme="community"] body {
+  background: #f1f3f6;
+  color: #252a31;
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+[data-theme="community"] nav {
+  background: #263b63;
+
+  border-bottom: 3px solid #1d2f51;
+
+  box-shadow: none;
+
+  backdrop-filter: none;
+}
+
+[data-theme="community"] .brand {
+  color: #ffffff;
+
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+[data-theme="community"] .brand-mark {
+  background: #ffffff;
+
+  color: #263b63;
+
+  border: none;
+
+  border-radius: 2px;
+
+  box-shadow: none;
+}
+
+[data-theme="community"] .navlinks {
+  gap: 0;
+}
+
+[data-theme="community"] .navlinks span {
+  color: #c8d1df;
+
+  padding: 8px 12px;
+
+  border-radius: 2px;
+
+  font-weight: 600;
+
+  transition:
+    background .12s ease,
+    color .12s ease;
+}
+
+[data-theme="community"] .navlinks span:hover {
+  color: #ffffff;
+
+  background: rgba(255,255,255,.08);
+}
+
+[data-theme="community"] .navlinks span.active {
+  color: #263b63;
+
+  background: #ffffff;
+
+  border-color: #ffffff;
+
+  box-shadow: none;
+}
+
+
+/* =========================================================
+   THEME SELECTOR
+   ========================================================= */
+
+[data-theme="community"] .theme-picker {
+  background: #1e3153;
+
+  color: #ffffff;
+
+  border: 1px solid #587097;
+
+  border-radius: 2px;
+
+  box-shadow: none;
+}
+
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+[data-theme="community"] main {
+  background: #ffffff;
+
+  border: 1px solid #cfd5dd;
+
+  border-radius: 3px;
+
+  box-shadow:
+    0 1px 3px rgba(28,40,55,.08);
+}
+
+
+/* =========================================================
+   HOME HEADER
+   ========================================================= */
+
+[data-theme="community"] .home-meta {
+  color: #65758a;
+
+  font-size: 12px;
+
+  font-weight: 600;
+}
+
+[data-theme="community"] .eyebrow {
+  display: inline-block;
+
+  color: #ffffff;
+
+  background: #263b63;
+
+  padding: 3px 7px;
+
+  border-radius: 2px;
+
+  font-size: 11px;
+
+  font-weight: 700;
+}
+
+[data-theme="community"] h1 {
+  color: #202936;
+
+  font-weight: 900;
+
+  letter-spacing: -0.055em;
+
+  text-shadow: none;
+}
+
+[data-theme="community"] .subline {
+  color: #737d89;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   HOME DIVIDER
+   ========================================================= */
+
+[data-theme="community"] .home-divider {
+  height: 3px;
+
+  background: #263b63;
+
+  box-shadow: none;
+}
+
+
+/* =========================================================
+   HOME CARDS
+   ========================================================= */
+
+[data-theme="community"] .homecard {
+  background: #ffffff;
+
+  border: 1px solid #d2d7de;
+
+  border-radius: 2px;
+
+  box-shadow: none;
+
+  transition:
+    background .12s ease,
+    border-color .12s ease;
+}
+
+[data-theme="community"] .homecard:hover {
+  transform: none;
+
+  background: #f8f9fb;
+
+  border-color: #9eabbc;
+
+  box-shadow: none;
+}
+
+
+/* 위쪽 게시판식 색상 바 */
+
+[data-theme="community"] .homecard:nth-child(1) {
+  border-top: 4px solid #263b63;
+}
+
+[data-theme="community"] .homecard:nth-child(2) {
+  border-top: 4px solid #3d6fb6;
+}
+
+[data-theme="community"] .homecard:nth-child(3) {
+  border-top: 4px solid #55708f;
+}
+
+[data-theme="community"] .homecard:nth-child(4) {
+  border-top: 4px solid #6b7f99;
+}
+
+[data-theme="community"] .homecard:nth-child(5) {
+  border-top: 4px solid #8795a8;
+
+}
+
+[data-theme="community"] .homecard:nth-child(6) {
+  border-top: 4px solid #b0b8c3;
+}
+
+
+/* =========================================================
+   HOME CARD CONTENT
+   ========================================================= */
+
+[data-theme="community"] .homecard-stamp {
+  color: #263b63;
+}
+
+[data-theme="community"] .homecard-title {
+  color: #202833;
+
+  font-weight: 800;
+
+  letter-spacing: -0.025em;
+}
+
+[data-theme="community"] .homecard-desc {
+  color: #7a838e;
+
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+[data-theme="community"] .searchbox {
+  background: #ffffff;
+
+  color: #252a31;
+
+  border: 2px solid #aeb8c5;
+
+  border-radius: 2px;
+
+  box-shadow: none;
+
+  font-size: 14px;
+}
+
+[data-theme="community"] .searchbox:hover {
+  border-color: #8292a8;
+}
+
+[data-theme="community"] .searchbox:focus {
+  border-color: #3565a3;
+
+  outline: none;
+
+  box-shadow:
+    0 0 0 1px #3565a3;
+}
+
+[data-theme="community"] .searchbox::placeholder {
+  color: #a0a8b2;
+}
+
+
+/* =========================================================
+   SEARCH SUGGESTIONS
+   ========================================================= */
+
+[data-theme="community"] .suggestions {
+  background: #ffffff;
+
+  border: 1px solid #bfc7d1;
+
+  border-radius: 2px;
+
+  box-shadow:
+    0 4px 12px rgba(20,35,55,.12);
+}
+
+[data-theme="community"] .suggestions div {
+  color: #3d4651;
+
+  border-bottom: 1px solid #edf0f3;
+}
+
+[data-theme="community"] .suggestions div:hover,
+[data-theme="community"] .suggestions div.highlighted {
+  background: #edf3fa;
+
+  color: #263b63;
+}
+
+
+/* =========================================================
+   FLAG RESULT
+   ========================================================= */
+
+[data-theme="community"] .countryname {
+  color: #202833;
+
+  font-weight: 900;
+}
+
+[data-theme="community"] .countrymeta {
+  color: #7c8793;
+}
+
+[data-theme="community"] .flagbox {
+  background: #eef1f5;
+
+  border: 1px solid #cbd2da;
+
+  border-radius: 2px;
+
+  box-shadow: none;
+}
+
+
+/* =========================================================
+   HEX
+   ========================================================= */
+
+[data-theme="community"] .stamp-label {
+  color: #263b63;
+
+  font-weight: 800;
+}
+
+[data-theme="community"] .stamp-hex {
+  color: #3565a3;
+
+  font-family:
+    "Consolas",
+    "JetBrains Mono",
+    monospace;
+
+  font-weight: 700;
+
+  text-shadow: none;
+}
+
+[data-theme="community"] .hexbar,
+[data-theme="community"] .hexstack {
+  background: #f5f7f9;
+
+  border: 1px solid #d0d6de;
+
+  border-radius: 2px;
+
+  box-shadow: none;
+}
+
+
+/* =========================================================
+   FAVORITES / RECENT
+   ========================================================= */
+
+[data-theme="community"] .fav-card {
+  background: #ffffff;
+
+  color: #252a31;
+
+  border: 1px solid #cfd5dd;
+
+  border-radius: 2px;
+
+  box-shadow: none;
+
+  transition:
+    background .12s ease,
+    border-color .12s ease;
+}
+
+[data-theme="community"] .fav-card:hover {
+  transform: none;
+
+  background: #f8f9fb;
+
+  border-color: #9eabbc;
+
+  box-shadow: none;
+}
+
+[data-theme="community"] .fav-card-name {
+  color: #263b63;
+
+  font-weight: 800;
+}
+
+[data-theme="community"] .fav-card-flag {
+  background: #eef1f5;
+
+  border: 1px solid #d0d6de;
+
+  border-radius: 2px;
+}
+
+
+/* =========================================================
+   RECENT CARD ACCENTS
+   ========================================================= */
+
+[data-theme="community"] .fav-card:nth-child(5n+1) {
+  border-left: 3px solid #263b63;
+}
+
+[data-theme="community"] .fav-card:nth-child(5n+2) {
+  border-left: 3px solid #3565a3;
+}
+
+[data-theme="community"] .fav-card:nth-child(5n+3) {
+  border-left: 3px solid #55708f;
+}
+
+[data-theme="community"] .fav-card:nth-child(5n+4) {
+  border-left: 3px solid #718399;
+}
+
+[data-theme="community"] .fav-card:nth-child(5n+5) {
+  border-left: 3px solid #a1aab6;
+}
+
+
+/* =========================================================
+   FAVORITE BUTTON
+   ========================================================= */
+
+[data-theme="community"] .fav-btn {
+  color: #8a949f;
+
+  background: transparent;
+
+  border: none;
+}
+
+[data-theme="community"] .fav-btn:hover {
+  color: #263b63;
+
+  background: #eef2f6;
+
+  box-shadow: none;
+}
+
+[data-theme="community"] .fav-btn.active {
+  color: #3565a3;
+
+  text-shadow: none;
+}
+
+
+/* =========================================================
+   FILTER
+   ========================================================= */
+
+[data-theme="community"] .fav-filter {
+  background: #eef1f5;
+
+  border: 1px solid #d1d7df;
+
+  border-radius: 2px;
+}
+
+[data-theme="community"] .fav-filter-chip {
+  color: #77828e;
+
+  border-radius: 2px;
+}
+
+[data-theme="community"] .fav-filter-chip:hover {
+  color: #263b63;
+
+  background: #ffffff;
+}
+
+[data-theme="community"] .fav-filter-chip.active {
+  color: #ffffff;
+
+  background: #263b63;
+
+  box-shadow: none;
+}
+
+
+/* =========================================================
+   LOCAL GOVERNMENT
+   ========================================================= */
+
+[data-theme="community"] .localgov-card,
+[data-theme="community"] .localgov-item,
+[data-theme="community"] .tier-card,
+[data-theme="community"] .tier-item {
+  background: #ffffff;
+
+  border: 1px solid #cfd5dd;
+
+  border-radius: 2px;
+
+  box-shadow: none;
+
+  transition:
+    background .12s ease,
+    border-color .12s ease;
+}
+
+[data-theme="community"] .localgov-card:hover,
+[data-theme="community"] .localgov-item:hover,
+[data-theme="community"] .tier-card:hover,
+[data-theme="community"] .tier-item:hover {
+  background: #f7f9fb;
+
+  border-color: #8292a8;
+
+  box-shadow: none;
+}
+
+
+/* =========================================================
+   CREST
+   ========================================================= */
+
+[data-theme="community"] .crest-row {
+  border-color: #d8dde4;
+}
+
+[data-theme="community"] .crest-row-label {
+  color: #687582;
+}
+
+[data-theme="community"] .crest-toggle {
+  background: #f0f3f6;
+
+  color: #687582;
+
+  border: 1px solid #cbd2da;
+
+  border-radius: 2px;
+}
+
+[data-theme="community"] .crest-toggle:hover,
+[data-theme="community"] .crest-toggle.active {
+  background: #263b63;
+
+  color: #ffffff;
+
+  border-color: #263b63;
+
+  box-shadow: none;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+[data-theme="community"] button {
+  background: #ffffff;
+
+  color: #4c5865;
+
+  border: 1px solid #bfc7d1;
+
+  border-radius: 2px;
+
+  box-shadow: none;
+
+  font-weight: 600;
+}
+
+[data-theme="community"] button:hover {
+  background: #263b63;
+
+  color: #ffffff;
+
+  border-color: #263b63;
+
+  box-shadow: none;
+}
+
+
+/* =========================================================
+   PRIMARY BUTTON
+   ========================================================= */
+
+[data-theme="community"] .primary,
+[data-theme="community"] .btn-primary {
+  background: #263b63;
+
+  color: #ffffff;
+
+  border-color: #263b63;
+
+  box-shadow: none;
+}
+
+[data-theme="community"] .primary:hover,
+[data-theme="community"] .btn-primary:hover {
+  background: #3565a3;
+
+  border-color: #3565a3;
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   BACK BUTTON
+   ========================================================= */
+
+[data-theme="community"] .back-btn {
+  color: #687582;
+
+  border-color: transparent;
+}
+
+[data-theme="community"] .back-btn:hover {
+  color: #263b63;
+
+  background: #eef1f5;
+
+  border-color: #d0d6de;
+}
+
+
+/* =========================================================
+   PREPARING
+   ========================================================= */
+
+[data-theme="community"] .homecard.homecard-disabled {
+  background: #eef0f2;
+
+  border-top: 1px solid #d1d5da;
+
+  opacity: .75;
+}
+
+[data-theme="community"] .homecard.homecard-disabled:hover {
+  transform: none;
+
+  border-color: #d1d5da;
+
+  box-shadow: none;
+}
+
+[data-theme="community"] .homecard-badge {
+  background: #dce1e6;
+
+  color: #69737e;
+
+  border: 1px solid #c5ccd4;
+
+  border-radius: 2px;
+}
+
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+
+[data-theme="community"] .confirm-overlay,
+[data-theme="community"] .changelog-overlay {
+  background: rgba(20, 30, 43, .45);
+
+  backdrop-filter: blur(2px);
+}
+
+[data-theme="community"] .confirm-modal,
+[data-theme="community"] .changelog-modal {
+  background: #ffffff;
+
+  color: #252a31;
+
+  border: 1px solid #bfc7d1;
+
+  border-top: 4px solid #263b63;
+
+  border-radius: 2px;
+
+  box-shadow:
+    0 8px 30px rgba(25,40,60,.2);
+}
+
+
+/* =========================================================
+   EMPTY
+   ========================================================= */
+
+[data-theme="community"] .empty,
+[data-theme="community"] .comingsoon {
+  background: #f1f3f6;
+
+  color: #7a848f;
+
+  border: 1px dashed #c3cbd4;
+
+  border-radius: 2px;
+}
+
+
+/* =========================================================
+   DISCLAIMER
+   ========================================================= */
+
+[data-theme="community"] .disclaimer {
+  background: #eef1f5;
+
+  color: #727d88;
+
+  border: 1px solid #d3d8df;
+
+  border-radius: 2px;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+[data-theme="community"] ::-webkit-scrollbar {
+  width: 10px;
+}
+
+[data-theme="community"] ::-webkit-scrollbar-track {
+  background: #e6e9ed;
+}
+
+[data-theme="community"] ::-webkit-scrollbar-thumb {
+  background: #aab3be;
+
+  border-radius: 0;
+}
+
+[data-theme="community"] ::-webkit-scrollbar-thumb:hover {
+  background: #78889b;
+}
+
+
+/* =========================================================
+   SELECTION
+   ========================================================= */
+
+[data-theme="community"] ::selection {
+  background: #3565a3;
+
+  color: #ffffff;
 }
