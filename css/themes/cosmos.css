@@ -1,0 +1,1052 @@
+/* ============================================================
+   COSMOS THEME
+   Deep Space / Cosmic HUD / Neon Observatory
+============================================================ */
+
+
+html[data-theme="cosmos"]{
+--bg:#03050D;
+  --nav-bg:#050712;
+  --nav-text:#F5F1FF;
+  --nav-muted:#8E8BA3;
+
+  --card-bg:rgba(11,13,27,.86);
+
+  --text:#F4F1FF;
+  --muted:#9693AA;
+
+  --accent:#A970FF;
+  --stamp:#D58BFF;
+  --line:rgba(173,143,255,.28);
+
+  --cyan:#54D8FF;
+  --purple:#A970FF;
+  --pink:#EA8CFF;
+
+  --font-display:'Public Sans',sans-serif;
+  --font-body:'Public Sans',sans-serif;
+  --font-mono:'Space Mono',monospace;
+}
+
+
+/* ============================================================
+   BACKGROUND
+============================================================ */
+
+[data-theme="cosmos"] body{
+
+  background:
+    radial-gradient(
+      circle at 50% 8%,
+      rgba(113,73,255,.22),
+      transparent 27%
+    ),
+    radial-gradient(
+      circle at 85% 75%,
+      rgba(41,198,255,.08),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 15% 60%,
+      rgba(196,80,255,.08),
+      transparent 25%
+    ),
+    #03050D;
+
+  color:var(--text);
+
+  position:relative;
+}
+
+
+/* 별밭 */
+
+[data-theme="cosmos"] body::before{
+
+  content:"";
+
+  position:fixed;
+
+  inset:0;
+
+  pointer-events:none;
+
+  opacity:.5;
+
+  background-image:
+    radial-gradient(circle,rgba(255,255,255,.9) 0 1px,transparent 1.5px),
+    radial-gradient(circle,rgba(185,151,255,.65) 0 1px,transparent 1.5px),
+    radial-gradient(circle,rgba(255,255,255,.45) 0 1px,transparent 1.5px);
+
+  background-size:
+    137px 173px,
+    211px 239px,
+    89px 127px;
+
+  background-position:
+    13px 31px,
+    72px 11px,
+    31px 91px;
+
+  z-index:-1;
+}
+
+
+/* ============================================================
+   NAV
+============================================================ */
+
+[data-theme="cosmos"] nav{
+
+  background:rgba(4,6,16,.88);
+
+  border-bottom:1px solid rgba(174,122,255,.35);
+
+  backdrop-filter:blur(14px);
+
+  box-shadow:
+    0 0 30px rgba(120,72,255,.08);
+}
+
+
+[data-theme="cosmos"] .brand{
+
+  color:#fff;
+
+  letter-spacing:.08em;
+}
+
+
+[data-theme="cosmos"] .brand-mark{
+
+  border-radius:50%;
+
+  border:1px solid var(--purple);
+
+  box-shadow:
+    0 0 8px rgba(169,112,255,.55),
+    inset 0 0 6px rgba(169,112,255,.2);
+}
+
+
+[data-theme="cosmos"] .brand-mark::after{
+
+  content:"✦";
+
+  color:#DCC9FF;
+
+  text-shadow:
+    0 0 8px #A970FF;
+}
+
+
+/* ============================================================
+   NAV LINKS
+============================================================ */
+
+[data-theme="cosmos"] .navlinks span{
+
+  color:#817E97;
+
+  border-bottom-color:transparent;
+
+  transition:
+    color .2s ease,
+    text-shadow .2s ease;
+}
+
+
+[data-theme="cosmos"] .navlinks span:hover{
+
+  color:#D9C8FF;
+
+  text-shadow:
+    0 0 9px rgba(169,112,255,.6);
+}
+
+
+[data-theme="cosmos"] .navlinks span.active{
+
+  color:#FFFFFF;
+
+  border-color:var(--purple);
+
+  text-shadow:
+    0 0 9px rgba(169,112,255,.65);
+}
+
+
+/* ============================================================
+   THEME PICKER
+============================================================ */
+
+[data-theme="cosmos"] .theme-picker{
+
+  background:#080A16;
+
+  color:#EDE7FF;
+
+  border:1px solid rgba(169,112,255,.45);
+
+  border-radius:4px;
+
+  box-shadow:
+    0 0 12px rgba(169,112,255,.08);
+}
+
+
+[data-theme="cosmos"] .theme-picker:hover{
+
+  border-color:var(--purple);
+
+  box-shadow:
+    0 0 14px rgba(169,112,255,.25);
+}
+
+
+/* ============================================================
+   MAIN PANEL
+============================================================ */
+
+[data-theme="cosmos"] main{
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(18,19,39,.92),
+      rgba(5,7,17,.92)
+    );
+
+  border:1px solid rgba(168,125,255,.22);
+
+  border-radius:2px;
+
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.025),
+    0 20px 70px rgba(0,0,0,.55),
+    0 0 45px rgba(106,65,255,.07);
+
+  position:relative;
+
+  overflow:hidden;
+}
+
+
+/* 상단 네온 라인 */
+
+[data-theme="cosmos"] main::before{
+
+  content:"";
+
+  position:absolute;
+
+  top:0;
+  left:8%;
+  right:8%;
+
+  height:1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--cyan),
+      var(--purple),
+      var(--pink),
+      transparent
+    );
+
+  box-shadow:
+    0 0 12px rgba(169,112,255,.7);
+}
+
+
+/* ============================================================
+   HEADINGS
+============================================================ */
+
+[data-theme="cosmos"] .eyebrow{
+
+  color:#B8A4E8;
+
+  letter-spacing:.22em;
+
+  text-shadow:
+    0 0 8px rgba(169,112,255,.35);
+}
+
+
+[data-theme="cosmos"] h1{
+
+  color:#FFFFFF;
+
+  font-weight:600;
+
+  letter-spacing:-.035em;
+
+  text-shadow:
+    0 0 20px rgba(169,112,255,.12);
+}
+
+
+[data-theme="cosmos"] .subline{
+
+  color:#89869D;
+}
+
+
+/* ============================================================
+   HOME
+============================================================ */
+
+[data-theme="cosmos"] .home-meta{
+
+  border-bottom:1px solid rgba(169,112,255,.18);
+
+  color:#89869D;
+}
+
+
+[data-theme="cosmos"] .home-h1{
+
+  letter-spacing:-.05em;
+
+  position:relative;
+}
+
+
+/* 작은 별 */
+
+[data-theme="cosmos"] .home-h1::after{
+
+  content:"✦";
+
+  position:absolute;
+
+  margin-left:9px;
+
+  font-size:13px;
+
+  color:#D8BEFF;
+
+  text-shadow:
+    0 0 10px #A970FF;
+}
+
+
+[data-theme="cosmos"] .home-sub{
+
+  color:#858298;
+}
+
+
+[data-theme="cosmos"] .home-divider{
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(169,112,255,.6),
+      rgba(84,216,255,.45),
+      transparent
+    );
+
+  height:1px;
+
+  border-radius:0;
+}
+
+
+/* ============================================================
+   SEARCH
+============================================================ */
+
+[data-theme="cosmos"] .searchbox{
+
+  background:
+    rgba(3,5,13,.78);
+
+  color:#FFFFFF;
+
+  border:1px solid rgba(169,112,255,.3);
+
+  border-radius:2px;
+
+  box-shadow:
+    inset 0 0 20px rgba(100,70,180,.04);
+
+  font-family:var(--font-mono);
+}
+
+
+[data-theme="cosmos"] .searchbox::placeholder{
+
+  color:#656278;
+}
+
+
+[data-theme="cosmos"] .searchbox:focus{
+
+  border-color:var(--purple);
+
+  outline:none;
+
+  box-shadow:
+    0 0 0 1px rgba(169,112,255,.18),
+    0 0 18px rgba(169,112,255,.15);
+}
+
+
+/* ============================================================
+   SUGGESTIONS
+============================================================ */
+
+[data-theme="cosmos"] .suggestions{
+
+  background:#080A15;
+
+  border:1px solid rgba(169,112,255,.28);
+
+  border-radius:2px;
+
+  box-shadow:
+    0 18px 40px rgba(0,0,0,.5);
+}
+
+
+[data-theme="cosmos"] .suggestions div{
+
+  border-bottom:1px solid rgba(255,255,255,.06);
+
+  border-radius:0;
+
+  color:#C8C4D5;
+}
+
+
+[data-theme="cosmos"] .suggestions div:hover{
+
+  background:rgba(169,112,255,.10);
+
+  color:#FFFFFF;
+}
+
+
+[data-theme="cosmos"] .suggestions div.highlighted{
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(169,112,255,.18),
+      transparent
+    );
+
+  color:#FFFFFF;
+
+  border-left:2px solid var(--purple);
+}
+
+
+/* ============================================================
+   HOME CARDS
+============================================================ */
+
+[data-theme="cosmos"] .homecard{
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(20,22,43,.9),
+      rgba(7,9,19,.92)
+    );
+
+  border:1px solid rgba(169,112,255,.22);
+
+  border-radius:2px;
+
+  box-shadow:
+    0 8px 30px rgba(0,0,0,.3);
+
+  position:relative;
+
+  overflow:hidden;
+
+  transition:
+    transform .2s ease,
+    border-color .2s ease,
+    box-shadow .2s ease;
+}
+
+
+/* 카드의 궤도 라인 */
+
+[data-theme="cosmos"] .homecard::before{
+
+  content:"";
+
+  position:absolute;
+
+  width:120px;
+  height:120px;
+
+  right:-55px;
+  top:-65px;
+
+  border:1px solid rgba(169,112,255,.18);
+
+  border-radius:50%;
+
+  box-shadow:
+    0 0 0 12px rgba(84,216,255,.025),
+    0 0 0 25px rgba(169,112,255,.025);
+}
+
+
+[data-theme="cosmos"] .homecard:hover{
+
+  transform:translateY(-3px);
+
+  border-color:rgba(169,112,255,.55);
+
+  box-shadow:
+    0 10px 35px rgba(0,0,0,.4),
+    0 0 25px rgba(120,72,255,.12);
+}
+
+
+[data-theme="cosmos"] .homecard-stamp{
+
+  background:rgba(169,112,255,.08);
+
+  color:#D5C2FF;
+
+  border:1px solid rgba(169,112,255,.25);
+
+  border-radius:2px;
+}
+
+
+[data-theme="cosmos"] .homecard-title{
+
+  color:#F7F4FF;
+}
+
+
+[data-theme="cosmos"] .homecard-desc{
+
+  color:#858297;
+}
+
+
+/* ============================================================
+   FLAG BOX
+============================================================ */
+
+[data-theme="cosmos"] .flagbox{
+
+  background:#05060D;
+
+  border:1px solid rgba(169,112,255,.25);
+
+  border-radius:2px;
+
+  box-shadow:
+    0 12px 35px rgba(0,0,0,.5);
+}
+
+
+/* ============================================================
+   COUNTRY
+============================================================ */
+
+[data-theme="cosmos"] .countryname{
+
+  color:#FFFFFF;
+
+  text-shadow:
+    0 0 12px rgba(169,112,255,.12);
+}
+
+
+[data-theme="cosmos"] .countrymeta{
+
+  color:#858197;
+
+  font-family:var(--font-mono);
+}
+
+
+/* ============================================================
+   HEX STACK
+============================================================ */
+
+[data-theme="cosmos"] .hexstack{
+
+  border:1px solid rgba(169,112,255,.25);
+
+  border-radius:2px;
+
+  overflow:hidden;
+
+  box-shadow:
+    0 12px 35px rgba(0,0,0,.4);
+}
+
+
+[data-theme="cosmos"] .hexbar{
+
+  border-radius:0;
+
+  min-height:68px;
+
+  border-bottom:1px solid rgba(255,255,255,.14);
+
+  font-family:var(--font-mono);
+
+  position:relative;
+
+  transition:
+    filter .2s ease,
+    box-shadow .2s ease;
+}
+
+
+[data-theme="cosmos"] .hexbar:last-child{
+
+  border-bottom:none;
+}
+
+
+/* HEX 라벨 */
+
+[data-theme="cosmos"] .hex-label{
+
+  padding:6px 12px;
+
+  border-radius:2px;
+
+  border:1px solid rgba(255,255,255,.42);
+
+  background:rgba(0,0,0,.20);
+
+  box-shadow:
+    0 3px 10px rgba(0,0,0,.22);
+
+  font-family:var(--font-mono);
+
+  font-size:12px;
+
+  letter-spacing:.04em;
+
+  backdrop-filter:blur(3px);
+
+  transition:
+    transform .15s ease,
+    box-shadow .15s ease;
+}
+
+
+[data-theme="cosmos"] .hexbar:hover .hex-label{
+
+  transform:translateY(-2px);
+
+  box-shadow:
+    0 5px 15px rgba(0,0,0,.3);
+}
+
+
+/* ============================================================
+   CREST
+============================================================ */
+
+[data-theme="cosmos"] .crest-toggle{
+
+  background:#080A15;
+
+  color:#A7A2B9;
+
+  border:1px solid rgba(169,112,255,.28);
+
+  border-radius:2px;
+}
+
+
+[data-theme="cosmos"] .crest-toggle:hover{
+
+  color:#FFFFFF;
+
+  border-color:var(--purple);
+}
+
+
+[data-theme="cosmos"] .crest-toggle.active{
+
+  background:rgba(169,112,255,.12);
+
+  color:#D9C5FF;
+
+  border-color:var(--purple);
+
+  box-shadow:
+    0 0 12px rgba(169,112,255,.12);
+}
+
+
+[data-theme="cosmos"] .crest-row{
+
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+
+[data-theme="cosmos"] .crest-swatch{
+
+  border-radius:2px;
+
+  border:1px solid rgba(255,255,255,.18);
+}
+
+
+/* ============================================================
+   FAVORITES
+============================================================ */
+
+[data-theme="cosmos"] .fav-card{
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(19,21,41,.9),
+      rgba(6,8,17,.92)
+    );
+
+  border:1px solid rgba(169,112,255,.22);
+
+  border-radius:2px;
+
+  box-shadow:
+    0 8px 25px rgba(0,0,0,.3);
+}
+
+
+[data-theme="cosmos"] .fav-card:hover{
+
+  border-color:rgba(169,112,255,.55);
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.45),
+    0 0 20px rgba(120,72,255,.1);
+
+  transform:translateY(-3px);
+}
+
+
+[data-theme="cosmos"] .fav-card-flag{
+
+  border-radius:2px;
+
+  border:1px solid rgba(169,112,255,.18);
+}
+
+
+/* ============================================================
+   FILTER
+============================================================ */
+
+[data-theme="cosmos"] .fav-filter-chip{
+
+  border-radius:2px;
+
+  border:1px solid rgba(169,112,255,.25);
+
+  background:#080A15;
+
+  color:#9792A9;
+}
+
+
+[data-theme="cosmos"] .fav-filter-chip:hover{
+
+  color:#FFFFFF;
+
+  border-color:var(--purple);
+}
+
+
+[data-theme="cosmos"] .fav-filter-chip.active{
+
+  background:rgba(169,112,255,.13);
+
+  color:#D9C5FF;
+
+  border-color:var(--purple);
+}
+
+
+/* ============================================================
+   RECENT
+============================================================ */
+
+[data-theme="cosmos"] .clear-recent-btn{
+
+  border-radius:2px;
+
+  background:#080A15;
+
+  border:1px solid rgba(169,112,255,.25);
+
+  color:#9994A9;
+}
+
+
+[data-theme="cosmos"] .clear-recent-btn:hover{
+
+  border-color:var(--pink);
+
+  color:#E9B9FF;
+}
+
+
+/* ============================================================
+   STAMP
+============================================================ */
+
+[data-theme="cosmos"] .stamp-mark{
+  position:relative;
+  background:
+    radial-gradient(
+      circle,
+      rgba(169,112,255,.18),
+      transparent 65%
+    );
+
+  border:1px solid rgba(169,112,255,.5);
+
+  border-radius:50%;
+
+  box-shadow:
+    0 0 25px rgba(169,112,255,.25);
+}
+[data-theme="cosmos"] .stamp-mark::before,
+[data-theme="cosmos"] .stamp-mark::after{
+  content:"";
+  position:absolute;
+  inset:-14px;
+  border-radius:50%;
+  border:1px solid rgba(169,112,255,.4);
+  animation:cosmosStampPulse 1.1s ease-out;
+}
+[data-theme="cosmos"] .stamp-mark::after{
+  inset:-26px;
+  animation-delay:.15s;
+  border-color:rgba(169,112,255,.2);
+}
+@keyframes cosmosStampPulse{
+  from{ transform:scale(0.6); opacity:0.9; }
+  to{ transform:scale(1.15); opacity:0; }
+}
+
+
+[data-theme="cosmos"] .stamp-hex{
+
+  color:#D7C3FF;
+}
+
+
+[data-theme="cosmos"] .stamp-label{
+
+  color:#A970FF;
+}
+
+
+/* ============================================================
+   DISCLAIMER
+============================================================ */
+
+[data-theme="cosmos"] .disclaimer{
+
+  background:rgba(169,112,255,.035);
+
+  border:1px solid rgba(169,112,255,.18);
+
+  border-radius:2px;
+
+  color:#858197;
+}
+
+
+/* ============================================================
+   COMING SOON
+============================================================ */
+
+[data-theme="cosmos"] .comingsoon{
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(17,19,39,.85),
+      rgba(6,8,18,.9)
+    );
+
+  border:1px dashed rgba(169,112,255,.3);
+
+  border-radius:2px;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.3);
+}
+
+
+/* ============================================================
+   CONFIRM MODAL
+============================================================ */
+
+[data-theme="cosmos"] .confirm-overlay,
+[data-theme="cosmos"] .changelog-overlay{
+
+  background:rgba(0,0,0,.72);
+
+  backdrop-filter:blur(7px);
+}
+
+
+[data-theme="cosmos"] .confirm-modal,
+[data-theme="cosmos"] .changelog-modal{
+
+  background:
+    linear-gradient(
+      145deg,
+      #121429,
+      #060812
+    );
+
+  border:1px solid rgba(169,112,255,.35);
+
+  border-radius:2px;
+
+  box-shadow:
+    0 20px 70px rgba(0,0,0,.65),
+    0 0 35px rgba(120,72,255,.1);
+}
+
+
+[data-theme="cosmos"] .confirm-eyebrow{
+
+  color:#BDA9ED;
+}
+
+
+[data-theme="cosmos"] .confirm-title{
+
+  color:#FFFFFF;
+}
+
+
+[data-theme="cosmos"] .confirm-desc{
+
+  color:#8B879E;
+}
+
+
+[data-theme="cosmos"] .confirm-btn{
+
+  border-radius:2px;
+
+  border:1px solid rgba(169,112,255,.28);
+
+  background:#080A15;
+
+  color:#B9B3C9;
+}
+
+
+[data-theme="cosmos"] .confirm-ok{
+
+  background:rgba(169,112,255,.16);
+
+  border-color:var(--purple);
+
+  color:#E7DAFF;
+
+  box-shadow:
+    0 0 14px rgba(169,112,255,.1);
+}
+
+
+/* ============================================================
+   CHANGELOG
+============================================================ */
+
+[data-theme="cosmos"] .changelog-btn{
+
+  border-radius:2px;
+
+  background:#080A15;
+
+  color:#9C97AA;
+
+  border:1px solid rgba(169,112,255,.25);
+}
+
+
+[data-theme="cosmos"] .changelog-btn:hover{
+
+  border-color:var(--purple);
+
+  color:#FFFFFF;
+}
+
+
+[data-theme="cosmos"] .changelog-entry{
+
+  border-bottom:1px dashed rgba(255,255,255,.1);
+}
+
+
+[data-theme="cosmos"] .changelog-entry .v{
+
+  color:#B987FF;
+
+  font-family:var(--font-mono);
+}
+
+
+/* ============================================================
+   MOBILE
+============================================================ */
+
+@media (max-width:680px){
+
+  [data-theme="cosmos"] main{
+
+    margin-top:20px;
+
+    width:calc(100% - 16px);
+
+    box-shadow:
+      0 15px 50px rgba(0,0,0,.55);
+  }
+
+}
+
+
+@media (max-width:480px){
+
+  [data-theme="cosmos"] main{
+
+    padding:
+      32px
+      18px
+      44px;
+  }
+
+  [data-theme="cosmos"] .home-h1{
+
+    font-size:30px;
+  }
+
+  [data-theme="cosmos"] .hexbar{
+
+    min-height:60px;
+  }
+
+}

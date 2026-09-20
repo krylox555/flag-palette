@@ -1,0 +1,1283 @@
+/* =========================================================
+   NEON THEME
+   Night City / Arcade / Neon Sign
+   ========================================================= */
+
+[data-theme="neon"] {
+
+  /* ---------------------------------------------------------
+     CORE COLORS
+     --------------------------------------------------------- */
+
+  --bg: #10161b;
+  --nav-bg: #0b1116;
+  --nav-text: #f1f7f7;
+  --nav-muted: #87949b;
+
+  --card-bg: #182126;
+
+  --text: #edf6f6;
+  --muted: #87959b;
+
+  --accent: #20e6e0;
+  --accent-dark: #00bdb8;
+  --accent-soft: rgba(32, 230, 224, .12);
+
+  --line: #303d43;
+  --line-soft: #253138;
+
+  --hover: #202b31;
+
+  /* neon palette */
+  --neon-cyan: #20e6e0;
+  --neon-blue: #4e8cff;
+  --neon-lime: #b8ef45;
+  --neon-pink: #ff4fc3;
+  --neon-orange: #ff9f43;
+
+  /* typography */
+  --font-display:
+    "Orbitron",
+    "Rajdhani",
+    "Pretendard",
+    "Noto Sans KR",
+    sans-serif;
+
+  --font-body:
+    "Pretendard",
+    "Noto Sans KR",
+    sans-serif;
+
+  --font-mono:
+    "JetBrains Mono",
+    "D2Coding",
+    "Consolas",
+    monospace;
+
+  --stamp: #20e6e0;
+
+  --shadow:
+    0 8px 24px rgba(0, 0, 0, .22);
+
+  --shadow-hover:
+    0 14px 34px rgba(0, 0, 0, .32);
+}
+
+
+/* =========================================================
+   BODY
+   ========================================================= */
+
+[data-theme="neon"] body {
+  background:
+    radial-gradient(
+      circle at 50% -10%,
+      rgba(32, 230, 224, .055),
+      transparent 42%
+    ),
+    #10161b;
+
+  color: var(--text);
+}
+
+
+/* 아주 미세한 도시/CRT 느낌 */
+
+[data-theme="neon"] body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  pointer-events: none;
+  z-index: 9999;
+
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255,255,255,.012) 0px,
+      rgba(255,255,255,.012) 1px,
+      transparent 1px,
+      transparent 4px
+    );
+
+  opacity: .18;
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+[data-theme="neon"] nav,
+[data-theme="neon"] .navbar,
+[data-theme="neon"] header {
+  background: var(--nav-bg);
+  color: var(--nav-text);
+
+  border-bottom: 1px solid var(--line);
+
+  box-shadow:
+    0 1px 0 rgba(32,230,224,.035),
+    0 8px 24px rgba(0,0,0,.16);
+}
+
+[data-theme="neon"] nav a,
+[data-theme="neon"] .navbar a,
+[data-theme="neon"] header a {
+  color: var(--nav-muted);
+  transition:
+    color .18s ease,
+    text-shadow .18s ease;
+}
+
+[data-theme="neon"] nav a:hover,
+[data-theme="neon"] .navbar a:hover,
+[data-theme="neon"] header a:hover {
+  color: var(--neon-cyan);
+
+  text-shadow:
+    0 0 8px rgba(32,230,224,.35);
+}
+
+
+/* 로고 */
+
+[data-theme="neon"] .logo,
+[data-theme="neon"] .brand,
+[data-theme="neon"] .site-title {
+  color: #f5ffff;
+}
+
+[data-theme="neon"] .logo-mark,
+[data-theme="neon"] .brand-mark {
+  background: var(--neon-cyan);
+
+  box-shadow:
+    0 0 8px rgba(32,230,224,.45),
+    0 0 18px rgba(32,230,224,.16);
+}
+
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+[data-theme="neon"] main {
+  color: var(--text);
+}
+
+
+/* =========================================================
+   HOME HERO
+   ========================================================= */
+
+[data-theme="neon"] .home {
+  color: var(--text);
+}
+
+[data-theme="neon"] .home h1,
+[data-theme="neon"] .home-title {
+  color: #f5ffff;
+
+  text-shadow:
+    0 0 12px rgba(32,230,224,.08);
+}
+
+[data-theme="neon"] .home h1 span,
+[data-theme="neon"] .home-title span {
+  color: var(--neon-cyan);
+}
+
+[data-theme="neon"] .home-subtitle,
+[data-theme="neon"] .home-description {
+  color: var(--muted);
+}
+
+
+/* 작은 TYPE / PALETTE 같은 표시 */
+
+[data-theme="neon"] .home-eyebrow,
+[data-theme="neon"] .eyebrow {
+  color: var(--neon-cyan);
+
+  font-family: var(--font-mono);
+
+  letter-spacing: .18em;
+  text-transform: uppercase;
+
+  text-shadow:
+    0 0 7px rgba(32,230,224,.3);
+}
+
+
+/* =========================================================
+   HOME GRID
+   설명문과 카드 사이 간격 확보
+   ========================================================= */
+
+[data-theme="neon"] .home-grid {
+  margin-top: 30px;
+}
+
+
+/* =========================================================
+   HOME CARDS
+   ========================================================= */
+
+[data-theme="neon"] .homecard {
+  position: relative;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.018),
+      transparent 60%
+    ),
+    var(--card-bg);
+
+  color: var(--text);
+
+  border: 1px solid var(--line);
+
+  border-top: 1px solid var(--line) !important;
+
+  border-radius: 5px;
+
+  box-shadow: var(--shadow);
+
+  transition:
+    transform .18s ease,
+    border-color .18s ease,
+    box-shadow .18s ease,
+    background .18s ease;
+
+  /* 중요:
+     카드 전체가 깜빡이는 현상 제거 */
+  animation: none !important;
+}
+
+
+/* 카드 위쪽 네온 띠 */
+
+[data-theme="neon"] .homecard::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  top: -1px;
+
+  height: 4px;
+
+  border-radius: 5px 5px 0 0;
+
+  background: var(--neon-cyan);
+
+  pointer-events: none;
+
+  animation:
+    neonSignCyan
+    3.8s ease-in-out infinite;
+}
+
+
+/* 카드 hover */
+
+[data-theme="neon"] .homecard:hover {
+  transform: translateY(-3px);
+
+  border-color: #3a4a51;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.028),
+      transparent 60%
+    ),
+    #1b272d;
+
+  box-shadow:
+    var(--shadow-hover),
+    0 0 20px rgba(32,230,224,.055);
+}
+
+
+/* ---------------------------------------------------------
+   카드별 색상
+   --------------------------------------------------------- */
+
+[data-theme="neon"] .homecard:nth-child(1)::before {
+  background: var(--neon-cyan);
+
+  box-shadow:
+    0 0 4px rgba(32,230,224,.55),
+    0 0 10px rgba(32,230,224,.20);
+
+  animation-name: neonSignCyan;
+}
+
+
+[data-theme="neon"] .homecard:nth-child(2)::before {
+  background: var(--neon-blue);
+
+  box-shadow:
+    0 0 4px rgba(78,140,255,.55),
+    0 0 10px rgba(78,140,255,.20);
+
+  animation-name: neonSignBlue;
+}
+
+
+[data-theme="neon"] .homecard:nth-child(3)::before {
+  background: var(--neon-lime);
+
+  box-shadow:
+    0 0 4px rgba(184,239,69,.55),
+    0 0 10px rgba(184,239,69,.20);
+
+  animation-name: neonSignLime;
+}
+
+
+[data-theme="neon"] .homecard:nth-child(4)::before {
+  background: var(--neon-pink);
+
+  box-shadow:
+    0 0 4px rgba(255,79,195,.55),
+    0 0 10px rgba(255,79,195,.20);
+
+  animation-name: neonSignPink;
+}
+
+
+[data-theme="neon"] .homecard:nth-child(5)::before {
+  background: var(--neon-orange);
+
+  box-shadow:
+    0 0 4px rgba(255,159,67,.55),
+    0 0 10px rgba(255,159,67,.20);
+
+  animation-name: neonSignOrange;
+}
+
+
+[data-theme="neon"] .homecard:nth-child(6)::before {
+  background: var(--neon-cyan);
+
+  box-shadow:
+    0 0 4px rgba(32,230,224,.55),
+    0 0 10px rgba(32,230,224,.20);
+
+  animation-name: neonSignCyan;
+}
+
+
+/* =========================================================
+   HOME CARD CONTENT
+   ========================================================= */
+
+[data-theme="neon"] .homecard h2,
+[data-theme="neon"] .homecard h3,
+[data-theme="neon"] .homecard-title {
+  color: #f0f7f7;
+
+  font-family: var(--font-display);
+}
+
+[data-theme="neon"] .homecard p,
+[data-theme="neon"] .homecard-description {
+  color: var(--muted);
+}
+
+
+/* 카드 아이콘 */
+
+[data-theme="neon"] .homecard-icon {
+  border-color: var(--neon-cyan);
+
+  color: var(--neon-cyan);
+
+  box-shadow:
+    0 0 6px rgba(32,230,224,.24);
+}
+
+
+/* =========================================================
+   NEON SIGN FLICKER
+   카드 전체가 아니라 띠만 움직임
+   ========================================================= */
+
+@keyframes neonSignCyan {
+
+  0%,
+  100% {
+    opacity: .78;
+
+    box-shadow:
+      0 0 4px rgba(32,230,224,.45),
+      0 0 10px rgba(32,230,224,.15);
+  }
+
+  45% {
+    opacity: 1;
+
+    box-shadow:
+      0 0 5px rgba(32,230,224,.75),
+      0 0 14px rgba(32,230,224,.30);
+  }
+
+  52% {
+    opacity: .62;
+  }
+
+  58% {
+    opacity: .92;
+  }
+}
+
+
+@keyframes neonSignBlue {
+
+  0%,
+  100% {
+    opacity: .76;
+
+    box-shadow:
+      0 0 4px rgba(78,140,255,.45),
+      0 0 10px rgba(78,140,255,.15);
+  }
+
+  48% {
+    opacity: 1;
+
+    box-shadow:
+      0 0 5px rgba(78,140,255,.75),
+      0 0 14px rgba(78,140,255,.30);
+  }
+
+  55% {
+    opacity: .60;
+  }
+
+  62% {
+    opacity: .92;
+  }
+}
+
+
+@keyframes neonSignLime {
+
+  0%,
+  100% {
+    opacity: .76;
+
+    box-shadow:
+      0 0 4px rgba(184,239,69,.45),
+      0 0 10px rgba(184,239,69,.15);
+  }
+
+  42% {
+    opacity: 1;
+
+    box-shadow:
+      0 0 5px rgba(184,239,69,.75),
+      0 0 14px rgba(184,239,69,.30);
+  }
+
+  49% {
+    opacity: .62;
+  }
+
+  56% {
+    opacity: .94;
+  }
+}
+
+
+@keyframes neonSignPink {
+
+  0%,
+  100% {
+    opacity: .76;
+
+    box-shadow:
+      0 0 4px rgba(255,79,195,.45),
+      0 0 10px rgba(255,79,195,.15);
+  }
+
+  50% {
+    opacity: 1;
+
+    box-shadow:
+      0 0 5px rgba(255,79,195,.75),
+      0 0 14px rgba(255,79,195,.30);
+  }
+
+  57% {
+    opacity: .60;
+  }
+
+  64% {
+    opacity: .93;
+  }
+}
+
+
+@keyframes neonSignOrange {
+
+  0%,
+  100% {
+    opacity: .76;
+
+    box-shadow:
+      0 0 4px rgba(255,159,67,.45),
+      0 0 10px rgba(255,159,67,.15);
+  }
+
+  46% {
+    opacity: 1;
+
+    box-shadow:
+      0 0 5px rgba(255,159,67,.75),
+      0 0 14px rgba(255,159,67,.30);
+  }
+
+  53% {
+    opacity: .62;
+  }
+
+  60% {
+    opacity: .94;
+  }
+}
+
+/* =========================================================
+   NEON — SEARCH BAR
+   검색할 때 네온사인이 켜지는 듯한 효과
+   ========================================================= */
+
+[data-theme="neon"] .searchbox {
+  width: 100%;
+
+  background: #121a1f;
+  color: var(--text);
+
+  border: 1px solid #35434a;
+  border-radius: 4px;
+
+  font-family: var(--font-body);
+
+  outline: none;
+
+  transition:
+    border-color .18s ease,
+    box-shadow .18s ease,
+    background .18s ease;
+}
+
+
+/* 마우스를 올리면 아주 살짝 밝아짐 */
+
+[data-theme="neon"] .searchbox:hover {
+  border-color: #46575f;
+}
+
+
+/* 검색창 활성화 */
+
+[data-theme="neon"] .searchbox:focus {
+  background: #141f24;
+
+  border-color: var(--neon-cyan);
+
+  box-shadow:
+    0 0 0 2px rgba(32,230,224,.06),
+    0 0 12px rgba(32,230,224,.10);
+
+  animation: neonSearchFlicker 1.25s ease-in-out;
+}
+
+
+/* 검색창 placeholder */
+
+[data-theme="neon"] .searchbox::placeholder {
+  color: #68777e;
+}
+
+
+/* =========================================================
+   SEARCH BAR FLICKER
+   테두리만 짧게 깜빡임
+   ========================================================= */
+
+@keyframes neonSearchFlicker {
+
+  0% {
+    border-color: #35434a;
+
+    box-shadow:
+      0 0 0 0 rgba(32,230,224,0),
+      0 0 0 rgba(32,230,224,0);
+  }
+
+  18% {
+    border-color: var(--neon-cyan);
+
+    box-shadow:
+      0 0 0 2px rgba(32,230,224,.08),
+      0 0 16px rgba(32,230,224,.16);
+  }
+
+  27% {
+    border-color: #35434a;
+
+    box-shadow:
+      0 0 0 1px rgba(32,230,224,.025),
+      0 0 5px rgba(32,230,224,.05);
+  }
+
+  38% {
+    border-color: var(--neon-cyan);
+
+    box-shadow:
+      0 0 0 2px rgba(32,230,224,.07),
+      0 0 14px rgba(32,230,224,.13);
+  }
+
+  47% {
+    border-color: #35434a;
+  }
+
+  62% {
+    border-color: var(--neon-cyan);
+
+    box-shadow:
+      0 0 0 2px rgba(32,230,224,.055),
+      0 0 12px rgba(32,230,224,.10);
+  }
+
+  100% {
+    border-color: var(--neon-cyan);
+
+    box-shadow:
+      0 0 0 2px rgba(32,230,224,.06),
+      0 0 12px rgba(32,230,224,.10);
+  }
+}
+
+
+/* =========================================================
+   NEON — COPY STAMP
+   여권 도장 → 네온 간판형 COPY 알림
+   ========================================================= */
+
+
+/* 원형 여권 도장 구조 제거 */
+
+[data-theme="neon"] .stamp-overlay {
+  bottom: 38px;
+  left: 50%;
+
+  transform:
+    translateX(-50%)
+    translateY(10px)
+    scale(.94);
+
+  opacity: 0;
+
+  transition:
+    opacity .18s ease,
+    transform .24s cubic-bezier(.22,1,.36,1);
+}
+
+
+/* 표시될 때 */
+
+[data-theme="neon"] .stamp-overlay.show {
+  opacity: 1;
+
+  transform:
+    translateX(-50%)
+    translateY(0)
+    scale(1);
+}
+
+
+/* 네온 간판 */
+
+[data-theme="neon"] .stamp-mark {
+  width: auto;
+  height: auto;
+
+  min-width: 170px;
+
+  padding: 12px 20px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 4px;
+
+  border: 1px solid var(--neon-cyan);
+
+  border-radius: 4px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(32,230,224,.08),
+      rgba(15,24,29,.96)
+    );
+
+  box-shadow:
+    0 0 5px rgba(32,230,224,.35),
+    0 0 18px rgba(32,230,224,.12),
+    inset 0 0 14px rgba(32,230,224,.035);
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+
+/* 간판 안쪽의 얇은 빛 */
+
+[data-theme="neon"] .stamp-mark::before {
+  content: "";
+
+  position: absolute;
+
+  left: -30%;
+  top: 0;
+  bottom: 0;
+
+  width: 30%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,.15),
+      transparent
+    );
+
+  transform: skewX(-20deg);
+
+  animation: neonStampSweep 1.1s ease-out;
+}
+
+
+@keyframes neonStampSweep {
+
+  0% {
+    left: -30%;
+  }
+
+  100% {
+    left: 130%;
+  }
+}
+
+
+/* COPY */
+
+[data-theme="neon"] .stamp-label {
+  color: var(--neon-cyan);
+
+  background: transparent;
+
+  font-family: var(--font-mono);
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: .18em;
+
+  text-transform: uppercase;
+
+  text-shadow:
+    0 0 7px rgba(32,230,224,.45);
+}
+
+
+/* HEX */
+
+[data-theme="neon"] .stamp-hex {
+  color: #f2ffff;
+
+  background: transparent;
+
+  font-family: var(--font-mono);
+
+  font-size: 14px;
+
+  font-weight: 800;
+
+  letter-spacing: .04em;
+
+  text-shadow:
+    0 0 8px rgba(32,230,224,.20);
+}
+
+
+/* 기존 원형 도장의 내부 장식 제거 */
+
+[data-theme="neon"] .stamp-mark {
+  border-radius: 4px;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  [data-theme="neon"] .searchbox {
+    animation: none !important;
+  }
+
+  [data-theme="neon"] .stamp-mark::before {
+    animation: none !important;
+  }
+
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+[data-theme="neon"] button {
+  font-family: var(--font-body);
+
+  color: var(--text);
+
+  background: #172127;
+
+  border: 1px solid var(--line);
+
+  transition:
+    background .16s ease,
+    border-color .16s ease,
+    color .16s ease,
+    box-shadow .16s ease,
+    transform .16s ease;
+}
+
+
+[data-theme="neon"] button:hover {
+  background: #202c32;
+
+  border-color: #405158;
+
+  color: #ffffff;
+}
+
+
+[data-theme="neon"] button:active {
+  transform: translateY(1px);
+}
+
+
+/* 주요 버튼 */
+
+[data-theme="neon"] .primary,
+[data-theme="neon"] .btn-primary,
+[data-theme="neon"] button.primary {
+  background: rgba(32,230,224,.10);
+
+  color: var(--neon-cyan);
+
+  border-color: rgba(32,230,224,.42);
+}
+
+
+[data-theme="neon"] .primary:hover,
+[data-theme="neon"] .btn-primary:hover,
+[data-theme="neon"] button.primary:hover {
+  background: rgba(32,230,224,.16);
+
+  border-color: var(--neon-cyan);
+
+  box-shadow:
+    0 0 12px rgba(32,230,224,.12);
+}
+
+
+/* =========================================================
+   FLAG CARDS / COLOR CARDS
+   ========================================================= */
+
+[data-theme="neon"] .flag-card,
+[data-theme="neon"] .color-card,
+[data-theme="neon"] .country-card {
+  background: var(--card-bg);
+
+  color: var(--text);
+
+  border: 1px solid var(--line);
+
+  box-shadow: var(--shadow);
+
+  transition:
+    border-color .18s ease,
+    box-shadow .18s ease,
+    transform .18s ease;
+}
+
+
+[data-theme="neon"] .flag-card:hover,
+[data-theme="neon"] .color-card:hover,
+[data-theme="neon"] .country-card:hover {
+  border-color: #405158;
+
+  box-shadow:
+    var(--shadow-hover),
+    0 0 16px rgba(32,230,224,.045);
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   HEX CODE
+   ========================================================= */
+
+[data-theme="neon"] .hex,
+[data-theme="neon"] .hex-code,
+[data-theme="neon"] .color-hex {
+  color: var(--neon-cyan);
+
+  font-family: var(--font-mono);
+
+  letter-spacing: .02em;
+}
+
+
+/* HEX 복사 버튼은 기존 JS/기믹 유지
+   NEON에서는 별도의 복사 애니메이션을 추가하지 않음 */
+
+
+/* =========================================================
+   FAVORITES / RECENT
+   ========================================================= */
+
+[data-theme="neon"] .fav-card,
+[data-theme="neon"] .recent-card {
+  position: relative;
+
+  background: var(--card-bg);
+
+  color: var(--text);
+
+  border: 1px solid var(--line);
+
+  box-shadow: var(--shadow);
+
+  overflow: hidden;
+}
+
+
+[data-theme="neon"] .fav-card::before,
+[data-theme="neon"] .recent-card::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+  bottom: 0;
+
+  width: 3px;
+
+  background: var(--neon-cyan);
+
+  opacity: .85;
+
+  box-shadow:
+    0 0 8px rgba(32,230,224,.18);
+
+  pointer-events: none;
+}
+
+
+[data-theme="neon"] .fav-card-name,
+[data-theme="neon"] .recent-card-name {
+  color: var(--text);
+
+  font-family: var(--font-display);
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   LOCAL GOVERNMENT
+   ========================================================= */
+
+[data-theme="neon"] .localgov-card,
+[data-theme="neon"] .localgov-item,
+[data-theme="neon"] .tier-card {
+  background: var(--card-bg);
+
+  color: var(--text);
+
+  border: 1px solid var(--line);
+
+  box-shadow: var(--shadow);
+
+  transition:
+    border-color .18s ease,
+    box-shadow .18s ease,
+    transform .18s ease;
+}
+
+
+[data-theme="neon"] .localgov-card:hover,
+[data-theme="neon"] .localgov-item:hover,
+[data-theme="neon"] .tier-card:hover {
+  border-color: #405158;
+
+  box-shadow:
+    var(--shadow-hover),
+    0 0 16px rgba(32,230,224,.045);
+
+  transform: translateY(-2px);
+}
+
+
+[data-theme="neon"] .localgov-title,
+[data-theme="neon"] .tier-title {
+  color: var(--text);
+}
+
+
+[data-theme="neon"] .localgov-subtitle,
+[data-theme="neon"] .tier-subtitle {
+  color: var(--muted);
+}
+
+
+/* =========================================================
+   CREST / EMBLEM
+   ========================================================= */
+
+[data-theme="neon"] .crest-card,
+[data-theme="neon"] .emblem-card {
+  background: var(--card-bg);
+
+  border: 1px solid var(--line);
+
+  color: var(--text);
+}
+
+
+[data-theme="neon"] .crest-toggle,
+[data-theme="neon"] .emblem-toggle {
+  color: var(--neon-cyan);
+
+  border-color: var(--line);
+}
+
+
+[data-theme="neon"] .crest-toggle:hover,
+[data-theme="neon"] .emblem-toggle:hover {
+  border-color: var(--neon-cyan);
+
+  box-shadow:
+    0 0 10px rgba(32,230,224,.10);
+}
+
+
+/* =========================================================
+   TAGS
+   ========================================================= */
+
+[data-theme="neon"] .tag,
+[data-theme="neon"] .badge {
+  background: rgba(32,230,224,.07);
+
+  color: var(--neon-cyan);
+
+  border: 1px solid rgba(32,230,224,.22);
+
+  font-family: var(--font-mono);
+}
+
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+
+[data-theme="neon"] .modal,
+[data-theme="neon"] .modal-content,
+[data-theme="neon"] .dialog {
+  background: #151e23;
+
+  color: var(--text);
+
+  border: 1px solid var(--line);
+
+  box-shadow:
+    0 24px 60px rgba(0,0,0,.45),
+    0 0 25px rgba(32,230,224,.035);
+}
+
+
+[data-theme="neon"] .modal h2,
+[data-theme="neon"] .modal h3,
+[data-theme="neon"] .dialog h2,
+[data-theme="neon"] .dialog h3 {
+  color: #f5ffff;
+}
+
+
+/* =========================================================
+   BACK BUTTON
+   ========================================================= */
+
+[data-theme="neon"] .back-button,
+[data-theme="neon"] .back-btn {
+  color: var(--muted);
+
+  background: transparent;
+
+  border-color: var(--line);
+}
+
+
+[data-theme="neon"] .back-button:hover,
+[data-theme="neon"] .back-btn:hover {
+  color: var(--neon-cyan);
+
+  border-color: var(--neon-cyan);
+
+  background: rgba(32,230,224,.055);
+
+  box-shadow:
+    0 0 10px rgba(32,230,224,.08);
+}
+
+
+/* =========================================================
+   EMPTY / COMING SOON
+   ========================================================= */
+
+[data-theme="neon"] .empty,
+[data-theme="neon"] .empty-state,
+[data-theme="neon"] .coming-soon {
+  color: var(--muted);
+
+  background: #141d22;
+
+  border: 1px solid var(--line);
+}
+
+
+[data-theme="neon"] .coming-soon strong,
+[data-theme="neon"] .coming-soon-title {
+  color: var(--neon-cyan);
+}
+
+
+/* =========================================================
+   STAMP
+   기존 여권 테마의 도장 느낌 제거
+   ========================================================= */
+
+[data-theme="neon"] .stamp-overlay,
+[data-theme="neon"] .stamp-mark {
+  color: var(--neon-cyan);
+
+  border-color: var(--neon-cyan);
+}
+
+
+/* 필요 없는 여권식 장식 */
+
+[data-theme="neon"] .passport-stamp,
+[data-theme="neon"] .passport-decoration {
+  display: none !important;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+[data-theme="neon"] ::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+[data-theme="neon"] ::-webkit-scrollbar-track {
+  background: #0c1216;
+}
+
+[data-theme="neon"] ::-webkit-scrollbar-thumb {
+  background: #334148;
+
+  border-radius: 8px;
+
+  border: 2px solid #0c1216;
+}
+
+[data-theme="neon"] ::-webkit-scrollbar-thumb:hover {
+  background: #4a5b63;
+}
+
+
+/* =========================================================
+   TEXT SELECTION
+   ========================================================= */
+
+[data-theme="neon"] ::selection {
+  background: rgba(32,230,224,.25);
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  [data-theme="neon"] .home-grid {
+    margin-top: 24px;
+  }
+
+  [data-theme="neon"] .homecard {
+    border-radius: 4px;
+  }
+
+  [data-theme="neon"] .homecard::before {
+    height: 3px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  [data-theme="neon"] *,
+  [data-theme="neon"] *::before,
+  [data-theme="neon"] *::after {
+    animation: none !important;
+
+    transition-duration: 0.01ms !important;
+  }
+
+}

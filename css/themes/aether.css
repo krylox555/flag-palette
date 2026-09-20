@@ -1,0 +1,681 @@
+/* =========================================================
+   AETHER
+   Clean / Airy / Modern
+   ========================================================= */
+
+[data-theme="aether"] {
+  --bg: #f4f7f7;
+  --nav-bg: #ffffff;
+  --nav-text: #253338;
+  --nav-muted: #7b898d;
+
+  --card-bg: #ffffff;
+  --text: #253338;
+  --muted: #7a898e;
+
+  --accent: #16a6a1;
+  --accent-dark: #0c817d;
+  --accent-soft: #e7f7f6;
+
+  --line: #dfe7e8;
+  --line-soft: #edf2f2;
+  --hover: #f3f8f8;
+
+  /* AETHER 전용 */
+  --stamp: #16a6a1;
+
+  --font-display:
+    "Inter",
+    "Pretendard",
+    "Noto Sans KR",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  --font-body:
+    "Inter",
+    "Pretendard",
+    "Noto Sans KR",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  --font-mono:
+    "JetBrains Mono",
+    "SFMono-Regular",
+    Consolas,
+    "Liberation Mono",
+    monospace;
+}
+
+
+/* =========================================================
+   BODY
+   ========================================================= */
+
+[data-theme="aether"] body {
+  background:
+    linear-gradient(
+      180deg,
+      #f8fbfb 0%,
+      #f3f7f7 100%
+    );
+
+  color: var(--text);
+  font-family: var(--font-body);
+}
+
+
+/* =========================================================
+   NAV
+   ========================================================= */
+
+[data-theme="aether"] nav {
+  background: rgba(255,255,255,.94);
+  color: var(--nav-text);
+
+  border-bottom: 1px solid var(--line);
+
+  box-shadow:
+    0 1px 10px rgba(35,55,58,.045);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+[data-theme="aether"] nav a {
+  color: var(--nav-muted);
+}
+
+[data-theme="aether"] nav a:hover {
+  color: var(--accent);
+}
+
+[data-theme="aether"] .nav-muted {
+  color: var(--nav-muted);
+}
+
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+[data-theme="aether"] main {
+  background: #ffffff;
+  color: var(--text);
+
+  border: 1px solid var(--line);
+  border-radius: 18px;
+
+  box-shadow:
+    0 2px 12px rgba(35,55,58,.045);
+}
+
+
+/* =========================================================
+   TYPOGRAPHY
+   ========================================================= */
+
+[data-theme="aether"] h1,
+[data-theme="aether"] h2,
+[data-theme="aether"] h3 {
+  color: var(--text);
+  font-family: var(--font-display);
+}
+
+[data-theme="aether"] .eyebrow {
+  color: var(--accent-dark);
+  font-family: var(--font-mono);
+}
+
+[data-theme="aether"] .subline {
+  color: var(--muted);
+}
+
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+[data-theme="aether"] .search-wrap,
+[data-theme="aether"] .searchbox {
+  background: #f8fafa;
+
+  border: 1px solid var(--line);
+  border-radius: 11px;
+
+  box-shadow: none;
+
+  transition:
+    background .18s ease,
+    border-color .18s ease,
+    box-shadow .18s ease;
+}
+
+[data-theme="aether"] .search-wrap:focus-within,
+[data-theme="aether"] .searchbox:focus {
+  background: #ffffff;
+  border-color: var(--accent);
+
+  box-shadow:
+    0 0 0 3px rgba(22,166,161,.10);
+}
+
+[data-theme="aether"] input,
+[data-theme="aether"] textarea,
+[data-theme="aether"] select {
+  font-family: var(--font-body);
+}
+
+[data-theme="aether"] .suggestions {
+  background: #ffffff;
+  border-color: var(--line);
+
+  box-shadow:
+    0 10px 30px rgba(35,55,58,.08);
+}
+
+[data-theme="aether"] .suggestions div:hover {
+  background: var(--hover);
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+[data-theme="aether"] button {
+  font-family: var(--font-body);
+}
+
+[data-theme="aether"] .primary,
+[data-theme="aether"] .btn-primary {
+  background: var(--accent);
+  color: #ffffff;
+
+  border-color: var(--accent);
+
+  box-shadow:
+    0 4px 12px rgba(22,166,161,.14);
+}
+
+[data-theme="aether"] .primary:hover,
+[data-theme="aether"] .btn-primary:hover {
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
+}
+
+
+/* =========================================================
+   HOME CARDS
+   ========================================================= */
+
+[data-theme="aether"] .homecard {
+  background: #ffffff;
+  color: var(--text);
+
+  border: 1px solid var(--line);
+  border-radius: 14px;
+
+  box-shadow:
+    0 1px 6px rgba(35,55,58,.035);
+
+  transition:
+    transform .18s ease,
+    border-color .18s ease,
+    box-shadow .18s ease;
+}
+
+[data-theme="aether"] .homecard:hover {
+  transform: translateY(-3px);
+
+  border-color: #bdd9d8;
+
+  box-shadow:
+    0 10px 28px rgba(35,55,58,.09);
+}
+
+[data-theme="aether"] .homecard-title {
+  color: var(--text);
+  font-family: var(--font-display);
+}
+
+[data-theme="aether"] .homecard-desc {
+  color: var(--muted);
+}
+
+
+/* =========================================================
+   FLAG
+   ========================================================= */
+
+[data-theme="aether"] .flagbox {
+  background: #fafcfc;
+
+  border: 1px solid var(--line);
+  border-radius: 14px;
+
+  box-shadow:
+    0 3px 14px rgba(35,55,58,.045);
+}
+
+
+/* =========================================================
+   HEX
+   ========================================================= */
+
+[data-theme="aether"] .hexstack {
+  border: 1px solid var(--line);
+  border-radius: 11px;
+
+  overflow: hidden;
+  box-shadow: none;
+}
+
+[data-theme="aether"] .hexbar {
+  font-family: var(--font-mono);
+}
+
+
+/* =========================================================
+   AETHER COPY EFFECT
+   ---------------------------------------------------------
+   여권 도장 대신:
+   "빛이 지나가는 글래스 토스트"
+   ========================================================= */
+
+[data-theme="aether"] .stamp-overlay {
+  position: fixed;
+
+  left: 50%;
+  bottom: 42px;
+
+  width: auto;
+  min-width: 250px;
+
+  transform:
+    translate(-50%, 16px);
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  z-index: 50;
+
+  transition:
+    opacity .18s ease,
+    transform .28s cubic-bezier(.22,.8,.25,1);
+}
+
+
+/* 표시 상태 */
+
+[data-theme="aether"] .stamp-overlay.show {
+  opacity: 1;
+
+  transform:
+    translate(-50%, 0);
+}
+
+
+/* 실제 토스트 */
+
+[data-theme="aether"] .stamp-mark {
+  position: relative;
+
+  width: auto;
+  height: auto;
+
+  min-height: 52px;
+
+  padding: 0 20px;
+
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 11px;
+
+  border: 1px solid rgba(22,166,161,.22);
+
+  border-radius: 14px;
+
+  background:
+    rgba(255,255,255,.90);
+
+  box-shadow:
+    0 12px 35px rgba(35,55,58,.13),
+    0 2px 8px rgba(35,55,58,.05);
+
+  overflow: hidden;
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  transform: none;
+}
+
+
+/* 카드 위를 지나가는 빛 */
+
+[data-theme="aether"] .stamp-mark::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+
+  left: -45%;
+
+  width: 32%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(22,166,161,.20),
+      transparent
+    );
+
+  transform: skewX(-18deg);
+
+  opacity: 0;
+}
+
+
+/* show 될 때 한 번만 sweep */
+
+[data-theme="aether"] .stamp-overlay.show
+.stamp-mark::before {
+  animation:
+    aetherLightSweep .72s cubic-bezier(.4,0,.2,1);
+}
+
+
+/* HEX */
+
+[data-theme="aether"] .stamp-hex {
+  position: relative;
+  z-index: 2;
+
+  color: var(--accent-dark);
+
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+
+  letter-spacing: .02em;
+}
+
+
+/* COPIED */
+
+[data-theme="aether"] .stamp-label {
+  position: relative;
+  z-index: 2;
+
+  color: #6d7e81;
+
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: .12em;
+
+  white-space: nowrap;
+}
+
+
+/* 작은 체크 표시처럼 보이도록 */
+
+[data-theme="aether"] .stamp-label::after {
+  content: "  ✓";
+
+  color: var(--accent);
+  font-size: 12px;
+}
+
+
+/* 빛의 이동 */
+
+@keyframes aetherLightSweep {
+
+  0% {
+    left: -45%;
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  75% {
+    opacity: 1;
+  }
+
+  100% {
+    left: 125%;
+    opacity: 0;
+  }
+
+}
+
+
+/* =========================================================
+   FAVORITES / RECENT
+   ========================================================= */
+
+[data-theme="aether"] .fav-card {
+  background: #ffffff;
+  color: var(--text);
+
+  border: 1px solid var(--line);
+  border-radius: 13px;
+
+  box-shadow:
+    0 1px 6px rgba(35,55,58,.035);
+
+  transition:
+    transform .18s ease,
+    border-color .18s ease,
+    box-shadow .18s ease;
+}
+
+[data-theme="aether"] .fav-card:hover {
+  transform: translateY(-3px);
+
+  border-color: #bdd9d8;
+
+  box-shadow:
+    0 10px 25px rgba(35,55,58,.08);
+}
+
+[data-theme="aether"] .fav-card-name {
+  color: var(--text);
+  font-family: var(--font-display);
+}
+
+[data-theme="aether"] .fav-btn {
+  color: #9aa7aa;
+}
+
+[data-theme="aether"] .fav-btn:hover,
+[data-theme="aether"] .fav-btn.active {
+  color: var(--accent);
+}
+
+
+/* =========================================================
+   LOCAL GOVERNMENT
+   ========================================================= */
+
+[data-theme="aether"] .localgov-card,
+[data-theme="aether"] .localgov-item {
+  background: #ffffff;
+  color: var(--text);
+
+  border: 1px solid var(--line);
+  border-radius: 12px;
+
+  box-shadow:
+    0 1px 6px rgba(35,55,58,.035);
+
+  transition:
+    transform .16s ease,
+    border-color .16s ease,
+    box-shadow .16s ease;
+}
+
+[data-theme="aether"] .localgov-card:hover,
+[data-theme="aether"] .localgov-item:hover {
+  transform: translateY(-2px);
+
+  border-color: #bdd9d8;
+
+  box-shadow:
+    0 8px 22px rgba(35,55,58,.075);
+}
+
+
+/* =========================================================
+   CREST
+   ========================================================= */
+
+[data-theme="aether"] .crest-box,
+[data-theme="aether"] .crest-container {
+  background: #fafcfc;
+
+  border: 1px solid var(--line);
+  border-radius: 14px;
+
+  box-shadow: none;
+}
+
+
+/* =========================================================
+   EMPTY / DISCLAIMER
+   ========================================================= */
+
+[data-theme="aether"] .empty,
+[data-theme="aether"] .disclaimer {
+  color: var(--muted);
+}
+
+[data-theme="aether"] .disclaimer {
+  border-color: var(--line);
+}
+
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+
+[data-theme="aether"] .confirm-overlay,
+[data-theme="aether"] .changelog-overlay {
+  background: rgba(28,42,45,.25);
+
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+[data-theme="aether"] .confirm-modal,
+[data-theme="aether"] .changelog-modal {
+  background: #ffffff;
+  color: var(--text);
+
+  border: 1px solid var(--line);
+  border-radius: 16px;
+
+  box-shadow:
+    0 20px 60px rgba(35,55,58,.15);
+}
+
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+[data-theme="aether"] a {
+  color: var(--accent-dark);
+}
+
+[data-theme="aether"] a:hover {
+  color: var(--accent);
+}
+
+
+/* =========================================================
+   SELECTION
+   ========================================================= */
+
+[data-theme="aether"] ::selection {
+  background: #c7ecea;
+  color: #123b3a;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+[data-theme="aether"] ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+[data-theme="aether"] ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+[data-theme="aether"] ::-webkit-scrollbar-thumb {
+  background: #ccdada;
+  border-radius: 999px;
+}
+
+[data-theme="aether"] ::-webkit-scrollbar-thumb:hover {
+  background: #aec1c1;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 680px) {
+
+  [data-theme="aether"] main {
+    border-radius: 14px;
+  }
+
+  [data-theme="aether"] .stamp-overlay {
+    bottom: 24px;
+    min-width: 225px;
+  }
+
+  [data-theme="aether"] .stamp-mark {
+    min-height: 48px;
+    padding: 0 16px;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  [data-theme="aether"] .stamp-overlay {
+    min-width: 205px;
+  }
+
+  [data-theme="aether"] .stamp-hex {
+    font-size: 12px;
+  }
+
+  [data-theme="aether"] .stamp-label {
+    font-size: 9px;
+  }
+
+}

@@ -1,0 +1,812 @@
+/* =========================================================
+   COMMUNITY THEME
+   Korean Web Community / Subculture Portal
+   Navy Blue + Cool Gray
+   ========================================================= */
+
+:root[data-theme="community"] {
+  --bg: #f1f3f6;
+  --nav-bg: #263b63;
+  --nav-text: #ffffff;
+  --nav-muted: #c8d1df;
+
+  --card-bg: #ffffff;
+  --text: #252a31;
+  --muted: #78818d;
+
+  --accent: #3565a3;
+  --accent-dark: #263b63;
+
+  --line: #d9dee5;
+  --line-dark: #c5ccd5;
+
+  --hover: #f5f7fa;
+
+  --cool-gray: #eef1f5;
+}
+
+
+/* =========================================================
+   BODY
+   ========================================================= */
+
+[data-theme="community"] body {
+  background: #f1f3f6;
+  color: #252a31;
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+[data-theme="community"] nav {
+  background: #263b63;
+
+  border-bottom: 3px solid #1d2f51;
+
+  box-shadow: none;
+
+  backdrop-filter: none;
+}
+
+[data-theme="community"] .brand {
+  color: #ffffff;
+
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+[data-theme="community"] .brand-mark {
+  background: #ffffff;
+
+  color: #263b63;
+
+  border: none;
+
+  border-radius: 2px;
+
+  box-shadow: none;
+}
+
+[data-theme="community"] .navlinks {
+  gap: 0;
+}
+
+[data-theme="community"] .navlinks span {
+  color: #c8d1df;
+
+  padding: 8px 12px;
+
+  border-radius: 2px;
+
+  font-weight: 600;
+
+  transition:
+    background .12s ease,
+    color .12s ease;
+}
+
+[data-theme="community"] .navlinks span:hover {
+  color: #ffffff;
+
+  background: rgba(255,255,255,.08);
+}
+
+[data-theme="community"] .navlinks span.active {
+  color: #263b63;
+
+  background: #ffffff;
+
+  border-color: #ffffff;
+
+  box-shadow: none;
+}
+
+
+/* =========================================================
+   THEME SELECTOR
+   ========================================================= */
+
+[data-theme="community"] .theme-picker {
+  background: #1e3153;
+
+  color: #ffffff;
+
+  border: 1px solid #587097;
+
+  border-radius: 2px;
+
+  box-shadow: none;
+}
+
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+[data-theme="community"] main {
+  background: #ffffff;
+
+  border: 1px solid #cfd5dd;
+
+  border-radius: 3px;
+
+  box-shadow:
+    0 1px 3px rgba(28,40,55,.08);
+}
+
+
+/* =========================================================
+   HOME HEADER
+   ========================================================= */
+
+[data-theme="community"] .home-meta {
+  color: #65758a;
+
+  font-size: 12px;
+
+  font-weight: 600;
+}
+
+[data-theme="community"] .eyebrow {
+  display: inline-block;
+
+  color: #ffffff;
+
+  background: #263b63;
+
+  padding: 3px 7px;
+
+  border-radius: 2px;
+
+  font-size: 11px;
+
+  font-weight: 700;
+}
+
+[data-theme="community"] h1 {
+  color: #202936;
+
+  font-weight: 900;
+
+  letter-spacing: -0.055em;
+
+  text-shadow: none;
+}
+
+[data-theme="community"] .subline {
+  color: #737d89;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   HOME DIVIDER
+   ========================================================= */
+
+[data-theme="community"] .home-divider {
+  height: 3px;
+
+  background: #263b63;
+
+  box-shadow: none;
+}
+
+
+/* =========================================================
+   HOME CARDS
+   ========================================================= */
+
+[data-theme="community"] .homecard {
+  background: #ffffff;
+
+  border: 1px solid #d2d7de;
+
+  border-radius: 2px;
+
+  box-shadow: none;
+
+  transition:
+    background .12s ease,
+    border-color .12s ease;
+}
+
+[data-theme="community"] .homecard:hover {
+  transform: none;
+
+  background: #f8f9fb;
+
+  border-color: #9eabbc;
+
+  box-shadow: none;
+}
+
+
+/* 위쪽 게시판식 색상 바 */
+
+[data-theme="community"] .homecard:nth-child(1) {
+  border-top: 4px solid #263b63;
+}
+
+[data-theme="community"] .homecard:nth-child(2) {
+  border-top: 4px solid #3d6fb6;
+}
+
+[data-theme="community"] .homecard:nth-child(3) {
+  border-top: 4px solid #55708f;
+}
+
+[data-theme="community"] .homecard:nth-child(4) {
+  border-top: 4px solid #6b7f99;
+}
+
+[data-theme="community"] .homecard:nth-child(5) {
+  border-top: 4px solid #8795a8;
+
+}
+
+[data-theme="community"] .homecard:nth-child(6) {
+  border-top: 4px solid #b0b8c3;
+}
+
+
+/* =========================================================
+   HOME CARD CONTENT
+   ========================================================= */
+
+[data-theme="community"] .homecard-stamp {
+  color: #263b63;
+}
+
+[data-theme="community"] .homecard-title {
+  color: #202833;
+
+  font-weight: 800;
+
+  letter-spacing: -0.025em;
+}
+
+[data-theme="community"] .homecard-desc {
+  color: #7a838e;
+
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+[data-theme="community"] .searchbox {
+  background: #ffffff;
+
+  color: #252a31;
+
+  border: 2px solid #aeb8c5;
+
+  border-radius: 2px;
+
+  box-shadow: none;
+
+  font-size: 14px;
+}
+
+[data-theme="community"] .searchbox:hover {
+  border-color: #8292a8;
+}
+
+[data-theme="community"] .searchbox:focus {
+  border-color: #3565a3;
+
+  outline: none;
+
+  box-shadow:
+    0 0 0 1px #3565a3;
+}
+
+[data-theme="community"] .searchbox::placeholder {
+  color: #a0a8b2;
+}
+
+
+/* =========================================================
+   SEARCH SUGGESTIONS
+   ========================================================= */
+
+[data-theme="community"] .suggestions {
+  background: #ffffff;
+
+  border: 1px solid #bfc7d1;
+
+  border-radius: 2px;
+
+  box-shadow:
+    0 4px 12px rgba(20,35,55,.12);
+}
+
+[data-theme="community"] .suggestions div {
+  color: #3d4651;
+
+  border-bottom: 1px solid #edf0f3;
+}
+
+[data-theme="community"] .suggestions div:hover,
+[data-theme="community"] .suggestions div.highlighted {
+  background: #edf3fa;
+
+  color: #263b63;
+}
+
+
+/* =========================================================
+   FLAG RESULT
+   ========================================================= */
+
+[data-theme="community"] .countryname {
+  color: #202833;
+
+  font-weight: 900;
+}
+
+[data-theme="community"] .countrymeta {
+  color: #7c8793;
+}
+
+[data-theme="community"] .flagbox {
+  background: #eef1f5;
+
+  border: 1px solid #cbd2da;
+
+  border-radius: 2px;
+
+  box-shadow: none;
+}
+
+
+/* =========================================================
+   HEX
+   ========================================================= */
+
+[data-theme="community"] .stamp-mark{
+  width:auto;
+  min-width:180px;
+  height:auto;
+  padding:0;
+  border-radius:8px;
+  border:1px solid var(--line);
+  background:var(--card-bg);
+  box-shadow:0 8px 24px -8px rgba(0,0,0,0.25);
+  flex-direction:column;
+  align-items:stretch;
+  overflow:hidden;
+}
+[data-theme="community"] .stamp-mark::before{
+  content:"✓ 복사 완료";
+  display:block;
+  background:#263b63;
+  color:#fff;
+  font-size:11px;
+  font-weight:700;
+  padding:6px 14px;
+  text-align:left;
+}
+[data-theme="community"] .stamp-hex{
+  color:#3565a3;
+  padding:10px 14px 4px;
+  text-align:left;
+  font-size:15px;
+}
+[data-theme="community"] .stamp-label{
+  color:#8a93a3;
+  padding:0 14px 10px;
+  text-align:left;
+}
+
+[data-theme="community"] .hexbar,
+[data-theme="community"] .hexstack {
+  background: #f5f7f9;
+
+  border: 1px solid #d0d6de;
+
+  border-radius: 2px;
+
+  box-shadow: none;
+}
+
+
+/* =========================================================
+   FAVORITES / RECENT
+   ========================================================= */
+
+[data-theme="community"] .fav-card {
+  background: #ffffff;
+
+  color: #252a31;
+
+  border: 1px solid #cfd5dd;
+
+  border-radius: 2px;
+
+  box-shadow: none;
+
+  transition:
+    background .12s ease,
+    border-color .12s ease;
+}
+
+[data-theme="community"] .fav-card:hover {
+  transform: none;
+
+  background: #f8f9fb;
+
+  border-color: #9eabbc;
+
+  box-shadow: none;
+}
+
+[data-theme="community"] .fav-card-name {
+  color: #263b63;
+
+  font-weight: 800;
+}
+
+[data-theme="community"] .fav-card-flag {
+  background: #eef1f5;
+
+  border: 1px solid #d0d6de;
+
+  border-radius: 2px;
+}
+
+
+/* =========================================================
+   RECENT CARD ACCENTS
+   ========================================================= */
+
+[data-theme="community"] .fav-card:nth-child(5n+1) {
+  border-left: 3px solid #263b63;
+}
+
+[data-theme="community"] .fav-card:nth-child(5n+2) {
+  border-left: 3px solid #3565a3;
+}
+
+[data-theme="community"] .fav-card:nth-child(5n+3) {
+  border-left: 3px solid #55708f;
+}
+
+[data-theme="community"] .fav-card:nth-child(5n+4) {
+  border-left: 3px solid #718399;
+}
+
+[data-theme="community"] .fav-card:nth-child(5n+5) {
+  border-left: 3px solid #a1aab6;
+}
+
+
+/* =========================================================
+   FAVORITE BUTTON
+   ========================================================= */
+
+[data-theme="community"] .fav-btn {
+  color: #8a949f;
+
+  background: transparent;
+
+  border: none;
+}
+
+[data-theme="community"] .fav-btn:hover {
+  color: #263b63;
+
+  background: #eef2f6;
+
+  box-shadow: none;
+}
+
+[data-theme="community"] .fav-btn.active {
+  color: #3565a3;
+
+  text-shadow: none;
+}
+
+
+/* =========================================================
+   FILTER
+   ========================================================= */
+
+[data-theme="community"] .fav-filter {
+  background: #eef1f5;
+
+  border: 1px solid #d1d7df;
+
+  border-radius: 2px;
+}
+
+[data-theme="community"] .fav-filter-chip {
+  color: #77828e;
+
+  border-radius: 2px;
+}
+
+[data-theme="community"] .fav-filter-chip:hover {
+  color: #263b63;
+
+  background: #ffffff;
+}
+
+[data-theme="community"] .fav-filter-chip.active {
+  color: #ffffff;
+
+  background: #263b63;
+
+  box-shadow: none;
+}
+
+
+/* =========================================================
+   LOCAL GOVERNMENT
+   ========================================================= */
+
+[data-theme="community"] .localgov-card,
+[data-theme="community"] .localgov-item,
+[data-theme="community"] .tier-card,
+[data-theme="community"] .tier-item {
+  background: #ffffff;
+
+  border: 1px solid #cfd5dd;
+
+  border-radius: 2px;
+
+  box-shadow: none;
+
+  transition:
+    background .12s ease,
+    border-color .12s ease;
+}
+
+[data-theme="community"] .localgov-card:hover,
+[data-theme="community"] .localgov-item:hover,
+[data-theme="community"] .tier-card:hover,
+[data-theme="community"] .tier-item:hover {
+  background: #f7f9fb;
+
+  border-color: #8292a8;
+
+  box-shadow: none;
+}
+
+
+/* =========================================================
+   CREST
+   ========================================================= */
+
+[data-theme="community"] .crest-row {
+  border-color: #d8dde4;
+}
+
+[data-theme="community"] .crest-row-label {
+  color: #687582;
+}
+
+[data-theme="community"] .crest-toggle {
+  background: #f0f3f6;
+
+  color: #687582;
+
+  border: 1px solid #cbd2da;
+
+  border-radius: 2px;
+}
+
+[data-theme="community"] .crest-toggle:hover,
+[data-theme="community"] .crest-toggle.active {
+  background: #263b63;
+
+  color: #ffffff;
+
+  border-color: #263b63;
+
+  box-shadow: none;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+[data-theme="community"] button {
+  background: #ffffff;
+
+  color: #4c5865;
+
+  border: 1px solid #bfc7d1;
+
+  border-radius: 2px;
+
+  box-shadow: none;
+
+  font-weight: 600;
+}
+
+[data-theme="community"] button:hover {
+  background: #263b63;
+
+  color: #ffffff;
+
+  border-color: #263b63;
+
+  box-shadow: none;
+}
+
+
+/* =========================================================
+   PRIMARY BUTTON
+   ========================================================= */
+
+[data-theme="community"] .primary,
+[data-theme="community"] .btn-primary {
+  background: #263b63;
+
+  color: #ffffff;
+
+  border-color: #263b63;
+
+  box-shadow: none;
+}
+
+[data-theme="community"] .primary:hover,
+[data-theme="community"] .btn-primary:hover {
+  background: #3565a3;
+
+  border-color: #3565a3;
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   BACK BUTTON
+   ========================================================= */
+
+[data-theme="community"] .back-btn {
+  color: #687582;
+
+  border-color: transparent;
+}
+
+[data-theme="community"] .back-btn:hover {
+  color: #263b63;
+
+  background: #eef1f5;
+
+  border-color: #d0d6de;
+}
+
+
+/* =========================================================
+   PREPARING
+   ========================================================= */
+
+[data-theme="community"] .homecard.homecard-disabled {
+  background: #eef0f2;
+
+  border-top: 1px solid #d1d5da;
+
+  opacity: .75;
+}
+
+[data-theme="community"] .homecard.homecard-disabled:hover {
+  transform: none;
+
+  border-color: #d1d5da;
+
+  box-shadow: none;
+}
+
+[data-theme="community"] .homecard-badge {
+  background: #dce1e6;
+
+  color: #69737e;
+
+  border: 1px solid #c5ccd4;
+
+  border-radius: 2px;
+}
+
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+
+[data-theme="community"] .confirm-overlay,
+[data-theme="community"] .changelog-overlay {
+  background: rgba(20, 30, 43, .45);
+
+  backdrop-filter: blur(2px);
+}
+
+[data-theme="community"] .confirm-modal,
+[data-theme="community"] .changelog-modal {
+  background: #ffffff;
+
+  color: #252a31;
+
+  border: 1px solid #bfc7d1;
+
+  border-top: 4px solid #263b63;
+
+  border-radius: 2px;
+
+  box-shadow:
+    0 8px 30px rgba(25,40,60,.2);
+}
+
+
+/* =========================================================
+   EMPTY
+   ========================================================= */
+
+[data-theme="community"] .empty,
+[data-theme="community"] .comingsoon {
+  background: #f1f3f6;
+
+  color: #7a848f;
+
+  border: 1px dashed #c3cbd4;
+
+  border-radius: 2px;
+}
+
+
+/* =========================================================
+   DISCLAIMER
+   ========================================================= */
+
+[data-theme="community"] .disclaimer {
+  background: #eef1f5;
+
+  color: #727d88;
+
+  border: 1px solid #d3d8df;
+
+  border-radius: 2px;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+[data-theme="community"] ::-webkit-scrollbar {
+  width: 10px;
+}
+
+[data-theme="community"] ::-webkit-scrollbar-track {
+  background: #e6e9ed;
+}
+
+[data-theme="community"] ::-webkit-scrollbar-thumb {
+  background: #aab3be;
+
+  border-radius: 0;
+}
+
+[data-theme="community"] ::-webkit-scrollbar-thumb:hover {
+  background: #78889b;
+}
+
+
+/* =========================================================
+   SELECTION
+   ========================================================= */
+
+[data-theme="community"] ::selection {
+  background: #3565a3;
+
+  color: #ffffff;
+}

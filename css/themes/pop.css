@@ -1,0 +1,1009 @@
+/* ============================================================
+   POP THEME
+   Retro Poster / Geometric / Graphic / Y2K
+============================================================ */
+
+html[data-theme="pop"]{
+
+  --bg:#D95755;
+  --nav-bg:#B83E43;
+  --nav-text:#FFF8F2;
+  --nav-muted:#F3B5AE;
+
+  --card-bg:#E96A68;
+
+  --text:#FFF9F5;
+  --muted:#FFD0CA;
+
+  --accent:#FF9B96;
+  --accent-dark:#A92F38;
+
+  --cream:#FFF8EF;
+  --pink:#FFB0AA;
+  --red:#C83F48;
+  --dark:#421D27;
+
+  --line:#FFF8EF;
+}
+
+
+/* ============================================================
+   BACKGROUND
+============================================================ */
+
+[data-theme="pop"] body{
+
+  background-color:var(--bg);
+
+  background-image:
+    radial-gradient(
+      circle,
+      rgba(255,255,255,.20) 0 2px,
+      transparent 2.5px
+    );
+
+  background-size:34px 34px;
+
+  color:var(--text);
+
+  position:relative;
+}
+
+
+/* 큰 대각선 그래픽 */
+
+[data-theme="pop"] body::before{
+
+  content:"";
+
+  position:fixed;
+
+  width:140vw;
+  height:180px;
+
+  left:-20vw;
+  top:28vh;
+
+  transform:rotate(-27deg);
+
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 100px,
+      rgba(255,177,170,.5) 100px 180px,
+      transparent 180px 280px
+    );
+
+  opacity:.5;
+
+  pointer-events:none;
+
+  z-index:-1;
+}
+
+
+/* ============================================================
+   NAV
+============================================================ */
+
+[data-theme="pop"] nav{
+
+  background:var(--cream);
+
+  color:var(--dark);
+
+  border:3px solid var(--dark);
+
+  border-radius:0;
+
+  box-shadow:
+    7px 7px 0 var(--dark);
+
+  transform:rotate(-.4deg);
+}
+
+
+[data-theme="pop"] .brand{
+
+  color:var(--dark);
+
+  font-weight:900;
+
+  letter-spacing:-.04em;
+
+  text-transform:uppercase;
+}
+
+
+[data-theme="pop"] .brand-mark{
+
+  border-radius:0;
+
+  border:3px solid var(--dark);
+
+  background:var(--red);
+
+  color:white;
+
+  transform:rotate(8deg);
+}
+
+
+[data-theme="pop"] .brand-mark::after{
+
+  content:"×";
+
+  color:#fff;
+
+  font-weight:900;
+}
+
+
+/* ============================================================
+   NAV LINKS
+============================================================ */
+
+[data-theme="pop"] .navlinks span{
+
+  color:var(--dark);
+
+  border-radius:0;
+
+  font-weight:700;
+
+  transition:
+    transform .15s ease,
+    background .15s ease;
+}
+
+
+[data-theme="pop"] .navlinks span:hover{
+
+  background:var(--pink);
+
+  color:var(--dark);
+
+  transform:translateY(-2px) rotate(-2deg);
+}
+
+
+[data-theme="pop"] .navlinks span.active{
+
+  background:var(--red);
+
+  color:#fff;
+
+  border-radius:0;
+
+  box-shadow:
+    3px 3px 0 var(--dark);
+}
+
+
+/* ============================================================
+   THEME PICKER
+============================================================ */
+
+[data-theme="pop"] .theme-picker{
+
+  background:var(--red);
+
+  color:#fff;
+
+  border:2px solid var(--dark);
+
+  border-radius:0;
+
+  box-shadow:
+    3px 3px 0 var(--dark);
+
+  font-weight:700;
+}
+
+
+/* ============================================================
+   MAIN
+============================================================ */
+
+[data-theme="pop"] main{
+
+  background:var(--cream);
+
+  color:var(--dark);
+
+  border:3px solid var(--dark);
+
+  border-radius:0;
+
+  box-shadow:
+    10px 10px 0 var(--dark);
+
+  position:relative;
+
+  overflow:hidden;
+}
+
+
+/* 커다란 X 그래픽 */
+
+[data-theme="pop"] main::after{
+
+  content:"×";
+
+  position:absolute;
+
+  right:-35px;
+  top:-55px;
+
+  font-family:Arial,sans-serif;
+
+  font-size:190px;
+
+  line-height:1;
+
+  font-weight:900;
+
+  color:rgba(217,87,85,.12);
+
+  pointer-events:none;
+}
+
+
+/* ============================================================
+   HEADINGS
+============================================================ */
+
+[data-theme="pop"] .eyebrow{
+
+  color:var(--red);
+
+  font-weight:800;
+
+  letter-spacing:.18em;
+
+  text-transform:uppercase;
+}
+
+
+[data-theme="pop"] h1{
+
+  color:var(--dark);
+
+  font-weight:900;
+
+  letter-spacing:-.07em;
+
+  text-transform:uppercase;
+}
+
+
+[data-theme="pop"] .home-h1{
+
+  position:relative;
+}
+
+
+[data-theme="pop"] .home-h1::before{
+
+  content:"＋";
+
+  position:absolute;
+
+  left:-25px;
+  top:0;
+
+  color:var(--red);
+
+  font-size:18px;
+
+  font-weight:900;
+}
+
+
+[data-theme="pop"] .home-h1::after{
+
+  content:"×";
+
+  margin-left:8px;
+
+  color:var(--red);
+
+  font-weight:900;
+}
+
+
+[data-theme="pop"] .subline,
+[data-theme="pop"] .home-sub{
+
+  color:#875057;
+
+  font-weight:600;
+}
+
+
+/* ============================================================
+   DIVIDER
+============================================================ */
+
+[data-theme="pop"] .home-divider{
+
+  height:3px;
+
+  background:var(--dark);
+
+  border-radius:0;
+
+  position:relative;
+}
+
+
+[data-theme="pop"] .home-divider::after{
+
+  content:"＋";
+
+  position:absolute;
+
+  right:15%;
+
+  top:-13px;
+
+  background:var(--cream);
+
+  color:var(--red);
+
+  font-size:18px;
+
+  padding:0 5px;
+}
+
+
+/* ============================================================
+   SEARCH
+============================================================ */
+
+[data-theme="pop"] .searchbox{
+
+  background:#fff;
+
+  color:var(--dark);
+
+  border:3px solid var(--dark);
+
+  border-radius:0;
+
+  box-shadow:
+    5px 5px 0 var(--red);
+
+  font-weight:600;
+}
+
+
+[data-theme="pop"] .searchbox::placeholder{
+
+  color:#9E686B;
+}
+
+
+[data-theme="pop"] .searchbox:focus{
+
+  outline:none;
+
+  border-color:var(--dark);
+
+  box-shadow:
+    7px 7px 0 var(--red);
+}
+
+
+/* ============================================================
+   SUGGESTIONS
+============================================================ */
+
+[data-theme="pop"] .suggestions{
+
+  background:#fff;
+
+  border:3px solid var(--dark);
+
+  border-radius:0;
+
+  box-shadow:
+    6px 6px 0 var(--dark);
+}
+
+
+[data-theme="pop"] .suggestions div{
+
+  border-bottom:2px solid #E5C7C3;
+
+  border-radius:0;
+
+  color:var(--dark);
+}
+
+
+[data-theme="pop"] .suggestions div:hover{
+
+  background:var(--pink);
+
+  color:var(--dark);
+}
+
+
+[data-theme="pop"] .suggestions div.highlighted{
+
+  background:var(--red);
+
+  color:#fff;
+
+  border-left:5px solid var(--dark);
+}
+
+
+/* ============================================================
+   HOME CARDS
+============================================================ */
+
+[data-theme="pop"] .homecard{
+
+  background:var(--red);
+
+  color:#fff;
+
+  border:3px solid var(--dark);
+
+  border-radius:0;
+
+  box-shadow:
+    6px 6px 0 var(--dark);
+
+  position:relative;
+
+  overflow:hidden;
+
+  transition:
+    transform .15s ease,
+    box-shadow .15s ease;
+}
+
+
+/* 반복되는 + 패턴 */
+
+[data-theme="pop"] .homecard::before{
+
+  content:"×   ×   ×   ×   ×   ×";
+
+  position:absolute;
+
+  top:7px;
+  right:10px;
+
+  color:rgba(255,255,255,.35);
+
+  font-size:13px;
+
+  letter-spacing:7px;
+
+  white-space:nowrap;
+}
+
+
+[data-theme="pop"] .homecard:hover{
+
+  transform:translate(-3px,-3px) rotate(-.5deg);
+
+  box-shadow:
+    9px 9px 0 var(--dark);
+}
+
+
+[data-theme="pop"] .homecard-stamp{
+
+  border-radius:0;
+
+  border:2px solid #fff;
+
+  background:var(--cream);
+
+  color:var(--dark);
+
+  box-shadow:
+    3px 3px 0 var(--dark);
+}
+
+
+[data-theme="pop"] .homecard-title{
+
+  color:#fff;
+
+  font-weight:900;
+}
+
+
+[data-theme="pop"] .homecard-desc{
+
+  color:#FFD5D0;
+}
+
+
+/* ============================================================
+   FLAG BOX
+============================================================ */
+
+[data-theme="pop"] .flagbox{
+
+  background:#fff;
+
+  border:3px solid var(--dark);
+
+  border-radius:0;
+
+  box-shadow:
+    7px 7px 0 var(--dark);
+}
+
+
+/* ============================================================
+   COUNTRY
+============================================================ */
+
+[data-theme="pop"] .countryname{
+
+  color:var(--dark);
+
+  font-weight:900;
+
+  letter-spacing:-.05em;
+}
+
+
+[data-theme="pop"] .countrymeta{
+
+  color:#895158;
+}
+
+
+/* ============================================================
+   HEX STACK
+============================================================ */
+
+[data-theme="pop"] .hexstack{
+
+  border:3px solid var(--dark);
+
+  border-radius:0;
+
+  box-shadow:
+    7px 7px 0 var(--dark);
+
+  overflow:hidden;
+}
+
+
+[data-theme="pop"] .hexbar{
+
+  border-radius:0;
+
+  min-height:72px;
+
+  border-bottom:2px solid rgba(0,0,0,.25);
+
+  font-weight:900;
+
+  font-family:monospace;
+
+  position:relative;
+}
+
+
+[data-theme="pop"] .hexbar:last-child{
+
+  border-bottom:none;
+}
+
+
+/* HEX 코드가 포스터 스티커처럼 */
+
+[data-theme="pop"] .hex-label{
+
+  padding:6px 12px;
+
+  background:rgba(255,255,255,.18);
+
+  border:2px solid currentColor;
+
+  border-radius:0;
+
+  box-shadow:
+    3px 3px 0 rgba(0,0,0,.25);
+
+  font-family:monospace;
+
+  font-weight:900;
+
+  transition:
+    transform .15s ease;
+}
+
+
+[data-theme="pop"] .hexbar:hover .hex-label{
+
+  transform:
+    translate(-2px,-2px)
+    rotate(-2deg);
+}
+
+
+/* ============================================================
+   CREST
+============================================================ */
+
+[data-theme="pop"] .crest-toggle{
+
+  background:#fff;
+
+  color:var(--dark);
+
+  border:2px solid var(--dark);
+
+  border-radius:0;
+
+  box-shadow:
+    3px 3px 0 var(--dark);
+}
+
+
+[data-theme="pop"] .crest-toggle.active{
+
+  background:var(--red);
+
+  color:#fff;
+
+  border-color:var(--dark);
+}
+
+
+[data-theme="pop"] .crest-row{
+
+  border-bottom:2px solid var(--dark);
+}
+
+
+[data-theme="pop"] .crest-swatch{
+
+  border-radius:0;
+
+  border:2px solid var(--dark);
+}
+
+
+/* ============================================================
+   FAVORITES
+============================================================ */
+
+[data-theme="pop"] .fav-card{
+
+  background:#fff;
+
+  color:var(--dark);
+
+  border:3px solid var(--dark);
+
+  border-radius:0;
+
+  box-shadow:
+    6px 6px 0 var(--dark);
+}
+
+
+[data-theme="pop"] .fav-card:hover{
+
+  transform:
+    translate(-3px,-3px)
+    rotate(.5deg);
+
+  box-shadow:
+    9px 9px 0 var(--dark);
+}
+
+
+[data-theme="pop"] .fav-card-flag{
+
+  border-radius:0;
+
+  border:2px solid var(--dark);
+}
+
+
+/* ============================================================
+   FILTER
+============================================================ */
+
+[data-theme="pop"] .fav-filter-chip{
+
+  background:#fff;
+
+  color:var(--dark);
+
+  border:2px solid var(--dark);
+
+  border-radius:0;
+
+  box-shadow:
+    3px 3px 0 var(--dark);
+}
+
+
+[data-theme="pop"] .fav-filter-chip:hover{
+
+  background:var(--pink);
+
+  color:var(--dark);
+}
+
+
+[data-theme="pop"] .fav-filter-chip.active{
+
+  background:var(--red);
+
+  color:#fff;
+}
+
+
+/* ============================================================
+   RECENT
+============================================================ */
+
+[data-theme="pop"] .clear-recent-btn{
+
+  background:#fff;
+
+  color:var(--dark);
+
+  border:2px solid var(--dark);
+
+  border-radius:0;
+
+  box-shadow:
+    3px 3px 0 var(--dark);
+}
+
+
+[data-theme="pop"] .clear-recent-btn:hover{
+
+  background:var(--red);
+
+  color:#fff;
+}
+
+
+/* ============================================================
+   STAMP
+============================================================ */
+
+[data-theme="pop"] .stamp-mark{
+
+  background:var(--red);
+
+  color:#fff;
+
+  border:3px solid var(--dark);
+
+  border-radius:0;
+
+  box-shadow:
+    6px 6px 0 var(--dark);
+
+  transform:rotate(-3deg);
+}
+
+
+[data-theme="pop"] .stamp-hex{
+
+  color:#fff;
+
+  font-weight:900;
+}
+
+
+/* ============================================================
+   DISCLAIMER
+============================================================ */
+
+[data-theme="pop"] .disclaimer{
+
+  background:#FFD0CC;
+
+  color:var(--dark);
+
+  border:2px solid var(--dark);
+
+  border-radius:0;
+}
+
+
+/* ============================================================
+   COMING SOON
+============================================================ */
+
+[data-theme="pop"] .comingsoon{
+
+  background:#fff;
+
+  color:var(--dark);
+
+  border:3px dashed var(--dark);
+
+  border-radius:0;
+
+  box-shadow:
+    6px 6px 0 var(--dark);
+}
+
+
+/* ============================================================
+   MODAL
+============================================================ */
+
+[data-theme="pop"] .confirm-overlay,
+[data-theme="pop"] .changelog-overlay{
+
+  background:rgba(54,18,25,.72);
+
+  backdrop-filter:blur(3px);
+}
+
+
+[data-theme="pop"] .confirm-modal,
+[data-theme="pop"] .changelog-modal{
+
+  background:var(--cream);
+
+  color:var(--dark);
+
+  border:3px solid var(--dark);
+
+  border-radius:0;
+
+  box-shadow:
+    10px 10px 0 var(--dark);
+}
+
+
+[data-theme="pop"] .confirm-eyebrow{
+
+  color:var(--red);
+
+  font-weight:900;
+}
+
+
+[data-theme="pop"] .confirm-title{
+
+  color:var(--dark);
+
+  font-weight:900;
+}
+
+
+[data-theme="pop"] .confirm-desc{
+
+  color:#815055;
+}
+
+
+[data-theme="pop"] .confirm-btn{
+
+  border:2px solid var(--dark);
+
+  border-radius:0;
+
+  background:#fff;
+
+  color:var(--dark);
+
+  box-shadow:
+    3px 3px 0 var(--dark);
+}
+
+
+[data-theme="pop"] .confirm-ok{
+
+  background:var(--red);
+
+  color:#fff;
+}
+
+
+/* ============================================================
+   CHANGELOG
+============================================================ */
+
+[data-theme="pop"] .changelog-btn{
+
+  background:#fff;
+
+  color:var(--dark);
+
+  border:2px solid var(--dark);
+
+  border-radius:0;
+
+  box-shadow:
+    3px 3px 0 var(--dark);
+}
+
+
+[data-theme="pop"] .changelog-btn:hover{
+
+  background:var(--red);
+
+  color:#fff;
+}
+
+
+[data-theme="pop"] .changelog-entry{
+
+  border-bottom:2px dashed #D59B98;
+}
+
+
+[data-theme="pop"] .changelog-entry .v{
+
+  color:var(--red);
+
+  font-weight:900;
+}
+
+
+/* ============================================================
+   MOBILE
+============================================================ */
+
+@media (max-width:680px){
+
+  [data-theme="pop"] main{
+
+    width:calc(100% - 16px);
+
+    box-shadow:
+      7px 7px 0 var(--dark);
+  }
+
+  [data-theme="pop"] nav{
+
+    box-shadow:
+      5px 5px 0 var(--dark);
+  }
+
+}
+
+
+@media (max-width:480px){
+
+  [data-theme="pop"] main{
+
+    padding:
+      30px
+      17px
+      42px;
+  }
+
+  [data-theme="pop"] .home-h1{
+
+    font-size:30px;
+  }
+
+  [data-theme="pop"] .hexbar{
+
+    min-height:60px;
+  }
+
+}
+/* POP - 즐겨찾기/최근 기록 이름 */
+[data-theme="pop"] .fav-card-name{
+  color:var(--dark);
+  font-weight:800;
+}
+
+

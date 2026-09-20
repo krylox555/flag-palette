@@ -1,0 +1,1026 @@
+/* ============================================================
+   아틀라스 테마
+   Flag Palette
+   Modern / Clean / Neumorphism / Teal
+============================================================ */
+
+html[data-theme="atlas"]{
+  --bg:#DDE7E6;
+  --nav-bg:#005B58;
+  --nav-text:#F4FAF9;
+  --nav-muted:#A8C7C4;
+
+  --card-bg:#F4F8F7;
+  --text:#163E3C;
+  --muted:#66817F;
+
+  --accent:#00847F;
+  --stamp:#006B68;
+  --line:#C7D8D6;
+
+  --font-display:'Archivo', sans-serif;
+  --font-body:'Archivo', sans-serif;
+  --font-mono:'Space Mono', monospace;
+}
+/* ============================================================
+   GLOBAL
+============================================================ */
+[data-theme="atlas"] body{
+  background:
+    radial-gradient(
+      circle at 20% 10%,
+      rgba(255,255,255,.72),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 85% 80%,
+      rgba(0,91,88,.06),
+      transparent 35%
+    ),
+    var(--bg);
+
+  color:var(--text);
+}
+
+/* 부드러운 테마 전환 */
+[data-theme="atlas"] nav,
+[data-theme="atlas"] main,
+[data-theme="atlas"] .searchbox,
+[data-theme="atlas"] .suggestions,
+[data-theme="atlas"] .homecard,
+[data-theme="atlas"] .fav-card,
+[data-theme="atlas"] .comingsoon,
+[data-theme="atlas"] .disclaimer,
+[data-theme="atlas"] .flagbox,
+[data-theme="atlas"] .stripebanner,
+[data-theme="atlas"] .hexstack,
+[data-theme="atlas"] .confirm-modal,
+[data-theme="atlas"] .changelog-modal{
+  transition:
+    background-color .25s ease,
+    color .25s ease,
+    border-color .25s ease,
+    box-shadow .25s ease,
+    transform .18s ease;
+}
+
+/* ============================================================
+   NAVIGATION
+============================================================ */
+[data-theme="atlas"] nav{
+  width:calc(100% - 28px);
+  max-width:1100px;
+  margin:14px auto 0;
+
+  height:54px;
+  padding:0 18px;
+
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:999px;
+
+  background:var(--nav-bg);
+
+  box-shadow:
+    7px 9px 20px rgba(28,65,63,.18),
+    -5px -5px 14px rgba(255,255,255,.62);
+
+  gap:20px;
+}
+
+
+/* 로고 */
+[data-theme="atlas"] .brand{
+  font-family:'Archivo', sans-serif;
+  font-weight:600;
+  letter-spacing:.03em;
+}
+[data-theme="atlas"] .brand-mark{
+  width:26px;
+  height:26px;
+
+  border:2px solid #D5EEEB;
+
+  box-shadow:
+    2px 2px 5px rgba(0,0,0,.15),
+    -2px -2px 5px rgba(255,255,255,.12);
+}
+[data-theme="atlas"] .brand-mark::after{
+  color:#D5EEEB;
+}
+
+/* 메뉴 */
+
+[data-theme="atlas"] .navlinks{
+  gap:6px;
+}
+
+[data-theme="atlas"] .navlinks span{
+  padding:8px 13px;
+
+  border:none;
+  border-radius:999px;
+
+  color:var(--nav-muted);
+
+  transition:
+    background-color .15s ease,
+    color .15s ease,
+    box-shadow .15s ease;
+}
+
+[data-theme="atlas"] .navlinks span:hover{
+  color:var(--nav-text);
+  background:rgba(255,255,255,.08);
+}
+
+[data-theme="atlas"] .navlinks span.active{
+  color:var(--nav-text);
+  border:none;
+
+  background:rgba(255,255,255,.13);
+
+  box-shadow:
+    inset 2px 2px 5px rgba(0,0,0,.12),
+    inset -2px -2px 5px rgba(255,255,255,.06);
+}
+
+
+/* ============================================================
+   THEME PICKER
+============================================================ */
+
+[data-theme="atlas"] .theme-picker{
+  padding:7px 14px;
+
+  border:1px solid rgba(255,255,255,.35);
+  border-radius:999px;
+
+  background:rgba(255,255,255,.08);
+  color:var(--nav-text);
+
+  box-shadow:
+    inset 2px 2px 5px rgba(0,0,0,.10),
+    inset -2px -2px 5px rgba(255,255,255,.08);
+}
+
+[data-theme="atlas"] .theme-picker:hover{
+  border-color:#D5EEEB;
+}
+
+
+/* ============================================================
+   MAIN CONTAINER
+============================================================ */
+
+[data-theme="atlas"] main{
+  max-width:760px;
+
+  margin:28px auto 0;
+  padding:42px 34px 54px;
+
+  border-radius:28px;
+
+  border:1px solid rgba(255,255,255,.72);
+
+  background:var(--card-bg);
+
+  background-image:none;
+
+  box-shadow:
+    12px 16px 32px rgba(46,77,75,.17),
+    -10px -10px 28px rgba(255,255,255,.82);
+}
+
+
+/* ============================================================
+   HEADINGS
+============================================================ */
+
+[data-theme="atlas"] .eyebrow{
+  color:var(--accent);
+  font-family:var(--font-mono);
+  letter-spacing:.18em;
+}
+
+[data-theme="atlas"] h1{
+  font-family:'Archivo', sans-serif;
+  font-weight:600;
+  letter-spacing:-.03em;
+}
+
+[data-theme="atlas"] .home-h1{
+  font-family:'Archivo', sans-serif;
+  font-weight:600;
+  letter-spacing:-.045em;
+
+  font-size:clamp(30px,6vw,42px);
+}
+
+[data-theme="atlas"] .subline,
+[data-theme="atlas"] .home-sub{
+  color:var(--muted);
+}
+
+
+/* ============================================================
+   HOME META
+============================================================ */
+
+[data-theme="atlas"] .home-meta{
+  border-bottom:1px solid var(--line);
+  color:var(--muted);
+}
+
+
+/* ============================================================
+   SEARCH
+============================================================ */
+
+[data-theme="atlas"] .searchbox{
+  padding:15px 20px;
+
+  border:1px solid rgba(255,255,255,.8);
+  border-radius:18px;
+
+  background:#EDF5F3;
+  color:var(--text);
+
+  box-shadow:
+    inset 3px 3px 8px rgba(47,77,75,.10),
+    inset -4px -4px 9px rgba(255,255,255,.82);
+}
+
+[data-theme="atlas"] .searchbox:focus{
+  border-color:var(--accent);
+
+  box-shadow:
+    inset 3px 3px 8px rgba(47,77,75,.10),
+    inset -4px -4px 9px rgba(255,255,255,.82),
+    0 0 0 3px rgba(0,132,127,.08);
+}
+
+[data-theme="atlas"] .searchbox::placeholder{
+  color:#7C9694;
+}
+
+
+/* ============================================================
+   SEARCH SUGGESTIONS
+============================================================ */
+
+[data-theme="atlas"] .suggestions{
+  border:1px solid var(--line);
+  border-radius:18px;
+
+  background:var(--card-bg);
+
+  box-shadow:
+    7px 9px 18px rgba(46,77,75,.12),
+    -5px -5px 12px rgba(255,255,255,.7);
+}
+
+[data-theme="atlas"] .suggestions div{
+  border-bottom:1px solid var(--line);
+}
+
+[data-theme="atlas"] .suggestions div:hover{
+  background:#E5F0EE;
+}
+
+[data-theme="atlas"] .suggestions div.highlighted{
+  background:#D7EAE7;
+  color:var(--stamp);
+}
+
+
+/* ============================================================
+   FLAG PREVIEW
+============================================================ */
+
+[data-theme="atlas"] .flagbox,
+[data-theme="atlas"] .stripebanner{
+  border:1px solid rgba(255,255,255,.85);
+  border-radius:18px;
+
+  box-shadow:
+    10px 14px 25px rgba(43,72,70,.18),
+    -6px -6px 16px rgba(255,255,255,.75);
+}
+
+[data-theme="atlas"] .flagbox .emojifallback{
+  background:var(--card-bg);
+}
+
+
+/* ============================================================
+   COUNTRY NAME / META
+============================================================ */
+
+[data-theme="atlas"] .countryname{
+  font-family:'Archivo', sans-serif;
+  font-weight:600;
+  letter-spacing:-.02em;
+}
+
+[data-theme="atlas"] .countrymeta{
+  color:var(--muted);
+}
+
+
+/* ============================================================
+   HEX STACK
+============================================================ */
+
+[data-theme="atlas"] .hexstack{
+  border:1px solid rgba(255,255,255,.85);
+  border-radius:18px;
+
+  box-shadow:
+    8px 10px 20px rgba(43,72,70,.13),
+    -5px -5px 14px rgba(255,255,255,.72);
+}
+
+[data-theme="atlas"] .hexbar{
+  padding:17px 20px;
+
+  font-family:var(--font-mono);
+  font-size:14px;
+
+  transition:
+    filter .12s ease,
+    transform .12s ease;
+}
+
+[data-theme="atlas"] .hexbar:hover{
+  filter:brightness(1.05);
+}
+
+
+/* ============================================================
+   HOME CARDS
+============================================================ */
+
+[data-theme="atlas"] .homecards{
+  gap:18px;
+}
+
+[data-theme="atlas"] .homecard{
+  border:1px solid rgba(255,255,255,.8);
+  border-radius:22px;
+
+  padding:25px 18px;
+
+  background:var(--card-bg);
+
+  box-shadow:
+    8px 10px 22px rgba(43,72,70,.14),
+    -7px -7px 18px rgba(255,255,255,.78);
+}
+
+[data-theme="atlas"] .homecard:hover{
+  border-color:rgba(0,132,127,.35);
+
+  transform:translateY(-4px);
+
+  box-shadow:
+    11px 15px 28px rgba(43,72,70,.18),
+    -8px -8px 20px rgba(255,255,255,.85);
+}
+
+
+/* 비활성 카드 */
+
+[data-theme="atlas"] .homecard-disabled{
+  opacity:.62;
+}
+
+[data-theme="atlas"] .homecard-disabled:hover{
+  transform:none;
+  box-shadow:
+    8px 10px 22px rgba(43,72,70,.14),
+    -7px -7px 18px rgba(255,255,255,.78);
+}
+
+
+/* 카드 아이콘 */
+
+[data-theme="atlas"] .homecard-stamp{
+  width:46px;
+  height:46px;
+
+  border:1px solid rgba(0,132,127,.35);
+
+  color:var(--accent);
+
+  background:#EAF3F1;
+
+  box-shadow:
+    4px 5px 10px rgba(43,72,70,.12),
+    -4px -4px 9px rgba(255,255,255,.85);
+}
+
+
+/* 카드 뱃지 */
+
+[data-theme="atlas"] .homecard-badge{
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.35);
+  color:var(--muted);
+}
+
+
+/* 카드 텍스트 */
+
+[data-theme="atlas"] .homecard-title{
+  font-family:'Archivo', sans-serif;
+  font-weight:600;
+}
+
+[data-theme="atlas"] .homecard-desc{
+  color:var(--muted);
+}
+
+
+/* ============================================================
+   HOME DIVIDER
+============================================================ */
+
+[data-theme="atlas"] .home-divider{
+  height:5px;
+  max-width:150px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--accent),
+      transparent
+    );
+
+  border-radius:999px;
+}
+
+
+/* ============================================================
+   FAVORITES
+============================================================ */
+
+[data-theme="atlas"] .fav-card{
+  border:1px solid rgba(255,255,255,.8);
+  border-radius:20px;
+
+  background:var(--card-bg);
+
+  box-shadow:
+    7px 9px 19px rgba(43,72,70,.13),
+    -6px -6px 16px rgba(255,255,255,.75);
+}
+
+[data-theme="atlas"] .fav-card:hover{
+  border-color:rgba(0,132,127,.35);
+
+  transform:translateY(-3px);
+
+  box-shadow:
+    10px 13px 24px rgba(43,72,70,.17),
+    -7px -7px 18px rgba(255,255,255,.82);
+}
+
+[data-theme="atlas"] .fav-card-flag{
+  border-radius:13px;
+
+  background:#E7F0EF;
+
+  box-shadow:
+    inset 2px 2px 6px rgba(43,72,70,.08),
+    inset -2px -2px 6px rgba(255,255,255,.7);
+}
+
+[data-theme="atlas"] .fav-card-name{
+  font-family:'Archivo', sans-serif;
+}
+
+
+/* ============================================================
+   FAVORITE FILTER
+============================================================ */
+
+[data-theme="atlas"] .fav-filter-chip{
+  border:1px solid var(--line);
+  border-radius:999px;
+
+  background:rgba(255,255,255,.25);
+}
+
+[data-theme="atlas"] .fav-filter-chip:hover{
+  border-color:var(--accent);
+  color:var(--text);
+}
+
+[data-theme="atlas"] .fav-filter-chip.active{
+  border-color:var(--accent);
+  color:var(--stamp);
+  background:rgba(0,132,127,.08);
+}
+
+
+/* ============================================================
+   FAVORITE BUTTON
+============================================================ */
+
+[data-theme="atlas"] .fav-btn{
+  color:var(--muted);
+}
+
+[data-theme="atlas"] .fav-btn.active{
+  color:var(--stamp);
+}
+
+
+/* ============================================================
+   RECENT / CLEAR BUTTON
+============================================================ */
+
+[data-theme="atlas"] .clear-recent-btn{
+  border:1px solid var(--line);
+
+  background:rgba(255,255,255,.25);
+  color:var(--muted);
+
+  box-shadow:
+    3px 4px 8px rgba(43,72,70,.08),
+    -3px -3px 7px rgba(255,255,255,.65);
+}
+
+[data-theme="atlas"] .clear-recent-btn:hover{
+  border-color:var(--accent);
+  color:var(--accent);
+}
+
+
+/* ============================================================
+   CREST
+============================================================ */
+
+[data-theme="atlas"] .crest-toggle{
+  border:1px solid var(--line);
+  border-radius:999px;
+
+  background:var(--card-bg);
+  color:var(--muted);
+
+  box-shadow:
+    4px 5px 10px rgba(43,72,70,.10),
+    -4px -4px 9px rgba(255,255,255,.72);
+}
+
+[data-theme="atlas"] .crest-toggle:hover{
+  border-color:var(--accent);
+  color:var(--text);
+}
+
+[data-theme="atlas"] .crest-toggle.active{
+  border-color:var(--stamp);
+  color:var(--stamp);
+}
+
+[data-theme="atlas"] .crest-row{
+  border-bottom:1px solid var(--line);
+}
+
+[data-theme="atlas"] .crest-swatch{
+  border-radius:9px;
+
+  box-shadow:
+    2px 3px 6px rgba(0,0,0,.12);
+}
+
+
+/* ============================================================
+   DISCLAIMER / EMPTY / COMING SOON
+============================================================ */
+
+[data-theme="atlas"] .disclaimer{
+  border:1px dashed var(--line);
+  border-radius:16px;
+
+  background:rgba(255,255,255,.28);
+  color:var(--muted);
+}
+
+[data-theme="atlas"] .comingsoon{
+  border:1px dashed var(--line);
+  border-radius:22px;
+
+  background:rgba(255,255,255,.25);
+
+  box-shadow:
+    inset 3px 3px 8px rgba(43,72,70,.06),
+    inset -3px -3px 8px rgba(255,255,255,.65);
+}
+
+[data-theme="atlas"] .empty{
+  color:var(--muted);
+}
+
+
+/* ============================================================
+   COPY HEX STAMP
+============================================================ */
+
+[data-theme="atlas"] .stamp-mark{
+  position:relative;
+  width:118px;
+  height:118px;
+
+  border:1px solid rgba(0,107,104,.35);
+  border-radius:50%;
+
+  background:var(--card-bg);
+
+  box-shadow:
+    9px 12px 24px rgba(43,72,70,.18),
+    -7px -7px 17px rgba(255,255,255,.78);
+}
+[data-theme="atlas"] .stamp-mark::before{
+  content:"";
+  position:absolute;
+  inset:-10px;
+  border-radius:50%;
+  border:1px dashed rgba(0,107,104,.3);
+}
+[data-theme="atlas"] .stamp-mark::after{
+  content:"N";
+  position:absolute;
+  top:-18px;
+  left:50%;
+  transform:translateX(-50%);
+  font-family:var(--font-mono);
+  font-size:9px;
+  color:rgba(0,107,104,.6);
+  letter-spacing:.1em;
+}
+
+[data-theme="atlas"] .stamp-hex{
+  color:var(--stamp);
+}
+
+[data-theme="atlas"] .stamp-label{
+  color:var(--accent);
+}
+
+
+/* ============================================================
+   CONFIRM MODAL
+============================================================ */
+
+[data-theme="atlas"] .confirm-overlay,
+[data-theme="atlas"] .changelog-overlay{
+  background:rgba(0,65,63,.34);
+  backdrop-filter:blur(4px);
+}
+
+[data-theme="atlas"] .confirm-modal,
+[data-theme="atlas"] .changelog-modal{
+  border:1px solid rgba(255,255,255,.82);
+  border-top:4px solid var(--accent);
+  border-radius:22px;
+
+  box-shadow:
+    14px 18px 38px rgba(32,65,63,.24),
+    -8px -8px 22px rgba(255,255,255,.65);
+}
+
+[data-theme="atlas"] .confirm-eyebrow{
+  color:var(--accent);
+}
+
+[data-theme="atlas"] .confirm-title{
+  font-family:'Archivo', sans-serif;
+}
+
+[data-theme="atlas"] .confirm-desc{
+  color:var(--muted);
+}
+
+[data-theme="atlas"] .confirm-btn{
+  border-radius:999px;
+}
+
+[data-theme="atlas"] .confirm-cancel{
+  background:transparent;
+  color:var(--muted);
+}
+
+[data-theme="atlas"] .confirm-ok{
+  background:var(--nav-bg);
+  border-color:var(--nav-bg);
+  color:#F4FAF9;
+}
+
+
+/* ============================================================
+   CHANGELOG
+============================================================ */
+
+[data-theme="atlas"] .changelog-btn{
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.25);
+  color:var(--muted);
+
+  box-shadow:
+    3px 4px 8px rgba(43,72,70,.08),
+    -3px -3px 7px rgba(255,255,255,.65);
+}
+
+[data-theme="atlas"] .changelog-btn:hover{
+  border-color:var(--accent);
+  color:var(--text);
+}
+
+[data-theme="atlas"] .changelog-entry{
+  border-bottom:1px dashed var(--line);
+  color:var(--muted);
+}
+
+[data-theme="atlas"] .changelog-entry .v{
+  color:var(--accent);
+}
+
+
+/* ============================================================
+   MOBILE
+============================================================ */
+
+@media (max-width:680px){
+
+  [data-theme="atlas"] nav{
+    width:calc(100% - 18px);
+    margin-top:9px;
+  }
+
+  [data-theme="atlas"] main{
+    width:calc(100% - 18px);
+
+    margin-top:18px;
+
+    padding:
+      32px
+      20px
+      44px;
+
+    border-radius:22px;
+  }
+
+  [data-theme="atlas"] .homecards{
+    gap:14px;
+  }
+
+  [data-theme="atlas"] .homecard{
+    border-radius:18px;
+  }
+
+}
+
+@media (max-width:480px){
+
+  [data-theme="atlas"] nav{
+    height:50px;
+    padding:0 12px;
+  }
+
+  [data-theme="atlas"] .navlinks{
+    gap:2px;
+  }
+
+  [data-theme="atlas"] .navlinks span{
+    padding:7px 9px;
+    font-size:12px;
+  }
+
+  [data-theme="atlas"] .theme-picker{
+    padding:6px 10px;
+  }
+
+  [data-theme="atlas"] main{
+    padding:28px 17px 40px;
+    border-radius:20px;
+  }
+
+}
+/* ============================================================
+   ATLAS — FLOATING HEX LABEL
+============================================================ */
+
+[data-theme="atlas"] .hexbar{
+  position:relative;
+
+  /* 색상 영역과 HEX 텍스트 분리 */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  min-height:68px;
+  padding:18px 20px;
+
+  font-family:var(--font-mono);
+  font-weight:700;
+  letter-spacing:.02em;
+}
+
+
+/* HEX 코드를 떠 있는 캡슐로 */
+
+[data-theme="atlas"] .hexbar span{
+  position:relative;
+  z-index:2;
+
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:7px 13px;
+
+  border-radius:999px;
+
+  /*
+    배경색 위에서 살짝 떠 있는 느낌
+    흰색 반투명 + 그림자
+  */
+  background:rgba(255,255,255,.16);
+
+  border:1px solid rgba(255,255,255,.35);
+
+  box-shadow:
+    4px 5px 10px rgba(0,0,0,.16),
+    -3px -3px 7px rgba(255,255,255,.18);
+
+  text-shadow:
+    0 1px 2px rgba(0,0,0,.18);
+
+  transition:
+    transform .16s ease,
+    box-shadow .16s ease,
+    background .16s ease;
+}
+
+
+/* 마우스를 올리면 살짝 떠오름 */
+
+[data-theme="atlas"] .hexbar:hover span{
+  transform:translateY(-2px);
+
+  background:rgba(255,255,255,.23);
+
+  box-shadow:
+    5px 7px 13px rgba(0,0,0,.18),
+    -4px -4px 8px rgba(255,255,255,.2);
+}
+
+
+/* ============================================================
+   HEX BAR가 흰색일 때
+   → 검은 HEX가 너무 묻히지 않도록 처리
+============================================================ */
+
+[data-theme="atlas"] .hexbar[style*="#FFFFFF"] span,
+[data-theme="atlas"] .hexbar.white span{
+  color:#163E3C;
+
+  background:rgba(255,255,255,.72);
+
+  border-color:rgba(22,62,60,.12);
+
+  box-shadow:
+    4px 5px 10px rgba(43,72,70,.13),
+    -3px -3px 7px rgba(255,255,255,.9);
+}
+
+
+/* ============================================================
+   작은 화면
+============================================================ */
+
+@media (max-width:480px){
+
+  [data-theme="atlas"] .hexbar{
+    min-height:58px;
+    padding:14px;
+  }
+
+  [data-theme="atlas"] .hexbar span{
+    padding:6px 10px;
+    font-size:12px;
+  }
+
+}
+/* ============================================================
+   ATLAS — FLOATING HEX LABEL
+============================================================ */
+
+[data-theme="atlas"] .hexbar{
+  position:relative;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  min-height:68px;
+  padding:18px 20px;
+
+  /* 기존 클릭 복사 효과 유지 */
+  transition:
+    filter .12s ease,
+    transform .12s ease;
+}
+
+
+/* 떠 있는 HEX 캡슐 */
+
+[data-theme="atlas"] .hex-label{
+  position:relative;
+  z-index:2;
+
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:7px 14px;
+
+  border-radius:999px;
+
+  background:rgba(255,255,255,.18);
+
+  border:1px solid rgba(255,255,255,.38);
+
+  box-shadow:
+    4px 5px 10px rgba(0,0,0,.16),
+    -3px -3px 7px rgba(255,255,255,.18);
+
+  text-shadow:
+    0 1px 2px rgba(0,0,0,.18);
+
+  transition:
+    transform .15s ease,
+    box-shadow .15s ease,
+    background .15s ease;
+}
+
+
+/* 마우스를 올리면 살짝 위로 */
+
+[data-theme="atlas"] .hexbar:hover .hex-label{
+  transform:translateY(-2px);
+
+  background:rgba(255,255,255,.25);
+
+  box-shadow:
+    5px 7px 13px rgba(0,0,0,.18),
+    -4px -4px 8px rgba(255,255,255,.22);
+}
+
+
+/* 클릭할 때 살짝 눌리는 느낌 */
+
+[data-theme="atlas"] .hexbar:active .hex-label{
+  transform:translateY(1px);
+
+  box-shadow:
+    2px 3px 6px rgba(0,0,0,.15),
+    -2px -2px 5px rgba(255,255,255,.15);
+}
+
+
+/* 흰색 색상 */
+
+[data-theme="atlas"] .hexbar[style*="#FFFFFF"] .hex-label,
+[data-theme="atlas"] .hexbar[style*="#ffffff"] .hex-label{
+  color:#163E3C !important;
+
+  background:rgba(255,255,255,.78);
+
+  border-color:rgba(22,62,60,.12);
+
+  text-shadow:none;
+
+  box-shadow:
+    4px 5px 10px rgba(43,72,70,.13),
+    -3px -3px 7px rgba(255,255,255,.9);
+}
+
+
+/* 모바일 */
+
+@media (max-width:480px){
+
+  [data-theme="atlas"] .hexbar{
+    min-height:58px;
+    padding:14px;
+  }
+
+  [data-theme="atlas"] .hex-label{
+    padding:6px 11px;
+    font-size:12px;
+  }
+
+}
