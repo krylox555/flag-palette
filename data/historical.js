@@ -76,6 +76,7 @@ const historicalFlags = [
 {name:"피사 공화국",period:"1000?–1406",colors:["#CE1B25","#FFFFFF"],wikiFile:"Flag_of_the_Republic_of_Pisa.svg"},
 /* ---------- 아프리카 ---------- */
 {name:"나탈리아 공화국",period:"1839–1843",colors:["#CF0921","#000E85","#FFFFFF"],wikiFile:"Flag_of_Natalia_Republic.svg"},
+{name:"남수단(2011)",period:"2011-2023",colors:["#0F47AF","#DA121A","#FCDD09","#078930","#000000","#FFFFFF"],wikiFile:"Flag_of_South_Sudan_(2011–2023,_tilted_star).svg"},
 {name:"데르비시국",period:"1896–1920",colors:["#008183","#FE0000"],wikiFile:"Dervish_flag.svg"},
 {name:"베냉 인민공화국",period:"1975-1990",colors:["#008850","#EF0834"],wikiFile:"Flag_of_Benin_(1975-1990).svg"},
 {name:"베닌 제국",colors:["#D10422","#FFFFFF","#000000"],wikiFile:"Unidentified_West_African_flag.svg"},
@@ -117,6 +118,7 @@ const historicalFlags = [
 {name:"서플로리다 공화국",period:"1810",colors:["#5586B8","#FFFFFF"],wikiFile:"West_Florida_Flag.svg"},
 {name:"아메리카 연합국",period:"1861-1863",colors:["#C0032C","#001A5B","#FFFFFF"],wikiFile:"Flag_of_the_Confederate_States_(1861–1863).svg"},
 {name:"앵귈라 공화국",period:"1967-1969",colors:["#9ACDFF","#FF9A00","#FFFFFF"],wikiFile:"Flag_of_Anguilla_(1967–1969).svg"},
+{name:"온두라스(2022)",period:"2022-2026",colors:["#00BCE4","#FFFFFF"],wikiFile:"Flag_of_Honduras_(2022–2026).svg"},
 {name:"이로쿼이 연맹",period:"15세기-1797",colors:["#583CB7","#FFFFFF"],wikiFile:"Flag_of_the_Iroquois_Confederacy.svg"},
 {name:"잉카 제국",period:"1438-1533",colors:["#DB0A13","#FCDE02","#018A2C","#FBBC00","#000000","#FFFFFF"],wikiFile:"Banner_of_the_Inca_Empire.svg"},
 {name:"캘리포니아 공화국",period:"1846",colors:["#C9020D","#810000","#A45C29","#000000","#FFFFFF"],wikiFile:"First_Bear_Flag_of_California_(1846).svg"},
